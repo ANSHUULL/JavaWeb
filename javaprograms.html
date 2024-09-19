@@ -1,0 +1,4748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java programs</title>
+    <link rel="stylesheet" href="C:\Users\HP\Documents\java anshul website\css\stylesheet.css">
+</head>
+
+<body>
+    <header id="headerjava">
+        <strong>
+            <h1>JAVA COURSE </h1>
+        </strong>
+    </header>
+
+    <main>
+
+        <p id="badatext">Free Course for Learning JAVA </p>
+
+        <img src="C:\Users\HP\Documents\java anshul website\images\final.png"  alt="Side Image" height="400px" width="400px">
+
+        <div class="text-box">
+            <p>
+                Java is a class-based, object-oriented programming language that is designed to have as few
+                implementation dependencies as possible. It is intended to let application developers write once, and
+                run anywhere (WORA), meaning that compiled Java code can run on all platforms that support Java without
+                the need for recompilation. Java was first released in 1995 and is widely used for developing
+                applications for desktop, web, and mobile devices. Java is known for its simplicity, robustness, and
+                security features, making it a popular choice for enterprise-level applications.
+                <br>
+                Java was developed by James Gosling at Sun Microsystems Inc in May 1995 and later acquired by Oracle
+                Corporation. It is a simple programming language. Java makes writing, compiling, and debugging
+                programming easy. It helps to create reusable code and modular programs. Java is a class-based,
+                object-oriented programming language and is designed to have as few implementation dependencies as
+                possible. A general-purpose programming language made for developers to write once run anywhere that is
+                compiled Java code can run on all platforms that support Java. Java applications are compiled to byte
+                code that can run on any Java Virtual Machine.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+    </main>
+
+    <div class="sidenav">
+        <a href="C:\Users\HP\Documents\java anshul website\index.html">Home</a>
+        <a href="#headerjava">Introduction of JAVA</a>
+        <a href="#Arrays">Arrays</a>
+        <a href="#2D Arrays">2D Arrays</a>
+        <a href="#Functions">Functions</a>
+        <a href="#constructs">Basic Programming Constructs</a>
+        <a href="#inputoutput">Input/Output</a>
+        <a href="#exception">Exception Handling</a>
+        <a href="#packages">Packages</a>
+        <a href="#dataconversion">Data Conversion</a>
+    </div>
+
+    <div id="Arrays">
+
+        <h1 id="headingtag">Arrays</h1>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2> 1) PROGRAM :- Program to copy all elements of one array into another array:- </h2>
+        <code> 
+             class ArrayCopy {
+                public static void main(String[] args) {
+                    // Original array
+                    int[] originalArray = {1, 2, 3, 4, 5, 6};
+            
+                    // Create another array of the same length
+                    int[] copiedArray = new int[originalArray.length];
+            
+                    // Copy elements from originalArray to copiedArray
+                    for (int i = 0; i < originalArray.length; i++) {
+                        copiedArray[i] = originalArray[i];
+                    }
+            
+                    // Display the copied array
+                    System.out.println("Copied array elements:");
+                    for (int i = 0; i < copiedArray.length; i++) {
+                        System.out.print(copiedArray[i] + " ");
+                    }
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Copied array elements:
+                1 2 3 4 5 6 
+                === Code Execution Successful ===      
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 2) PROGRAM :- Program to find the frequency of each element in the array:- </h2>
+        <code> 
+            import java.util.Arrays;
+
+            class ElementFrequency {
+                   public static void main(String[] args) {
+                   // Original array
+                   int[] array = {1, 2, 2, 3, 4, 4, 4, 5};
+
+                     // Sort the array
+                    Arrays.sort(array);
+
+        
+                     int frequency = 1;
+
+        
+                      for (int i = 0; i < array.length; i++) {
+                         // Check if the current element is the same as the next element
+                         if (i < array.length - 1 && array[i] == array[i + 1]) {
+                         frequency++;
+                      } else {
+                     // Print the current element and its frequency
+                     System.out.println(array[i] + ": " + frequency);
+                     // Reset the frequency for the next element
+                     frequency = 1;
+                     }
+                   }
+                  }
+                 }
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Element Frequency:
+                1: 1
+                2: 2
+                3: 1
+                4: 3
+                5: 1
+   
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 3) PROGRAM :-  Program to left rotate the elements of an array:- </h2>
+        <code> 
+         class LeftRotateArray {
+                public static void main(String[] args) {
+                    // Original array
+                    int[] array = {1, 2, 3, 4, 5};
+            
+                    // Number of positions to rotate
+                    int n = 2;
+            
+                    // Print the original array
+                    System.out.println("Original Array:");
+                    for (int i = 0; i < array.length; i++) {
+                        System.out.print(array[i] + " ");
+                    }
+            
+                    // Perform left rotation
+                    leftRotate(array, n);
+            
+                    // Print the rotated array
+                    System.out.println("\nArray after left rotation:");
+                    for (int i = 0; i < array.length; i++) {
+                        System.out.print(array[i] + " ");
+                    }
+                }
+            
+                // Function to rotate array to the left by n positions
+                public static void leftRotate(int[] array, int n) {
+                    int length = array.length;
+                    for (int i = 0; i < n; i++) {
+                        // Store the first element
+                        int first = array[0];
+                        
+                        // Shift all elements to the left by one position
+                        for (int j = 0; j < length - 1; j++) {
+                            array[j] = array[j + 1];
+                        }
+                        
+                        // Place the first element at the end
+                        array[length - 1] = first;
+                    }
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Original Array:
+                1 2 3 4 5 
+                Array after left rotation:
+                3 4 5 1 2 
+
+   
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 4) PROGRAM :-  Program to print the duplicate elements of an array:- </h2>
+        <code> 
+             class DuplicateElements {
+                public static void main(String[] args) {
+                    // Original array
+                    int[] array = {1, 2, 3, 4, 2, 5, 6, 3, 7, 8, 6};
+            
+                    System.out.println("Duplicate elements in the array:");
+            
+                    // Iterate through the array
+                    for (int i = 0; i < array.length; i++) {
+                        for (int j = i + 1; j < array.length; j++) {
+                            // Check if the current element is equal to any other element
+                            if (array[i] == array[j]) {
+                                System.out.println(array[i]);
+                                break; // Break the inner loop to avoid printing the same duplicate multiple times
+                            }
+                          }
+                        }
+                       }
+                      }
+            
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Duplicate elements in the array:
+                2
+                3
+                6
+                
+
+   
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 5) PROGRAM :-  Program to print the elements of an array:- </h2>
+        <code> 
+             class Print
+             {
+                public static void main(String[] args) {
+                    // Define the array
+                    int[] array = {10, 20, 30, 40, 50};
+            
+                    // Print the elements of the array
+                    System.out.println("Elements of the array:");
+                    for (int i = 0; i < array.length; i++) {
+                        System.out.print(array[i] + " ");
+                    }
+                }
+            }
+            
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Elements of the array:
+                10 20 30 40 50 
+                
+                
+
+   
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 6) PROGRAM :-  Program to print the elements of an array in reverse order:- </h2>
+        <code> 
+         class Reverse
+           {
+                public static void main(String[] args) {
+                    // Define the array
+                    int[] array = {10, 20, 30, 40, 50};
+            
+                    // Print the elements of the array in reverse order
+                    System.out.println("Elements of the array in reverse order:");
+                    for (int i = array.length - 1; i >= 0; i--) {
+                        System.out.print(array[i] + " ");
+                    }
+                }
+            }
+            
+            
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Elements of the array in reverse order:
+                50 40 30 20 10 
+                
+                
+                
+
+   
+    
+    
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 7) PROGRAM :- Program to print the elements of an array present on even <br>
+                position:- </h2>
+        <code> 
+         class Even
+           {
+                public static void main(String[] args) {
+                    // Example array
+                    int[] array = {10, 20, 30, 40, 50, 60, 70, 80, 90};
+            
+                    System.out.println("Elements at even positions:");
+            
+                    // Loop through the array
+                    for (int i = 1; i < array.length; i += 2) {
+                        System.out.println(array[i]);
+                    }
+                }
+            }
+            
+            
+            
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Elements at even positions:
+                20
+                40
+                60
+                80
+                 
+                
+                
+                
+
+   
+    
+    
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 8) PROGRAM :- Program to print the elements of an array present on odd <br>
+                position:- </h2>
+        <code> 
+          class Odd 
+           {
+                public static void main(String[] args) {
+                    // Example array
+                    int[] array = {10, 20, 30, 40, 50, 60, 70, 80, 90};
+            
+                    System.out.println("Elements at odd positions:");
+            
+                    // Loop through the array
+                    for (int i = 0; i < array.length; i += 2) {
+                        System.out.println(array[i]);
+                    }
+                }
+            }
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Elements at odd positions:
+                10
+                30
+                50
+                70
+                90
+                
+                 
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 9) PROGRAM :- Program to print the largest element in an array:- </h2>
+        <code> 
+         class Largest
+           {
+                public static void main(String[] args) 
+                {
+                    // Example array
+                    int[] array = {10, 20, 50, 40, 90, 60, 70, 80, 30};
+            
+                    
+                    int largest = array[0];
+            
+                   
+                    for (int i = 1; i < array.length; i++) {
+                        if (array[i] > largest) {
+                            largest = array[i];
+                        }
+                    }
+            
+                    // Print the largest element
+                    System.out.println("The largest element in the array is: " + largest);
+                }
+            }
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The largest element in the array is: 90
+
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 10) PROGRAM :- Program to print the smallest element in an array:- </h2>
+        <code> 
+         class Smallest
+           {
+                public static void main(String[] args) {
+                    // Example array
+                    int[] array = {10, 20, 50, 40, 90, 60, 70, 80, 30};
+            
+                    // Assume the first element is the smallest
+                    int smallest = array[0];
+            
+                    // Loop through the array to find the smallest element
+                    for (int i = 1; i < array.length; i++) {
+                        if (array[i] < smallest) {
+                            smallest = array[i];
+                        }
+                    }
+            
+                    // Print the smallest element
+                    System.out.println("The smallest element in the array is: " + smallest);
+                }
+            }
+            
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The smallest element in the array is: 10
+
+
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 11) PROGRAM :- Program to print the number of elements present in an array:- </h2>
+        <code> 
+         class ArrayLength 
+          {
+                public static void main(String[] args) {
+                
+                    int[] array = {10, 20, 50, 40, 90, 60, 70, 80, 30};
+            
+                   
+                    int numberOfElements = array.length;
+
+                    System.out.println("The number of elements in the array is: " + numberOfElements);
+                }
+            }
+            
+            
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The number of elements in the array is: 9
+
+
+
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 12) PROGRAM :- Program to print the sum of all the items of the array:- </h2>
+        <code> 
+         class Sum {
+                public static void main(String[] args) {
+                    
+                    int[] array = {10, 20, 50, 40, 90, 60, 70, 80, 30};
+            
+                    int sum = 0;
+            
+                    for (int i = 0; i < array.length; i++) {
+                        sum += array[i];
+                    }
+                    System.out.println("The sum of all elements in the array is: " + sum);
+                }
+            }
+            
+            
+            
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The sum of all elements in the array is: 450
+
+
+
+
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 13) PROGRAM :-Program to right rotate the elements of an array:- </h2>
+        <code> 
+     class Right
+       {
+                public static void main(String[] args) {
+                   
+                    int[] array = {10, 20, 30, 40, 50};
+            
+                    // Print the original array
+                    System.out.println("Original array:");
+                    for (int i : array) {
+                        System.out.print(i + " ");
+                    }
+            
+                    int lastElement = array[array.length - 1];  
+                    for (int i = array.length - 1; i > 0; i--) {
+                        array[i] = array[i - 1];  
+                    }
+                    array[0] = lastElement;  
+            
+                    System.out.println("\nArray after right rotation:");
+                    for (int i : array) {
+                        System.out.print(i + " ");
+                    }
+                }
+            }
+            
+            
+            
+            
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Original array:
+                10 20 30 40 50 
+                Array after right rotation:
+                50 10 20 30 40
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 14) PROGRAM :- sort the elements of an array in ascending order:- </h2>
+        <code> 
+            import java.util.Arrays;
+
+             class ArraySorter {
+            
+                static void sortArray(int[] arr)
+                 {
+                    // Sort the array in ascending order
+                    Arrays.sort(arr);
+            
+                    // Print the sorted array
+                    System.out.println("Sorted array in ascending order: " + Arrays.toString(arr));
+                }
+            
+                public static void main(String[] args) {
+                    // Example array
+                    int[] numbers = {5, 2, 8, 7, 1};
+            
+                    // Print the original array
+                    System.out.println("Original array: " + Arrays.toString(numbers));
+            
+                    // Sort and print the array
+                    sortArray(numbers);
+                }
+            }
+            
+            
+            
+            
+            
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Original array: [5, 2, 8, 7, 1]
+                Sorted array in ascending order: [1, 2, 5, 7, 8]
+                
+                
+        </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 15) PROGRAM :- sort the elements of an array in descending orde:- </h2>
+        <code> 
+            import java.util.Arrays;
+
+             class ArraySorter {
+            
+                 static void sortArrayDescending(int[] arr) {
+                    // Sort the array in ascending order first
+                    Arrays.sort(arr);
+            
+                    // Reverse the array to make it descending
+                    for (int i = 0; i < arr.length / 2; i++) {
+                        int temp = arr[i];
+                        arr[i] = arr[arr.length - 1 - i];
+                        arr[arr.length - 1 - i] = temp;
+                    }
+            
+                    // Print the sorted array
+                    System.out.println("Sorted array in descending order: " + Arrays.toString(arr));
+                }
+            
+                public static void main(String[] args) {
+                    // Example array
+                    int[] numbers = {5, 2, 8, 7, 1};
+            
+                    // Print the original array
+                    System.out.println("Original array: " + Arrays.toString(numbers));
+            
+                    // Sort and print the array in descending order
+                    sortArrayDescending(numbers);
+                }
+            }
+            
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Original array: [5, 2, 8, 7, 1]
+                Sorted array in descending order: [8, 7, 5, 2, 1]
+                
+                
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 16) PROGRAM :- Program to Find 3rd Largest Number in an array:- </h2>
+        <code> 
+
+            import java.util.Arrays;
+
+            public class ThirdLargestNumber {
+            
+                public static int findThirdLargest(int[] array) {
+                    // If the array has less than 3 elements, we cannot find the third largest
+                    if (array.length < 3) {
+                        System.out.println("Array should have at least 3 numbers.");
+                        return -1;
+                    }
+            
+                    // Sort the array in ascending order
+                    Arrays.sort(array);
+            
+                    // Return the third last element
+                    return array[array.length - 3];
+                }
+            
+                public static void main(String[] args) {
+                    int[] array = {12, 5, 8, 20, 16, 3};
+            
+                    int thirdLargest = findThirdLargest(array);
+            
+                    if (thirdLargest != -1) {
+                        System.out.println("The 3rd largest number is: " + thirdLargest);
+                    }
+                }
+            }
+                        
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The 3rd largest number is: 12
+      
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 17) PROGRAM :- Program to Find 2nd Largest Number in an array:- </h2>
+        <code> 
+
+            import java.util.Arrays;
+
+            public class SecondLargestNumber {
+            
+                public static int findSecondLargest(int[] array) {
+                    // If the array has less than 2 elements, we cannot find the second largest
+                    if (array.length < 2) {
+                        System.out.println("Array should have at least 2 numbers.");
+                        return -1;
+                    }
+            
+                    // Sort the array in ascending order
+                    Arrays.sort(array);
+            
+                    // Return the second last element
+                    return array[array.length - 2];
+                }
+            
+                public static void main(String[] args) {
+                    int[] array = {12, 5, 8, 20, 16, 3};
+            
+                    int secondLargest = findSecondLargest(array);
+            
+                    if (secondLargest != -1) {
+                        System.out.println("The 2nd largest number is: " + secondLargest);
+                    }
+                }
+            }
+            
+                        
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The 2nd largest number is: 16
+
+      
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 18) PROGRAM :- Program to Find Largest Number in an array:- </h2>
+        <code> 
+
+            public class LargestNumber {
+
+                public static int findLargest(int[] array) {
+                    // Initialize max with the first element of the array
+                    int max = array[0];
+            
+                    // Traverse the array and update max if a larger element is found
+                    for (int i = 1; i < array.length; i++) {
+                        if (array[i] > max) {
+                            max = array[i];
+                        }
+                    }
+            
+                    return max;
+                }
+            
+                public static void main(String[] args) {
+                    int[] array = {12, 5, 8, 20, 16, 3};
+            
+                    int largest = findLargest(array);
+            
+                    System.out.println("The largest number is: " + largest);
+                }
+            }
+                        
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The largest number is: 20
+
+      
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 19) PROGRAM :- Program to Remove Duplicate Element in an array:- </h2>
+        <code> 
+
+            import java.util.Arrays;
+
+            public class RemoveDuplicates {
+            
+                public static int[] removeDuplicates(int[] array) {
+                    // Sort the array first
+                    Arrays.sort(array);
+            
+                    // Variable to track the index of unique elements
+                    int j = 0;
+            
+                    // Temporary array to store unique elements
+                    int[] temp = new int[array.length];
+            
+                    // Traverse through the array
+                    for (int i = 0; i < array.length - 1; i++) {
+                        // If current element is not equal to the next element, store it in temp
+                        if (array[i] != array[i + 1]) {
+                            temp[j++] = array[i];
+                        }
+                    }
+                    // Store the last element
+                    temp[j++] = array[array.length - 1];
+            
+                    // Copy the unique elements into the original array
+                    int[] result = new int[j];
+                    for (int i = 0; i < j; i++) {
+                        result[i] = temp[i];
+                    }
+            
+                    return result;
+                }
+            
+                public static void main(String[] args) {
+                    int[] array = {12, 5, 8, 5, 20, 16, 12, 3};
+            
+                    int[] result = removeDuplicates(array);
+            
+                    System.out.println("Array after removing duplicates: " + Arrays.toString(result));
+                }
+            }
+            
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Array after removing duplicates: [3, 5, 8, 12, 16, 20]
+
+      
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 20) PROGRAM :- How to Sort an Array in Java:- </h2>
+        <code> 
+
+            import java.util.Arrays;
+
+            public class SortArray {
+            
+                public static void main(String[] args) {
+                    // Declare and initialize an array
+                    int[] array = {12, 5, 8, 20, 16, 3};
+            
+                    // Print the original array
+                    System.out.println("Original array: " + Arrays.toString(array));
+            
+                    // Sort the array in ascending order
+                    Arrays.sort(array);
+            
+                    // Print the sorted array
+                    System.out.println("Sorted array: " + Arrays.toString(array));
+                }
+            }
+             
+            
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Original array: [12, 5, 8, 20, 16, 3]
+                Sorted array: [3, 5, 8, 12, 16, 20]
+                
+      
+        </pre>
+    </div>
+
+
+
+
+
+    <div id="2D Arrays">
+
+        <h1 id="headingtag">2D Arrays</h1>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2> 1) PROGRAM :- Enter the Matrix of rows and columns entered by the user <br>
+               and print in matrix format:- </h2>
+        <code> 
+            import java.util.Scanner;
+
+            class Matrix
+          {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    System.out.print("Enter the number of rows: ");
+                    int rows = scanner.nextInt();
+                    System.out.print("Enter the number of columns: ");
+                    int cols = scanner.nextInt();
+            
+                    int[][] matrix = new int[rows][cols];
+            
+                    System.out.println("Enter the matrix elements:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print("Element at [" + i + "][" + j + "]: ");
+                            matrix[i][j] = scanner.nextInt();
+                        }
+                    }
+            
+                    System.out.println("The matrix is:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print(matrix[i][j] + " ");
+                        }
+                        System.out.println(); // Move to the next line after each row
+                    }
+            
+                    scanner.close();
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows: 3
+                Enter the number of columns: 3
+                Enter the matrix elements:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [0][2]: 3
+                Element at [1][0]: 4
+                Element at [1][1]: 5
+                Element at [1][2]: 6
+                Element at [2][0]: 7
+                Element at [2][1]: 8
+                Element at [2][2]: 9
+                The matrix is:
+                1 2 3 
+                4 5 6 
+                7 8 9 
+                     
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 2) PROGRAM :- Program to Add Two Matrices:- </h2>
+        <code> 
+    import java.util.Scanner;
+    class MatrixAddition {
+        public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = scanner.nextInt();
+
+        int[][] matrix1 = new int[rows][cols];
+        int[][] matrix2 = new int[rows][cols];
+        int[][] sumMatrix = new int[rows][cols];
+
+        System.out.println("Enter the elements of the first matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print("Element at [" + i + "][" + j + "]: ");
+                matrix1[i][j] = scanner.nextInt();
+            }
+        }
+
+      
+        System.out.println("Enter the elements of the second matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print("Element at [" + i + "][" + j + "]: ");
+                matrix2[i][j] = scanner.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                sumMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+
+        System.out.println("The resultant matrix after addition is:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(sumMatrix[i][j] + " ");
+            }
+            System.out.println(); // Move to the next line after each row
+        }
+
+        scanner.close();
+    }
+}
+
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows: 2
+                Enter the number of columns: 2
+                Enter the elements of the first matrix:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [1][0]: 3
+                Element at [1][1]: 4
+                Enter the elements of the second matrix:
+                Element at [0][0]: 5
+                Element at [0][1]: 6
+                Element at [1][0]: 7
+                Element at [1][1]: 8
+                The resultant matrix after addition is:
+                6 8 
+                10 12 
+                
+                     
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 3) PROGRAM :- Program to Multiply Two Matrices:- </h2>
+        <code>
+            
+      import java.util.Scanner;
+
+      class MatrixMultiplication {
+        public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the number of rows and columns for the first matrix
+        System.out.print("Enter the number of rows of the first matrix: ");
+        int rows1 = scanner.nextInt();
+        System.out.print("Enter the number of columns of the first matrix: ");
+        int cols1 = scanner.nextInt();
+
+        // Get the number of rows and columns for the second matrix
+        System.out.print("Enter the number of rows of the second matrix: ");
+        int rows2 = scanner.nextInt();
+        System.out.print("Enter the number of columns of the second matrix: ");
+        int cols2 = scanner.nextInt();
+
+        // Check if multiplication is possible
+        if (cols1 != rows2) {
+            System.out.println("Matrix multiplication is not possible with these dimensions.");
+            return;
+        }
+
+        // Initialize the matrices
+        int[][] matrix1 = new int[rows1][cols1];
+        int[][] matrix2 = new int[rows2][cols2];
+        int[][] productMatrix = new int[rows1][cols2];
+
+        // Get elements for the first matrix
+        System.out.println("Enter the elements of the first matrix:");
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols1; j++) {
+                System.out.print("Element at [" + i + "][" + j + "]: ");
+                matrix1[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Get elements for the second matrix
+        System.out.println("Enter the elements of the second matrix:");
+        for (int i = 0; i < rows2; i++) {
+            for (int j = 0; j < cols2; j++) {
+                System.out.print("Element at [" + i + "][" + j + "]: ");
+                matrix2[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Multiply the matrices
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols2; j++) {
+                productMatrix[i][j] = 0; // Initialize the element
+                for (int k = 0; k < cols1; k++) {
+                    productMatrix[i][j] += matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+
+        // Display the product matrix
+        System.out.println("The resultant matrix after multiplication is:");
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols2; j++) {
+                System.out.print(productMatrix[i][j] + " ");
+            }
+            System.out.println(); // Move to the next line after each row
+        }
+
+        scanner.close();
+    }
+}
+
+              
+    
+
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows of the first matrix: 2
+                Enter the number of columns of the first matrix: 3
+                Enter the number of rows of the second matrix: 3
+                Enter the number of columns of the second matrix: 2
+                Enter the elements of the first matrix:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [0][2]: 3
+                Element at [1][0]: 4
+                Element at [1][1]: 5
+                Element at [1][2]: 6
+                Enter the elements of the second matrix:
+                Element at [0][0]: 7
+                Element at [0][1]: 8
+                Element at [1][0]: 9
+                Element at [1][1]: 10
+                Element at [2][0]: 11
+                Element at [2][1]: 12
+                The resultant matrix after multiplication is:
+                58 64 
+                139 154 
+                 
+                
+                     
+    
+    
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 4) PROGRAM :- Program to subtract the two matrices:- </h2>
+        <code>
+            
+            import java.util.Scanner;
+
+            class MatrixSubtraction {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Get the number of rows and columns for the matrices
+                    System.out.print("Enter the number of rows: ");
+                    int rows = scanner.nextInt();
+                    System.out.print("Enter the number of columns: ");
+                    int cols = scanner.nextInt();
+            
+                    // Initialize the two matrices and the result matrix
+                    int[][] matrix1 = new int[rows][cols];
+                    int[][] matrix2 = new int[rows][cols];
+                    int[][] diffMatrix = new int[rows][cols];
+            
+                    // Get elements for the first matrix
+                    System.out.println("Enter the elements of the first matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print("Element at [" + i + "][" + j + "]: ");
+                            matrix1[i][j] = scanner.nextInt();
+                        }
+                    }
+            
+                    // Get elements for the second matrix
+                    System.out.println("Enter the elements of the second matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print("Element at [" + i + "][" + j + "]: ");
+                            matrix2[i][j] = scanner.nextInt();
+                        }
+                    }
+            
+                    // Subtract the two matrices
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            diffMatrix[i][j] = matrix1[i][j] - matrix2[i][j];
+                        }
+                    }
+            
+                    // Display the difference matrix
+                    System.out.println("The resultant matrix after subtraction is:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print(diffMatrix[i][j] + " ");
+                        }
+                        System.out.println(); // Move to the next line after each row
+                    }
+            
+                    scanner.close();
+                }
+            }
+                  
+
+              
+    
+
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows: 2
+                Enter the number of columns: 2
+                Enter the elements of the first matrix:
+                Element at [0][0]: 5
+                Element at [0][1]: 6
+                Element at [1][0]: 7
+                Element at [1][1]: 8
+                Enter the elements of the second matrix:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [1][0]: 3
+                Element at [1][1]: 4
+                The resultant matrix after subtraction is:
+                4 4 
+                4 4 
+                 
+                 
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 5) PROGRAM :- Program to determine whether two matrices are equal:- </h2>
+        <code>
+            
+            import java.util.Scanner;
+
+            class Matrix
+             {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Get the number of rows and columns for the matrices
+                    System.out.print("Enter the number of rows: ");
+                    int rows = scanner.nextInt();
+                    System.out.print("Enter the number of columns: ");
+                    int cols = scanner.nextInt();
+            
+                    // Initialize the two matrices
+                    int[][] matrix1 = new int[rows][cols];
+                    int[][] matrix2 = new int[rows][cols];
+            
+                    // Get elements for the first matrix
+                    System.out.println("Enter the elements of the first matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print("Element at [" + i + "][" + j + "]: ");
+                            matrix1[i][j] = scanner.nextInt();
+                        }
+                    }
+            
+                    // Get elements for the second matrix
+                    System.out.println("Enter the elements of the second matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print("Element at [" + i + "][" + j + "]: ");
+                            matrix2[i][j] = scanner.nextInt();
+                        }
+                    }
+            
+                    // Check if the matrices are equal
+                    boolean areEqual = true;
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            if (matrix1[i][j] != matrix2[i][j]) {
+                                areEqual = false;
+                                break;
+                            }
+                        }
+                        if (!areEqual) {
+                            break;
+                        }
+                    }
+            
+                    // Display the result
+                    if (areEqual) {
+                        System.out.println("The two matrices are equal.");
+                    } else {
+                        System.out.println("The two matrices are not equal.");
+                    }
+            
+                    scanner.close();
+                }
+            }
+                        
+                  
+
+              
+    
+
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows: 2
+                Enter the number of columns: 2
+                Enter the elements of the first matrix:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [1][0]: 3
+                Element at [1][1]: 4
+                Enter the elements of the second matrix:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [1][0]: 3
+                Element at [1][1]: 4
+                The two matrices are equal.
+                
+                 
+                 
+                
+        </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 6) PROGRAM :- Program to display the lower triangular matrix:- </h2>
+        <code>
+            
+            import java.util.Scanner;
+
+            class Lower
+             {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Get the number of rows and columns for the matrix
+                    System.out.print("Enter the number of rows and columns (square matrix): ");
+                    int size = scanner.nextInt();
+            
+                    // Initialize the matrix
+                    int[][] matrix = new int[size][size];
+            
+                    // Get elements for the matrix
+                    System.out.println("Enter the elements of the matrix:");
+                    for (int i = 0; i < size; i++) {
+                        for (int j = 0; j < size; j++) {
+                            System.out.print("Element at [" + i + "][" + j + "]: ");
+                            matrix[i][j] = scanner.nextInt();
+                        }
+                    }
+            
+                    // Display the lower triangular matrix
+                    System.out.println("The lower triangular matrix is:");
+                    for (int i = 0; i < size; i++) {
+                        for (int j = 0; j < size; j++) {
+                            if (j <= i) {
+                                System.out.print(matrix[i][j] + " ");
+                            } else {
+                                System.out.print("0 ");  // Replace elements above the diagonal with 0
+                            }
+                        }
+                        System.out.println(); // Move to the next line after each row
+                    }
+            
+                    scanner.close();
+                }
+            }
+                        
+                        
+                  
+
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows and columns (square matrix): 3
+                Enter the elements of the matrix:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [0][2]: 3
+                Element at [1][0]: 4
+                Element at [1][1]: 5
+                Element at [1][2]: 6
+                Element at [2][0]: 7
+                Element at [2][1]: 8
+                Element at [2][2]: 9
+                The lower triangular matrix is:
+                1 0 0 
+                4 5 0 
+                7 8 9 
+                
+                
+                 
+                 
+                
+        </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 7) PROGRAM :-Program to display the upper triangular matrix:- </h2>
+        <code>
+            
+            import java.util.Scanner;
+
+            class Upper
+             {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Get the number of rows and columns for the matrix
+                    System.out.print("Enter the number of rows and columns (square matrix): ");
+                    int size = scanner.nextInt();
+            
+                    // Initialize the matrix
+                    int[][] matrix = new int[size][size];
+            
+                    // Get elements for the matrix
+                    System.out.println("Enter the elements of the matrix:");
+                    for (int i = 0; i < size; i++) {
+                        for (int j = 0; j < size; j++) {
+                            System.out.print("Element at [" + i + "][" + j + "]: ");
+                            matrix[i][j] = scanner.nextInt();
+                        }
+                    }
+            
+                    // Display the upper triangular matrix
+                    System.out.println("The upper triangular matrix is:");
+                    for (int i = 0; i < size; i++) {
+                        for (int j = 0; j < size; j++) {
+                            if (j >= i) {
+                                System.out.print(matrix[i][j] + " ");
+                            } else {
+                                System.out.print("0 ");  // Replace elements below the diagonal with 0
+                            }
+                        }
+                        System.out.println(); // Move to the next line after each row
+                    }
+            
+                    scanner.close();
+                }
+            }
+            
+                        
+                        
+                  
+
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows and columns (square matrix): 3
+                Enter the elements of the matrix:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [0][2]: 3
+                Element at [1][0]: 4
+                Element at [1][1]: 5
+                Element at [1][2]: 6
+                Element at [2][0]: 7
+                Element at [2][1]: 8
+                Element at [2][2]: 9
+                The upper triangular matrix is:
+                1 2 3 
+                0 5 6 
+                0 0 9 
+                       
+                
+        </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 8) PROGRAM :-Program to find the frequency of odd & even numbers in <br>
+                 the given matrix:- </h2>
+        <code>
+            
+            import java.util.Scanner;
+
+            class FrequencyOddEvenMatrix {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Get the number of rows and columns for the matrix
+                    System.out.print("Enter the number of rows: ");
+                    int rows = scanner.nextInt();
+                    System.out.print("Enter the number of columns: ");
+                    int cols = scanner.nextInt();
+            
+                    // Initialize the matrix
+                    int[][] matrix = new int[rows][cols];
+            
+                    // Initialize counters for odd and even numbers
+                    int oddCount = 0;
+                    int evenCount = 0;
+            
+                    // Get elements for the matrix and count odd and even numbers
+                    System.out.println("Enter the elements of the matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print("Element at [" + i + "][" + j + "]: ");
+                            matrix[i][j] = scanner.nextInt();
+                            if (matrix[i][j] % 2 == 0) {
+                                evenCount++;
+                            } else {
+                                oddCount++;
+                            }
+                        }
+                    }
+            
+                    // Display the frequency of odd and even numbers
+                    System.out.println("Frequency of even numbers: " + evenCount);
+                    System.out.println("Frequency of odd numbers: " + oddCount);
+            
+                    scanner.close();
+                }
+            }
+            
+            
+                        
+                        
+                  
+
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows: 3
+                Enter the number of columns: 3
+                Enter the elements of the matrix:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [0][2]: 3
+                Element at [1][0]: 4
+                Element at [1][1]: 5
+                Element at [1][2]: 6
+                Element at [2][0]: 7
+                Element at [2][1]: 8
+                Element at [2][2]: 9
+                Frequency of even numbers: 4
+                Frequency of odd numbers: 5
+                 
+                       
+                
+        </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 9) PROGRAM :-Program to find the sum of each row and each column of <br>
+                 a matrix:- </h2>
+        <code>
+            
+            import java.util.Scanner;
+
+            class Matrix
+             {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Get the number of rows and columns for the matrix
+                    System.out.print("Enter the number of rows: ");
+                    int rows = scanner.nextInt();
+                    System.out.print("Enter the number of columns: ");
+                    int cols = scanner.nextInt();
+            
+                    // Initialize the matrix
+                    int[][] matrix = new int[rows][cols];
+            
+                    // Get elements for the matrix
+                    System.out.println("Enter the elements of the matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print("Element at [" + i + "][" + j + "]: ");
+                            matrix[i][j] = scanner.nextInt();
+                        }
+                    }
+            
+                    // Calculate and display the sum of each row
+                    System.out.println("Sum of each row:");
+                    for (int i = 0; i < rows; i++) {
+                        int rowSum = 0;
+                        for (int j = 0; j < cols; j++) {
+                            rowSum += matrix[i][j];
+                        }
+                        System.out.println("Sum of row " + (i + 1) + ": " + rowSum);
+                    }
+            
+                    // Calculate and display the sum of each column
+                    System.out.println("Sum of each column:");
+                    for (int j = 0; j < cols; j++) {
+                        int colSum = 0;
+                        for (int i = 0; i < rows; i++) {
+                            colSum += matrix[i][j];
+                        }
+                        System.out.println("Sum of column " + (j + 1) + ": " + colSum);
+                    }
+            
+                    scanner.close();
+                }
+            }
+            
+            
+            
+                        
+                        
+                  
+
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows: 3
+                Enter the number of columns: 3
+                Enter the elements of the matrix:
+                Element at [0][0]: 1
+                Element at [0][1]: 2
+                Element at [0][2]: 3
+                Element at [1][0]: 4
+                Element at [1][1]: 5
+                Element at [1][2]: 6
+                Element at [2][0]: 7
+                Element at [2][1]: 8
+                Element at [2][2]: 9
+                
+                Sum of each row:
+                Sum of row 1: 6
+                Sum of row 2: 15
+                Sum of row 3: 24
+                
+                Sum of each column:
+                Sum of column 1: 12
+                Sum of column 2: 15
+                Sum of column 3: 18
+                
+                 
+                       
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 10) PROGRAM :-rogram to find the transpose of a given matrix:- </h2>
+        <code>
+            
+            import java.util.Scanner;
+
+            class Transpose 
+            {
+            
+                public static void main(String[] args) {
+                    Scanner sc = new Scanner(System.in);
+            
+                    // Get the matrix dimensions
+                    System.out.println("Enter the number of rows and columns of the matrix:");
+                    int rows = sc.nextInt();
+                    int cols = sc.nextInt();
+            
+                    // Initialize the matrix
+                    int[][] matrix = new int[rows][cols];
+                    int[][] transpose = new int[cols][rows];
+            
+                    // Input matrix elements
+                    System.out.println("Enter the elements of the matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            matrix[i][j] = sc.nextInt();
+                        }
+                    }
+            
+                    // Transpose the matrix
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            transpose[j][i] = matrix[i][j];
+                        }
+                    }
+            
+                    // Print the original matrix
+                    System.out.println("Original Matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print(matrix[i][j] + " ");
+                        }
+                        System.out.println();
+                    }
+            
+                    // Print the transposed matrix
+                    System.out.println("Transpose of the Matrix:");
+                    for (int i = 0; i < cols; i++) {
+                        for (int j = 0; j < rows; j++) {
+                            System.out.print(transpose[i][j] + " ");
+                        }
+                        System.out.println();
+                    }
+                    
+                    sc.close();
+                }
+            }
+                        
+            
+            
+            
+                        
+                        
+                  
+
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows and columns of the matrix:
+                2 3
+                Enter the elements of the matrix:
+                1 2 3
+                4 5 6
+
+                Original Matrix:
+                1 2 3
+                4 5 6
+                
+                Transpose of the Matrix:
+                1 4
+                2 5
+                3 6
+                                
+                
+                 
+                       
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 11) PROGRAM :-Program to determine whether a given matrix is an identity <br>
+                             matrix:- </h2>
+        <code>
+            
+            import java.util.Scanner;
+
+             class Check 
+             {
+            
+                public static void main(String[] args) {
+                    Scanner sc = new Scanner(System.in);
+            
+                    // Get the matrix dimensions
+                    System.out.println("Enter the number of rows and columns of the matrix (should be square):");
+                    int n = sc.nextInt();
+            
+                    // Initialize the matrix
+                    int[][] matrix = new int[n][n];
+            
+                    // Input matrix elements
+                    System.out.println("Enter the elements of the matrix:");
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < n; j++) {
+                            matrix[i][j] = sc.nextInt();
+                        }
+                    }
+            
+                    // Check if the matrix is an identity matrix
+                    boolean isIdentity = true;
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < n; j++) {
+                            if (i == j && matrix[i][j] != 1) {
+                                isIdentity = false;
+                                break;
+                            } else if (i != j && matrix[i][j] != 0) {
+                                isIdentity = false;
+                                break;
+                            }
+                        }
+                        if (!isIdentity) {
+                            break;
+                        }
+                    }
+            
+                    // Output result
+                    if (isIdentity) {
+                        System.out.println("The matrix is an identity matrix.");
+                    } else {
+                        System.out.println("The matrix is NOT an identity matrix.");
+                    }
+            
+                    sc.close();
+                }
+            }
+                        
+                        
+            
+            
+            
+                        
+                        
+                  
+
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows and columns of the matrix (should be square):
+                3
+                Enter the elements of the matrix:
+                1 0 0
+                0 1 0
+                0 0 1
+
+                
+                The matrix is an identity matrix.
+                                
+                Enter the number of rows and columns of the matrix (should be square):
+                3
+                Enter the elements of the matrix:
+                1 0 0
+                0 0 0
+                0 0 1
+
+                
+                The matrix is NOT an identity matrix.
+                 
+                       
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 12) PROGRAM :-Program to Transpose matrix:-  </h2>
+        <code>
+            
+            import java.util.Scanner;
+
+             class TransposeMatrix
+              {
+            
+                public static void main(String[] args) {
+                    Scanner sc = new Scanner(System.in);
+            
+                    // Get the matrix dimensions
+                    System.out.println("Enter the number of rows and columns of the matrix:");
+                    int rows = sc.nextInt();
+                    int cols = sc.nextInt();
+            
+                    // Initialize the matrix
+                    int[][] matrix = new int[rows][cols];
+                    int[][] transpose = new int[cols][rows];
+            
+                    // Input matrix elements
+                    System.out.println("Enter the elements of the matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            matrix[i][j] = sc.nextInt();
+                        }
+                    }
+            
+                    // Transpose the matrix
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            transpose[j][i] = matrix[i][j];
+                        }
+                    }
+            
+                    // Print the original matrix
+                    System.out.println("Original Matrix:");
+                    for (int i = 0; i < rows; i++) {
+                        for (int j = 0; j < cols; j++) {
+                            System.out.print(matrix[i][j] + " ");
+                        }
+                        System.out.println();
+                    }
+            
+                    // Print the transposed matrix
+                    System.out.println("Transpose of the Matrix:");
+                    for (int i = 0; i < cols; i++) {
+                        for (int j = 0; j < rows; j++) {
+                            System.out.print(transpose[i][j] + " ");
+                        }
+                        System.out.println();
+                    }
+                    
+                    sc.close();
+                }
+            }
+            
+                        
+                        
+            
+            
+            
+                        
+                        
+                  
+
+         </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the number of rows and columns of the matrix:
+                2 3
+                Enter the elements of the matrix:
+                1 2 3
+                4 5 6
+
+                
+                Original Matrix:
+                1 2 3
+                4 5 6
+                
+                Transpose of the Matrix:
+                1 4
+                2 5
+                3 6
+                                 
+                       
+                
+        </pre>
+    </div>
+
+
+    <div id="Functions">
+
+        <h1 id="headingtag">Functions</h1>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2> 1) PROGRAM :- Write a Java method to find the smallest number among <br>
+               three numbers:-  </h2>
+        <code> 
+
+         class Smallest
+          {
+
+                
+                static int findSmallest(int num1, int num2, int num3) {
+                    
+                    int smallest = num1;
+            
+                    if (num2 < smallest) {
+                        smallest = num2;
+                    }
+            
+                    if (num3 < smallest) {
+                        smallest = num3;
+                    }
+            
+                    return smallest;
+                }
+            
+                public static void main(String[] args) {
+                    int num1 = 10;
+                    int num2 = 5;
+                    int num3 = 15;
+            
+                    int smallest = findSmallest(num1, num2, num3);
+                    System.out.println("The smallest number is: " + smallest);
+                }
+            }
+                        
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The smallest number is: 5
+                                 
+                       
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 2) PROGRAM :- Write a Java method to compute the average of three numbers:- </h2>
+        <code> 
+         class Average
+          {
+                 static double computeAverage(int num1, int num2, int num3) {
+                    double average = (num1 + num2 + num3) / 3.0;
+                    return average;
+                }
+            
+                public static void main(String[] args) {
+                    int num1 = 10;
+                    int num2 = 20;
+                    int num3 = 30;
+            
+                    double average = computeAverage(num1, num2, num3);
+                    System.out.println("The average of " + num1 + ", " + num2 + ", and " + num3 + " is: " + average);
+                }
+            }
+            
+
+        </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The average of 10, 20, and 30 is: 20.0
+
+                                 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 3) PROGRAM :- Write a Java method to display the middle character of a string</h2>
+        <code> 
+         class MiddleCharacter {
+
+                
+                 static void displayMiddleCharacter(String str) {
+                    int length = str.length();
+                    int middle = length / 2;
+            
+                 if (length % 2 == 0) {
+                    System.out.println("The middle characters are: " + str.charAt(middle - 1) + str.charAt(middle));
+                 } else {
+                    System.out.println("The middle character is: " + str.charAt(middle));
+                    }
+                }
+        
+                public static void main(String[] args) {
+                    String str1 = "hello";
+                    String str2 = "abcd";
+            
+                    System.out.println("For the string: " + str1);
+                    displayMiddleCharacter(str1);
+            
+                    System.out.println("For the string: " + str2);
+                    displayMiddleCharacter(str2);
+                }
+            }
+            
+            
+
+        </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                For the string: hello
+                The middle character is: l
+                For the string: abcd
+                The middle characters are: bc
+                
+
+                                 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 4) PROGRAM :- Write a Java method to count all the words in a string:- </h2>
+        <code> 
+         class WordCounter {
+
+             static int countWords(String str) {
+                    if (str == null || str.isEmpty()) {
+                        return 0; // If the string is null or empty, return 0
+                    }
+                    
+                    String[] words = str.trim().split("\\s+"); // Split by one or more spaces
+                    return words.length;
+                }
+            
+                public static void main(String[] args) {
+                    String str = "This is a sample string to count words.";
+            
+                    int wordCount = countWords(str);
+                    System.out.println("The number of words in the string is: " + wordCount);
+                }
+            }
+            
+            
+            
+
+        </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The number of words in the string is: 7
+
+                
+
+                                 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 5) PROGRAM :- Write a Java method to print characters between two <br>
+                  characters (i.e. A to P).:- </h2>
+        <code> 
+         class Character
+          {
+
+                 static void printCharactersBetween(char start, char end) {
+                    if (start > end) {
+                        System.out.println("Invalid range. Start character should be before end character.");
+                        return;
+                    }
+                    for (char ch = start; ch <= end; ch++) {
+                        System.out.print(ch + " ");
+                    }
+                    System.out.println(); // Print a newline after the loop
+                }
+        
+                public static void main(String[] args) {
+                    char start = 'A';
+                    char end = 'P';
+            
+                    System.out.println("Characters between " + start + " and " + end + ":");
+                    printCharactersBetween(start, end);
+                }
+            }
+            
+            
+            
+            
+
+        </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Characters between A and P:
+                A B C D E F G H I J K L M N O P
+                
+
+                
+
+                                 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 6) PROGRAM :- Write a Java method to display the current date and time:- </h2>
+        <code> 
+         
+            import java.time.LocalDateTime;
+            import java.time.format.DateTimeFormatter;
+            
+         class CurrentDateTime {
+            
+                 static void displayCurrentDateTime() {
+                    LocalDateTime currentDateTime = LocalDateTime.now();
+            
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    
+                    
+                    String formattedDateTime = currentDateTime.format(formatter);
+            
+                    System.out.println("Current Date and Time: " + formattedDateTime);
+                }
+            
+                public static void main(String[] args) {
+                    displayCurrentDateTime();
+                }
+            }
+                        
+            
+
+        </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Current Date and Time: 2024-09-06 12:34:56
+
+
+                
+
+                                 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 7) PROGRAM :- Write a Java method to find all twin prime numbers less than <br>
+               100 </h2>
+        <code> 
+         
+         class Primes {
+
+                 static boolean isPrime(int num) {
+                    if (num <= 1) {
+                        return false;
+                    }
+                    for (int i = 2; i <= Math.sqrt(num); i++) {
+                        if (num % i == 0) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            
+                // Method to find and display all twin primes less than 100
+                public static void findTwinPrimes() {
+                    System.out.println("Twin prime numbers less than 100 are:");
+            
+                    // Loop through numbers to find twin primes
+                    for (int i = 2; i < 100 - 2; i++) {
+                        if (isPrime(i) && isPrime(i + 2)) {
+                            // If both i and i+2 are prime, they are twin primes
+                            System.out.println("(" + i + ", " + (i + 2) + ")");
+                        }
+                    }
+                }
+            
+                // Main method to test the findTwinPrimes method
+                public static void main(String[] args) {
+                    findTwinPrimes();
+                }
+            }
+            
+                        
+            
+
+        </code>
+      
+      </pre>
+
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Twin prime numbers less than 100 are:
+                (3, 5)
+                (5, 7)
+                (11, 13)
+                (17, 19)
+                (29, 31)
+                (41, 43)
+                (59, 61)
+                (71, 73)
+                
+
+
+                
+
+                                 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 8) PROGRAM :- Write a Java method to count the number of digits in an integer <br>
+        with the value 2. The integer may be assumed to be non-negative. </h2>
+        <code> 
+         
+         class CountTwos {
+
+             static int countTwos(int num) {
+                    int count = 0;
+            
+                    // Loop through each digit of the number
+                    while (num > 0) {
+                        int digit = num % 10; // Extract the last digit
+                        if (digit == 2) {
+                            count++; // Increment count if the digit is 2
+                        }
+                        num = num / 10; // Remove the last digit
+                    }
+            
+                    return count;
+                }
+            
+                // Main method to test the countTwos method
+                public static void main(String[] args) {
+                    int num = 252032;
+            
+                    int count = countTwos(num);
+                    System.out.println("The number of times digit 2 appears in " + num + " is: " + count);
+                }
+            }
+            
+            
+                        
+            
+
+        </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The number of times digit 2 appears in 252032 is: 3
+
+        </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 9) PROGRAM :- Write a Java method that accepts three integers and checks <br>
+            whether they are consecutive or not. Returns true or false. </h2>
+        <code> 
+         
+          class Consecutive
+           {
+
+
+            static boolean areConsecutive(int a, int b, int c) {
+                    // Sort the three integers
+                    int[] numbers = {a, b, c};
+                    java.util.Arrays.sort(numbers);
+            
+                    return (numbers[1] - numbers[0] == 1) && (numbers[2] - numbers[1] == 1);
+                }
+            
+                public static void main(String[] args) 
+                {
+                    System.out.println(areConsecutive(3, 4, 5));  // Output: true
+                    System.out.println(areConsecutive(1, 2, 4));  // Output: false
+                    System.out.println(areConsecutive(9, 7, 8));  // Output: true
+                }
+            }
+                 
+            
+
+        </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                true
+                false
+                true
+                
+
+        </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 10) PROGRAM :- Write a Java method that accepts three integers and returns <br>
+                 true if one is the middle point between the other  two <br>
+                  integers, otherwise false. </h2>
+        <code> 
+         
+             class MiddlePointChecker {
+
+                 static boolean isMiddlePoint(int a, int b, int c) {
+                    // Check if b is the middle point
+                    if ((a < b && b < c) || (c < b && b < a)) {
+                        return true;
+                    }
+                    // Check if a is the middle point
+                    if ((b < a && a < c) || (c < a && a < b)) {
+                        return true;
+                    }
+                    // Check if c is the middle point
+                    if ((a < c && c < b) || (b < c && c < a)) {
+                        return true;
+                    }
+                    return false;
+                }
+            
+                public static void main(String[] args) {
+                    // Test cases
+                    System.out.println(isMiddlePoint(3, 5, 7));  // Output: true
+                    System.out.println(isMiddlePoint(9, 5, 7));  // Output: true
+                    System.out.println(isMiddlePoint(3, 3, 3));  // Output: false
+                    System.out.println(isMiddlePoint(1, 2, 3));  // Output: true
+                }
+            }
+            
+                 
+            
+
+        </code>
+      
+      </pre>
+
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                true
+                true
+                false
+                true
+                
+        </pre>
+    </div>
+
+
+
+    <div id="constructs">
+        
+       <h1 id="headingtag">Basic Programming Constructs</h1>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2> 1) PROGRAM :- Write a Java program to print Hello World! on screen  </h2>
+        <code> 
+            class HelloWorld
+             {
+                public static void main(String[] args) {
+                    System.out.println("Hello World!");
+                }
+            }
+
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Hello World!
+                
+                === Code Execution Successful ===
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 2) PROGRAM :- Write a Java program to print the sum of two numbers  </h2>
+        <code> 
+            class sum {
+                public static void main(String[] args) {
+                  int a=10;
+                  int b=20;
+                  int sum=a+b;
+                    System.out.println("Sum of two numbers:- "+sum);
+                }
+            }
+
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Sum of two numbers:- 30
+
+                === Code Execution Successful ===
+ 
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 3) PROGRAM :- Write a Java program that takes two numbers and display the<br>
+              product of two numbers </h2>
+        <code> 
+            
+            import java.io.BufferedReader;
+            import java.io.IOException;
+            import java.io.InputStreamReader;
+            
+             class ProductCalculator {
+            
+                static void main(String[] args) throws IOException {
+                    
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            
+                    // Prompt the user to enter the first number
+                    System.out.print("Enter the first number: ");
+                    String input1 = reader.readLine();
+                    double num1 = Double.parseDouble(input1);
+            
+                    // Prompt the user to enter the second number
+                    System.out.print("Enter the second number: ");
+                    String input2 = reader.readLine();
+                    double num2 = Double.parseDouble(input2);
+            
+                    // Calculate the product of the two numbers
+                    double product = num1 * num2;
+            
+                    // Display the product
+                    System.out.println("The product of " + num1 + " and " + num2 + " is: " + product);
+                }
+            }
+            
+
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the first number: 6
+                Enter the second number: 3
+                The product of 6.0 and 3.0 is: 18.0
+                
+ 
+                
+        </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 4) PROGRAM :- Write a Java program to print the sum, multiply, subtract,<br>
+            divide and remainder of two numbers </h2>
+        <code> 
+            
+            class arithmetic {
+                public static void main(String[] args) {
+                  int a=10;
+                  int b=5;
+                  int sum=a+b;
+                  int mul=a*b;
+                  int sub=a-b;
+                  int div=a/b;
+                  int rem=a%b;
+                    System.out.println("First number:- "+a);
+                    System.out.println("Second number:- "+b);
+                    System.out.println("Sum of two numbers:- "+sum);
+                    System.out.println("Multiply of two numbers:- "+mul);
+                    System.out.println("Substract of two numbers:- "+sub);
+                    System.out.println("Divide of two numbers:- "+div);
+                     System.out.println("Reminder of two numbers:- "+rem);
+                }
+            }
+            
+
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                First number:- 10
+                Second number:- 5
+                Sum of two numbers:- 15
+                Multiply of two numbers:- 50
+                Substract of two numbers:- 5
+                Divide of two numbers:- 2
+                Reminder of two numbers:- 0
+                
+                === Code Execution Successful ===
+                
+ 
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 5) PROGRAM :-  Write a Java program that takes five numbers as input<br>
+            to calculate and print the average of the numbers </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class AverageCalculator {
+            
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Array to store 5 numbers
+                    double[] numbers = new double[5];
+                    double sum = 0;
+            
+                    // Input 5 numbers
+                    System.out.println("Enter 5 numbers:");
+                    for (int i = 0; i < 5; i++) {
+                        numbers[i] = scanner.nextDouble();
+                        sum += numbers[i];
+                    }
+            
+                    // Calculate the average
+                    double average = sum / 5;
+            
+                    // Print the result
+                    System.out.println("The average of the numbers is: " + average);
+            
+                    // Close the scanner to avoid resource leaks
+                    scanner.close();
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter 5 numbers:
+                10
+                20
+                30
+                40
+                50
+                The average of the numbers is: 30.0
+                
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 6) PROGRAM :-  Write a Java program to swap two variables:-  </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class SwapVariables {
+            
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Input two variables from the user
+                    System.out.print("Enter the first number (a): ");
+                    int a = scanner.nextInt();
+            
+                    System.out.print("Enter the second number (b): ");
+                    int b = scanner.nextInt();
+            
+                    System.out.println("Before swapping: a = " + a + ", b = " + b);
+            
+                    // Swap the two variables
+                    int temp = a;  // Store the value of a in temp
+                    a = b;         // Assign the value of b to a
+                    b = temp;      // Assign the value of temp (original a) to b
+            
+                    // Print the result after swapping
+                    System.out.println("After swapping: a = " + a + ", b = " + b);
+            
+                    // Close the scanner
+                    scanner.close();
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the first number (a): 5
+                Enter the second number (b): 10
+                Before swapping: a = 5, b = 10
+                After swapping: a = 10, b = 5
+                      
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 7) PROGRAM :- Write a Java program to convert a decimal number to binary <br>
+             numbers:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class DecimalToBinary {
+            
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Input decimal number from the user
+                    System.out.print("Enter a decimal number: ");
+                    int decimal = scanner.nextInt();
+            
+                    // Convert decimal to binary using Integer.toBinaryString() method
+                    String binary = Integer.toBinaryString(decimal);
+            
+                    // Print the binary equivalent
+                    System.out.println("Binary equivalent of " + decimal + " is: " + binary);
+            
+                    // Close the scanner
+                    scanner.close();
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter a decimal number: 10
+                Binary equivalent of 10 is: 1010
+                
+                      
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 8) PROGRAM :- Write a Java program to compare two numbers:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class CompareTwoNumbers {
+            
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Input two numbers from the user
+                    System.out.print("Enter the first number: ");
+                    int num1 = scanner.nextInt();
+            
+                    System.out.print("Enter the second number: ");
+                    int num2 = scanner.nextInt();
+            
+                    // Compare the two numbers and display the result
+                    if (num1 > num2) {
+                        System.out.println(num1 + " is greater than " + num2);
+                    } else if (num1 < num2) {
+                        System.out.println(num1 + " is less than " + num2);
+                    } else {
+                        System.out.println(num1 + " is equal to " + num2);
+                    }
+            
+                    // Close the scanner
+                    scanner.close();
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter the first number: 15
+                Enter the second number: 10
+                15 is greater than 10
+                     
+                      
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 9) PROGRAM :- Write a Java program to display the system time:- </h2>
+        <code> 
+            
+            import java.time.LocalTime;
+            import java.time.format.DateTimeFormatter;
+            
+            public class DisplaySystemTime {
+            
+                public static void main(String[] args) {
+                    // Get the current system time
+                    LocalTime currentTime = LocalTime.now();
+            
+                    // Format the time to display in HH:mm:ss format
+                    DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            
+                    // Display the formatted time
+                    System.out.println("Current system time: " + currentTime.format(timeFormatter));
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Current system time: 14:25:30
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 10) PROGRAM :- Write a Java program to print the odd numbers from 1 to 20:- </h2>
+        <code> 
+            
+            public class OddNumbers {
+
+                public static void main(String[] args) {
+                    System.out.println("Odd numbers from 1 to 20:");
+            
+                    // Loop through numbers from 1 to 20
+                    for (int i = 1; i <= 20; i++) {
+                        // Check if the number is odd
+                        if (i % 2 != 0) {
+                            System.out.print(i + " ");
+                        }
+                    }
+            
+                    // Print a newline for better output formatting
+                    System.out.println();
+                }
+            }
+             
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Odd numbers from 1 to 20:
+                1 3 5 7 9 11 13 15 17 19
+                
+               
+        </pre>
+    </div>
+
+
+
+
+
+
+
+
+    <div id="inputoutput">
+        
+        <h1 id="headingtag">Input/Output</h1>
+     </div>
+ 
+     <div>
+         <pre class="program">
+         <h2> 1) PROGRAM :- Enter the character from user using InputStreamReader:-   </h2>
+         <code> 
+            import java.io.*;
+
+            class takeinput
+             {
+                public static void main(String[] args) {
+                    try {
+                        InputStreamReader reader = new InputStreamReader(System.in);
+    
+                        BufferedReader bufferedReader = new BufferedReader(reader);
+                        
+                        System.out.print("Enter a character: ");
+                        
+                        char ch = (char) bufferedReader.read(); 
+
+                        System.out.println("You entered: " + ch);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            
+ 
+       
+       </code>
+       
+       </pre>
+ 
+     </div>
+
+
+
+     <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter a character: A
+                You entered: A
+                
+                
+ 
+         </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 2) PROGRAM :- Enter the string from user using BufferedStreamReader:-   </h2>
+        <code> 
+            import java.io.*;
+
+            class readstring
+             {
+                public static void main(String[] args) {
+    
+                    InputStreamReader inputStream = new InputStreamReader(System.in);
+                    BufferedReader reader = new BufferedReader(inputStream);
+                    
+                    try {
+                        System.out.print("Enter a string: ");
+                        String inputString = reader.readLine();
+                        
+                        System.out.println("You entered: " + inputString);
+                    } catch (IOException e) {
+                        // Handle any IO exception
+                        e.printStackTrace();
+                    }
+                }
+            }
+            
+
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter a string: Java programming!
+                You entered: Java programming!
+                
+                
+                
+ 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 3) PROGRAM :-  Enter the integer from user using Scanner class:-   </h2>
+        <code> 
+            import java.util.Scanner;
+
+             class readinteger
+              {
+                public static void main(String[] args) {
+                    
+                    Scanner scanner = new Scanner(System.in);
+                    
+                    System.out.print("Enter an integer: ");
+                    int number = scanner.nextInt();
+                    
+                    
+                    System.out.println("You entered: " + number);
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter an integer: 42
+                You entered: 42
+                
+                
+                
+                
+ 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 4) PROGRAM :-  Enter the float from user using Scanner class:-   </h2>
+        <code> 
+            import java.util.Scanner;
+
+             class ReadFloat
+              {
+                public static void main(String[] args) {
+                    
+                    Scanner scanner = new Scanner(System.in);
+                    
+                    System.out.print("Enter a float: ");
+                    float number = scanner.nextFloat();
+                    
+                    
+                    System.out.println("You entered: " + number);
+                    
+                    scanner.close();
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter a float: 3.14
+                You entered: 3.14
+                
+                
+                
+                
+                
+ 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 5) PROGRAM :- Enter the double from user using Scanner class:-   </h2>
+        <code> 
+            import java.util.Scanner;
+
+            class ReadDouble 
+            {
+                public static void main(String[] args) {
+                    // Create a Scanner object to read input from the user
+                    Scanner scanner = new Scanner(System.in);
+                    
+                    System.out.print("Enter a double: ");
+                    // Read the double input from the user
+                    double number = scanner.nextDouble();
+                    
+                    // Output the double entered
+                    System.out.println("You entered: " + number);
+                    
+                    // Close the scanner to free up resources
+                    scanner.close();
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter a double: 45.678
+                You entered: 45.678
+                    
+ 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 6) PROGRAM :- Enter the boolean from user using Scanner class:-   </h2>
+        <code> 
+            import java.util.Scanner;
+
+             class ReadBoolean
+              {
+                public static void main(String[] args) {
+                    // Create a Scanner object to read input from the user
+                    Scanner scanner = new Scanner(System.in);
+                    
+                    System.out.print("Enter a boolean (true/false): ");
+                    // Read the boolean input from the user
+                    boolean boolValue = scanner.nextBoolean();
+                    
+                    // Output the boolean entered
+                    System.out.println("You entered: " + boolValue);
+                    
+                    // Close the scanner to free up resources
+                    scanner.close();
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter a boolean (true/false): true
+                You entered: true
+                
+                    
+ 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 7) PROGRAM :- Enter the short integer from user using Scanner class:-   </h2>
+        <code> 
+            import java.util.Scanner;
+
+             class ReadShort
+              {
+                public static void main(String[] args) {
+                    // Create a Scanner object to read input from the user
+                    Scanner scanner = new Scanner(System.in);
+                    
+                    System.out.print("Enter a short integer: ");
+                    // Read the short input from the user
+                    short shortNumber = scanner.nextShort();
+                    
+                    // Output the short integer entered
+                    System.out.println("You entered: " + shortNumber);
+                    
+                    // Close the scanner to free up resources
+                    scanner.close();
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter a short integer: 12345
+                You entered: 12345
+                
+         </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 8) PROGRAM :- Enter the long integer from user using Scanner class:-   </h2>
+        <code> 
+            import java.util.Scanner;
+
+             class ReadLong 
+             {
+                public static void main(String[] args) {
+                    // Create a Scanner object to read input from the user
+                    Scanner scanner = new Scanner(System.in);
+                    
+                    System.out.print("Enter a long integer: ");
+                    // Read the long input from the user
+                    long longNumber = scanner.nextLong();
+                    
+                    // Output the long integer entered
+                    System.out.println("You entered: " + longNumber);
+                    
+                    // Close the scanner to free up resources
+                    scanner.close();
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Enter a long integer: 123456789012345
+                You entered: 123456789012345
+                
+                
+         </pre>
+    </div>
+
+
+
+
+    <div id="exception">
+        
+        <h1 id="headingtag">Exception Handling</h1>
+     </div>
+ 
+     <div>
+         <pre class="program">
+         <h2> 1) PROGRAM :- Write a Java program that throws an exception and catch it <br>
+               using a try-catch block:-   </h2>
+         <code> 
+             class Exception
+             {
+                public static void main(String[] args) {
+                    try {
+                        int result = divide(10, 0);
+                        System.out.println("Result: " + result);
+                    } catch (ArithmeticException e) {
+                        
+                        System.out.println("Exception caught: " + e.getMessage());
+                    }
+            
+                    System.out.println("Program continues after the exception is handled.");
+                }
+            
+                public static int divide(int a, int b) {
+                    if (b == 0) {
+                        throw new ArithmeticException("Cannot divide by zero");
+                    }
+                    return a / b;
+                }
+            }
+              
+       
+       </code>
+       
+       </pre>
+ 
+     </div>
+
+
+     <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Exception caught: Cannot divide by zero
+                Program continues after the exception is handled.
+                
+                
+                
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 2) PROGRAM :- Write a Java program to create a method that takes an integer <br>
+            as a parameter and throws an exception if the number is odd:-   </h2>
+        <code> 
+            public class OddNumberException extends Exception {
+                public OddNumberException(String message) {
+                    super(message);
+                }
+            }
+            
+            public class CheckNumber {
+                public static void main(String[] args) {
+                    try {
+                        // Call the method with an odd number
+                        checkEvenNumber(5);
+                    } catch (OddNumberException e) {
+                        // Catch and handle the custom exception
+                        System.out.println("Exception caught: " + e.getMessage());
+                    }
+            
+                    System.out.println("Program continues after exception handling.");
+                }
+            
+                // Method that throws an exception if the number is odd
+                public static void checkEvenNumber(int number) throws OddNumberException {
+                    if (number % 2 != 0) {
+                        throw new OddNumberException("The number " + number + " is odd.");
+                    } else {
+                        System.out.println("The number " + number + " is even.");
+                    }
+                }
+            }
+            
+             
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Exception caught: The number 5 is odd.
+                Program continues after exception handling.
+                
+                
+                
+                
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 3) PROGRAM :- Write a Java program to create a method that reads a file and <br>
+            and throws an exception if the file is not found:-   </h2>
+        <code> 
+            import java.io.File;
+            import java.io.FileNotFoundException;
+            import java.io.FileReader;
+            
+            public class FileReadExample {
+                public static void main(String[] args) {
+                    try {
+                        // Attempt to read a file
+                        readFile("nonexistentfile.txt");
+                    } catch (FileNotFoundException e) {
+                        // Catch and handle the exception if the file is not found
+                        System.out.println("Exception caught: " + e.getMessage());
+                    }
+            
+                    System.out.println("Program continues after exception handling.");
+                }
+            
+                // Method that reads a file and throws FileNotFoundException if the file is not found
+                public static void readFile(String fileName) throws FileNotFoundException {
+                    File file = new File(fileName);
+                    FileReader fileReader = new FileReader(file);
+                    System.out.println("File " + fileName + " found and opened successfully.");
+                }
+            }
+            
+             
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Exception caught: nonexistentfile.txt (No such file or directory)
+                Program continues after exception handling.
+                
+                
+                
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 4) PROGRAM :-  Write a Java program that reads a list of numbers from a file <br>
+            and throws an exception if any of the numbers are positive:-   </h2>
+        <code> 
+            import java.io.File;
+            import java.io.FileNotFoundException;
+            import java.util.Scanner;
+            
+            // Custom exception for positive numbers
+            class PositiveNumberException extends Exception {
+                public PositiveNumberException(String message) {
+                    super(message);
+                }
+            }
+            
+            public class ReadNumbersFromFile {
+                public static void main(String[] args) {
+                    try {
+                        // Attempt to read numbers from a file
+                        readNumbers("numbers.txt");
+                    } catch (FileNotFoundException e) {
+                        System.out.println("Exception caught: File not found - " + e.getMessage());
+                    } catch (PositiveNumberException e) {
+                        System.out.println("Exception caught: " + e.getMessage());
+                    }
+            
+                    System.out.println("Program continues after exception handling.");
+                }
+            
+                // Method that reads numbers from a file and throws PositiveNumberException for positive numbers
+                public static void readNumbers(String fileName) throws FileNotFoundException, PositiveNumberException {
+                    File file = new File(fileName);
+                    Scanner scanner = new Scanner(file);
+            
+                    while (scanner.hasNext()) {
+                        if (scanner.hasNextInt()) {
+                            int number = scanner.nextInt();
+                            System.out.println("Read number: " + number);
+            
+                            // Throw an exception if the number is positive
+                            if (number > 0) {
+                                throw new PositiveNumberException("Positive number found: " + number);
+                            }
+                        } else {
+                            scanner.next(); // Skip non-integer values
+                        }
+                    }
+            
+                    scanner.close();
+                }
+            }
+                  
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Input file:- </h2>
+                -3
+                0
+                -1
+                5
+                -7
+                
+                
+                
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Read number: -3
+                Read number: 0
+                Read number: -1
+                Read number: 5
+                Exception caught: Positive number found: 5
+                Program continues after exception handling.
+                   
+                
+                
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 5) PROGRAM :- Write a Java program that reads a file and throws an  <br>
+            exception if the file is empty:-   </h2>
+        <code> 
+            import java.io.File;
+            import java.io.FileNotFoundException;
+            import java.util.Scanner;
+            
+            // Custom exception for an empty file
+            class EmptyFileException extends Exception {
+                public EmptyFileException(String message) {
+                    super(message);
+                }
+            }
+            
+            public class ReadFileExample {
+                public static void main(String[] args) {
+                    try {
+                        // Attempt to read a file
+                        readFile("sample.txt");
+                    } catch (FileNotFoundException e) {
+                        System.out.println("Exception caught: File not found - " + e.getMessage());
+                    } catch (EmptyFileException e) {
+                        System.out.println("Exception caught: " + e.getMessage());
+                    }
+            
+                    System.out.println("Program continues after exception handling.");
+                }
+            
+                // Method that reads a file and throws EmptyFileException if the file is empty
+                public static void readFile(String fileName) throws FileNotFoundException, EmptyFileException {
+                    File file = new File(fileName);
+                    Scanner scanner = new Scanner(file);
+            
+                    if (!scanner.hasNext()) {
+                        throw new EmptyFileException("The file " + fileName + " is empty.");
+                    } else {
+                        System.out.println("File content:");
+                        while (scanner.hasNextLine()) {
+                            System.out.println(scanner.nextLine());
+                        }
+                    }
+            
+                    scanner.close();
+                }
+            }
+                 
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Exception caught: The file sample.txt is empty.
+                Program continues after exception handling.
+                               
+                
+         </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 6) PROGRAM :- Write a Java program to show an example of throws Keyword:- </h2>
+        <code> 
+            // File: ThrowsKeywordExample.java
+
+            public class ThrowsKeywordExample {
+            
+                // Method that declares it can throw an ArithmeticException
+                public static void checkDivision(int divisor) throws ArithmeticException {
+                    if (divisor == 0) {
+                        throw new ArithmeticException("Cannot divide by zero");
+                    } else {
+                        int result = 10 / divisor;
+                        System.out.println("Result: " + result);
+                    }
+                }
+            
+                public static void main(String[] args) {
+                    try {
+                        // Calling the method which may throw an exception
+                        checkDivision(0); // This will cause an exception
+                    } catch (ArithmeticException e) {
+                        // Handling the exception
+                        System.out.println("Caught exception: " + e.getMessage());
+                    }
+            
+                    try {
+                        // Calling the method with a valid divisor
+                        checkDivision(2); // This will execute successfully
+                    } catch (ArithmeticException e) {
+                        // This block won't be executed for this call
+                        System.out.println("Caught exception: " + e.getMessage());
+                    }
+                }
+            }
+              
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Caught exception: Cannot divide by zero
+                Result: 5
+                                      
+                
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 7) PROGRAM :- Write a Java program to show an example of multiple catch:- </h2>
+        <code> 
+
+            // File: MultipleCatchExample.java
+
+            public class MultipleCatchExample {
+            
+                public static void main(String[] args) {
+                    try {
+                        // Array to demonstrate ArrayIndexOutOfBoundsException
+                        int[] numbers = {1, 2, 3};
+                        
+                        // This will throw ArrayIndexOutOfBoundsException
+                        System.out.println("Accessing element at index 5: " + numbers[5]);
+                        
+                        // This will throw ArithmeticException (unreachable code in this case)
+                        int result = 10 / 0;
+                    } 
+                    catch (ArrayIndexOutOfBoundsException e) {
+                        // Handles ArrayIndexOutOfBoundsException
+                        System.out.println("Caught ArrayIndexOutOfBoundsException: " + e.getMessage());
+                    } 
+                    catch (ArithmeticException e) {
+                        // Handles ArithmeticException
+                        System.out.println("Caught ArithmeticException: " + e.getMessage());
+                    } 
+                    catch (Exception e) {
+                        // Handles any other exceptions
+                        System.out.println("Caught Exception: " + e.getMessage());
+                    }
+            
+                    System.out.println("Program continues after handling exceptions.");
+                }
+            }
+            
+  
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Caught ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 3
+                Program continues after handling exceptions.
+                    
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 8) PROGRAM :- Write a Java program to show an example of nested try block:- </h2>
+        <code> 
+
+            // File: NestedTryExample.java
+
+            public class NestedTryExample {
+            
+                public static void main(String[] args) {
+                    try {
+                        System.out.println("Outer try block started.");
+                        
+                        // Nested try block
+                        try {
+                            System.out.println("Inner try block started.");
+                            
+                            // This will throw ArithmeticException
+                            int result = 10 / 0;
+                            
+                            System.out.println("This line will not be executed.");
+                        } 
+                        catch (ArithmeticException e) {
+                            // Handles ArithmeticException in the inner try block
+                            System.out.println("Caught ArithmeticException in inner try block: " + e.getMessage());
+                        }
+                        
+                        // This line will be executed because the inner exception is handled
+                        System.out.println("Outer try block continues.");
+                        
+                        // This will throw ArrayIndexOutOfBoundsException
+                        int[] numbers = {1, 2, 3};
+                        System.out.println("Accessing element at index 5: " + numbers[5]);
+                    } 
+                    catch (ArrayIndexOutOfBoundsException e) {
+                        // Handles ArrayIndexOutOfBoundsException in the outer try block
+                 System.out.println("Caught ArrayIndexOutOfBoundsException in outer try block: " + e.getMessage());
+                    } 
+                    
+                    System.out.println("Program continues after handling exceptions.");
+                }
+            }
+            
+
+
+            
+  
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Outer try block started.
+                Inner try block started.
+                Caught ArithmeticException in inner try block: / by zero
+                Outer try block continues.
+                Caught ArrayIndexOutOfBoundsException in outer try block: Index 5 out of bounds for length 3
+                Program continues after handling exceptions.
+                                    
+         </pre>
+    </div>
+
+
+    
+    
+
+    <div id="packages">
+        
+        <h1 id="headingtag">Packages</h1>
+     </div>
+ 
+     <div>
+         <pre class="program">
+         <h2> 1) PROGRAM :- Create a Java program to access the java.util.Date class <br>
+        through import keyword and print the current date of the system:-   </h2>
+         <code> 
+    
+            import java.util.Date;
+            
+             class Date 
+             {
+                public static void main(String[] args) {
+    
+                    Date currentDate = new Date();
+                    
+                    
+                    System.out.println("Current date and time: " + currentDate);
+                }
+             }
+            
+              
+       
+       </code>
+       
+       </pre>
+ 
+     </div>
+
+
+     <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Current date and time: Mon Sep 16 14:27:36 IST 2024
+
+                               
+                
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 2) PROGRAM :- Create a Java program to access the java.util.Date class <br>
+            through qualified way and print the current date of the system:-   </h2>
+        <code> 
+   
+             class Current
+              {
+                public static void main(String[] args) {
+                    
+                    java.util.Date currentDate = new java.util.Date();
+                    
+                    System.out.println("Current date and time: " + currentDate);
+                }
+             }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Current date and time: Mon Sep 16 14:35:50 IST 2024
+                       
+                
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 3) PROGRAM :- Create a Java program to access the java.util.Date class <br>
+            through import keyword and print the current date of the system  <br>
+            but inherit the Date class:-    </h2>
+        <code> 
+   
+            import java.util.Date;
+            
+            public class MyDate extends Date {
+                public static void main(String[] args) {
+                    MyDate currentDate = new MyDate();
+                
+                    System.out.println("Current date and time: " + currentDate);
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Current date and time: Mon Sep 16 14:42:50 IST 2024
+               
+                
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 4) PROGRAM :- Create a Java program to access the java.util.Date class <br>
+            through qualified way and print the current date of the system  <br>
+            but inherit the Date class:-    </h2>
+        <code> 
+   
+            public class MyDateQualified extends java.util.Date {
+                public static void main(String[] args) {
+        
+                    MyDateQualified currentDate = new MyDateQualified();
+                    
+                    System.out.println("Current date and time: " + currentDate);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Current date and time: Mon Sep 16 14:48:12 IST 2024
+        
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 5) PROGRAM :- Create a Java program to create a package with multiple <br>
+               default classes:-  </h2>
+            
+        <code> 
+   
+            mypackage/
+            ClassOne.java
+            ClassTwo.java
+        MainProgram.java
+
+        
+        package mypackage;
+
+        public class ClassOne {
+            public void displayMessage() {
+                System.out.println("This is ClassOne from mypackage.");
+            }
+        }
+
+        
+        package mypackage;
+
+        public class ClassTwo {
+            public void displayMessage() {
+                System.out.println("This is ClassTwo from mypackage.");
+            }
+        }
+
+        
+        // Import the package and classes
+        import mypackage.ClassOne;
+        import mypackage.ClassTwo;
+        
+        public class MainProgram {
+            public static void main(String[] args) {
+                // Create instances of the classes from the package
+                ClassOne classOne = new ClassOne();
+                ClassTwo classTwo = new ClassTwo();
+                
+                // Call methods from both classes
+                classOne.displayMessage();
+                classTwo.displayMessage();
+            }
+        }
+        
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                This is ClassOne from mypackage.
+                This is ClassTwo from mypackage.
+                   
+         </pre>
+    </div>
+
+
+
+    <div id="dataconversion">
+        
+        <h1 id="headingtag">Data Conversion</h1>
+     </div>
+ 
+     <div>
+         <pre class="program">
+         <h2> 1) PROGRAM :- How to convert String to int:-   </h2>
+         <code> 
+    
+             class Main {
+                public static void main(String[] args) 
+                {
+                    String stringValue = "123";
+                    
+                    int intValue = Integer.parseInt(stringValue);
+                    
+                    System.out.println("The integer value is: " + intValue);
+                }
+            }
+            
+       
+       </code>
+       
+       </pre>
+ 
+     </div>
+
+
+     <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The integer value is: 123
+ 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 2) PROGRAM :- How to convert int to String:-   </h2>
+        <code> 
+   
+             class Main {
+                public static void main(String[] args) {
+                    int number = 123;
+                    
+                    String stringValue = String.valueOf(number);
+                    
+                    System.out.println("The string value is: " + stringValue);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The string value is: 123
+
+ 
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 3) PROGRAM :- How to convert String to long:-   </h2>
+        <code> 
+   
+            public class Main {
+                public static void main(String[] args) {
+                    // String to be converted
+                    String stringValue = "123456789";
+                    
+                    // Convert String to long
+                    long longValue = Long.parseLong(stringValue);
+                    
+                    // Output the result
+                    System.out.println("The long value is: " + longValue);
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The long value is: 123456789
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 4) PROGRAM :- How to convert long to String:-   </h2>
+        <code> 
+   
+            public class Main {
+                public static void main(String[] args) {
+                    long longValue = 123456789L;
+                    
+                    // Convert long to String
+                    String stringValue = String.valueOf(longValue);
+                    
+                    // Output the result
+                    System.out.println("The string value is: " + stringValue);
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The string value is: 123456789
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 5) PROGRAM :- How to convert String to float:-   </h2>
+        <code> 
+   
+            public class Main {
+                public static void main(String[] args) {
+                    // String to be converted
+                    String stringValue = "123.45";
+                    
+                    // Convert String to float
+                    float floatValue = Float.parseFloat(stringValue);
+                    
+                    // Output the result
+                    System.out.println("The float value is: " + floatValue);
+                }
+            }
+             
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The float value is: 123.45
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 6) PROGRAM :-  How to convert float to String:-   </h2>
+        <code> 
+   
+            public class Main {
+                public static void main(String[] args) {
+                    float floatValue = 123.45f;
+                    
+                    // Convert float to String
+                    String stringValue = String.valueOf(floatValue);
+                    
+                    // Output the result
+                    System.out.println("The string value is: " + stringValue);
+                }
+            }
+                
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The string value is: 123.45
+
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 7) PROGRAM :- How to convert String to double:-   </h2>
+        <code> 
+
+            public class Main {
+                public static void main(String[] args) {
+                    // String to be converted
+                    String stringValue = "123.456";
+                    
+                    // Convert String to double
+                    double doubleValue = Double.parseDouble(stringValue);
+                    
+                    // Output the result
+                    System.out.println("The double value is: " + doubleValue);
+                }
+            }
+                        
+
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The double value is: 123.456
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 8) PROGRAM :- How to convert double to String:-   </h2>
+        <code> 
+
+            public class Main {
+                public static void main(String[] args) {
+                    double doubleValue = 123.456;
+            
+                    // Convert double to String
+                    String stringValue = String.valueOf(doubleValue);
+            
+                    // Output the result
+                    System.out.println("The string value is: " + stringValue);
+                }
+            }
+                              
+
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The string value is: 123.456
+
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2> 9) PROGRAM :- How to convert String to Date:-   </h2>
+        <code> 
+
+            import java.text.ParseException;
+            import java.text.SimpleDateFormat;
+            import java.util.Date;
+            
+            public class Main {
+                public static void main(String[] args) {
+                    // String to be converted
+                    String dateString = "2024-09-18";
+                    
+                    // Define the date format
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    
+                    try {
+                        // Convert String to Date
+                        Date date = formatter.parse(dateString);
+                        
+                        // Output the result
+                        System.out.println("The Date value is: " + date);
+                    } catch (ParseException e) {
+                        // Handle parsing error
+                        System.out.println("Error parsing date: " + e.getMessage());
+                    }
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The Date value is: Wed Sep 18 00:00:00 UTC 2024
+
+
+         </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2> 10) PROGRAM :- How to convert Date to String:-   </h2>
+        <code> 
+
+            import java.text.SimpleDateFormat;
+            import java.util.Date;
+            
+            public class Main {
+                public static void main(String[] args) {
+                    // Current date
+                    Date date = new Date();
+                    
+                    // Define the date format
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    
+                    // Convert Date to String
+                    String dateString = formatter.format(date);
+                    
+                    // Output the result
+                    System.out.println("The formatted date string is: " + dateString);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                The formatted date string is: 2024-09-18 10:45:30
+
+
+         </pre>
+    </div>
+
+
+
+
+
+
+     
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+   
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved. <br>
+            This website has been created by Anshul.</p>
+
+    </footer>
+
+</body>
+
+</html>
