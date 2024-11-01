@@ -13,11 +13,7 @@
 </head>
 
 <body>
-    <header id="headerjava">
-        <strong>
-            <h1>JAVA COURSE </h1>
-        </strong>
-    </header>
+    
 
     <main>
 
@@ -66,6 +62,8 @@
         <a href="#dataconversion">Data Conversion</a>
         <a href="#Java Database Connectivity">Java Database Connectivity</a>
         <a href="#Multithreading">Multithreading</a>
+        <a href="#applets">Applets</a>
+        <a href="#Graphical">Graphical User Interface(AWT)</a>
     </div>
 
     <div id="Arrays">
@@ -5903,6 +5901,2229 @@
                 ba-hons 2300.0
          </pre>
     </div>
+
+
+
+    <div id="Multithreading">
+        
+        <h1 id="headingtag">Multithreading</h1>
+     </div>
+
+
+     <div class="questions">
+        <a href="#m1">Q) Write a Java program to create a basic Java thread that prints "Hello, World!" when executed</a> <br>
+        <a href="#m2">Q) Write a Java program that creates two threads to find and print even and odd numbers from 1 to 20</a> <br>
+        <a href="#m3">Q) Write a Java program that sorts an array of integers using multiple threads</a> <br>
+        <a href="#m4">Q) Write a Java program that performs matrix multiplication using multiple threads</a> <br>
+        <a href="#m5">Q) Write a Java program that calculates the sum of all prime numbers up to a given limit using multiple threads</a> <br>
+        <a href="#m6">Q) Write a Java program to implement a concurrent web crawler that crawls multiple websites simultaneously using threads</a> <br>
+        <a href="#m7">Q) Write a Java program that creates a bank account with concurrent deposits and withdrawals using threads</a> <br>
+        <a href="#m8">Q) Create the program to create multiple threads by using Runnbale interface</a> <br>
+        <a href="#m9">Q) Create the program to create multiple threads by using Thread class</a> <br>
+        <a href="#m12">Q) Create the program to create multiple threads, show an example of notify, notifyall, wait, resume, sleep methods./a> <br>
+        <a href="#m13">Q) Create the program to create multiple threads, show an example of join and yield method</a> <br>
+
+        
+    </div>  
+
+
+    <div>
+        <pre class="program">
+        <h2 id="m1"> 1) PROGRAM :- Write a Java program to create a basic Java thread <br>
+             that prints "Hello, World!" when executed </h2>
+        <code> 
+   
+            public class HelloWorldThread extends Thread {
+
+                // Override the run method to define the behavior of the thread
+                @Override
+                public void run() {
+                    System.out.println("Hello, World!");
+                }
+            
+                public static void main(String[] args) {
+                    // Create an instance of HelloWorldThread
+                    HelloWorldThread thread = new HelloWorldThread();
+                    
+                    // Start the thread
+                    thread.start();
+                }
+            }            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                Hello, World!
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="m2"> 2) PROGRAM :- Write a Java program that creates two threads to find <br>
+            and print even and odd numbers from 1 to 20.  </h2>
+        <code> 
+   
+            class EvenThread extends Thread {
+                public void run() {
+                    System.out.println("Even numbers:");
+                    for (int i = 1; i <= 20; i++) {
+                        if (i % 2 == 0) {
+                            System.out.print(i + " ");
+                        }
+                    }
+                    System.out.println(); // Move to a new line after printing even numbers
+                }
+            }
+            
+            class OddThread extends Thread {
+                public void run() {
+                    System.out.println("Odd numbers:");
+                    for (int i = 1; i <= 20; i++) {
+                        if (i % 2 != 0) {
+                            System.out.print(i + " ");
+                        }
+                    }
+                    System.out.println(); // Move to a new line after printing odd numbers
+                }
+            }
+            
+            public class EvenOddThreads {
+                public static void main(String[] args) {
+                    EvenThread evenThread = new EvenThread();
+                    OddThread oddThread = new OddThread();
+                    
+                    // Start the threads
+                    evenThread.start();
+                    oddThread.start();
+                    
+                    // Wait for both threads to finish
+                    try {
+                        evenThread.join();
+                        oddThread.join();
+                    } catch (InterruptedException e) {
+                        System.out.println("Threads interrupted.");
+                    }
+                    
+                    System.out.println("Program finished.");
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                Even numbers:
+                2 4 6 8 10 12 14 16 18 20 
+                Odd numbers:
+                1 3 5 7 9 11 13 15 17 19 
+                Program finished.
+                
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="m4"> 4) PROGRAM :- Write a Java program that performs matrix multiplication <br>
+            using multiple threads  </h2>
+        <code> 
+   
+            public class MatrixMultiplication {
+    
+                // Dimensions for matrices
+                static final int MATRIX_SIZE = 3; // You can change the matrix size as needed
+                
+                public static void main(String[] args) throws InterruptedException {
+                    
+                    // Sample matrices for multiplication
+                    int[][] matrixA = {
+                        {1, 2, 3},
+                        {4, 5, 6},
+                        {7, 8, 9}
+                    };
+                    
+                    int[][] matrixB = {
+                        {9, 8, 7},
+                        {6, 5, 4},
+                        {3, 2, 1}
+                    };
+                    
+                    int[][] result = new int[MATRIX_SIZE][MATRIX_SIZE];
+                    
+                    // Creating threads to calculate each row of the result matrix
+                    Thread[] threads = new Thread[MATRIX_SIZE];
+                    for (int i = 0; i < MATRIX_SIZE; i++) {
+                        final int row = i; // Capture row index for each thread
+                        threads[i] = new Thread(() -> multiplyRow(matrixA, matrixB, result, row));
+                        threads[i].start();
+                    }
+                    
+                    // Wait for all threads to complete
+                    for (Thread thread : threads) {
+                        thread.join();
+                    }
+                    
+                    // Print the resulting matrix
+                    System.out.println("Result of matrix multiplication:");
+                    for (int[] row : result) {
+                        for (int value : row) {
+                            System.out.print(value + " ");
+                        }
+                        System.out.println();
+                    }
+                }
+                
+                // Method to multiply a specific row of the result matrix
+                private static void multiplyRow(int[][] matrixA, int[][] matrixB, int[][] result, int row) {
+                    for (int col = 0; col < MATRIX_SIZE; col++) {
+                        result[row][col] = 0; // Initialize the result cell
+                        for (int k = 0; k < MATRIX_SIZE; k++) {
+                            result[row][col] += matrixA[row][k] * matrixB[k][col];
+                        }
+                    }
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                Result of matrix multiplication:
+                30 24 18 
+                84 69 54 
+                138 114 90 
+                
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="m5"> 5) PROGRAM :-  Write a Java program that calculates the sum of all <br>
+            prime numbers up to a given limit using multiple threads </h2>
+        <code> 
+   
+            import java.util.Scanner;
+
+            class PrimeSumThread extends Thread {
+                private int start;
+                private int end;
+                private long sum;
+            
+                public PrimeSumThread(int start, int end) {
+                    this.start = start;
+                    this.end = end;
+                    this.sum = 0;
+                }
+            
+                public void run() {
+                    for (int i = start; i <= end; i++) {
+                        if (isPrime(i)) {
+                            sum += i;
+                        }
+                    }
+                }
+            
+                public long getSum() {
+                    return sum;
+                }
+            
+                private boolean isPrime(int number) {
+                    if (number <= 1) return false;
+                    for (int i = 2; i <= Math.sqrt(number); i++) {
+                        if (number % i == 0) return false;
+                    }
+                    return true;
+                }
+            }
+            
+            public class PrimeSumCalculator {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter the limit up to which you want to find prime numbers: ");
+                    int limit = scanner.nextInt();
+            
+                    // Number of threads to be created
+                    int threadCount = 4;
+                    PrimeSumThread[] threads = new PrimeSumThread[threadCount];
+                    int range = limit / threadCount;
+            
+                    // Create threads
+                    for (int i = 0; i < threadCount; i++) {
+                        int start = i * range + 1; // Start of the range
+                        int end = (i + 1) == threadCount ? limit : (i + 1) * range; // End of the range
+                        threads[i] = new PrimeSumThread(start, end);
+                        threads[i].start();
+                    }
+            
+                    // Wait for all threads to finish and calculate the total sum
+                    long totalSum = 0;
+                    for (PrimeSumThread thread : threads) {
+                        try {
+                            thread.join(); // Wait for this thread to die
+                            totalSum += thread.getSum(); // Get the sum from the thread
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+            
+                    // Output the result
+                    System.out.println("The sum of all prime numbers up to " + limit + " is: " + totalSum);
+                    scanner.close();
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                Enter the limit up to which you want to find prime numbers: 20
+                The sum of all prime numbers up to 20 is: 77
+                
+
+         </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="m6"> 6) PROGRAM :- Write a Java program to implement a concurrent web crawler <br>
+             that crawls multiple websites simultaneously using threads </h2>
+        <code> 
+   
+            import org.jsoup.Jsoup;
+            import org.jsoup.nodes.Document;
+            
+            import java.io.IOException;
+            import java.util.ArrayList;
+            import java.util.List;
+            import java.util.concurrent.ExecutorService;
+            import java.util.concurrent.Executors;
+            
+            public class ConcurrentWebCrawler {
+            
+                private static final int NUM_THREADS = 5; // Number of threads
+                private static final List<String> urlsToCrawl = List.of(
+                        "https://www.example.com",
+                        "https://www.wikipedia.org",
+                        "https://www.github.com",
+                        "https://www.stackoverflow.com",
+                        "https://www.oracle.com"
+                );
+            
+                public static void main(String[] args) {
+                    ExecutorService executorService = Executors.newFixedThreadPool(NUM_THREADS);
+                    
+                    for (String url : urlsToCrawl) {
+                        executorService.submit(() -> crawl(url));
+                    }
+            
+                    executorService.shutdown();
+                    while (!executorService.isTerminated()) {
+                        // Wait for all tasks to finish
+                    }
+            
+                    System.out.println("All websites have been crawled.");
+                }
+            
+                private static void crawl(String url) {
+                    try {
+                        System.out.println("Crawling: " + url);
+                        Document document = Jsoup.connect(url).get();
+                        System.out.println("Title of " + url + ": " + document.title());
+                    } catch (IOException e) {
+                        System.err.println("Error crawling " + url + ": " + e.getMessage());
+                    }
+                }
+            }
+            
+
+
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                Crawling: https://www.example.com
+                Title of https://www.example.com: Example Domain
+                Crawling: https://www.wikipedia.org
+                Title of https://www.wikipedia.org: Wikipedia
+                Crawling: https://www.github.com
+                Title of https://www.github.com: GitHub: Where the world builds software · GitHub
+                Crawling: https://www.stackoverflow.com
+                Title of https://www.stackoverflow.com: Stack Overflow - Where Developers Learn, Share, & Build Careers
+                Crawling: https://www.oracle.com
+                Title of https://www.oracle.com: Oracle | Integrated Cloud Applications and Platform Services
+                All websites have been crawled.
+                            
+
+         </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="m8"> 8) PROGRAM :- Create the program to create multiple threads by using <br>
+             Runnbale interface  </h2>
+        <code> 
+   
+            class MyRunnable implements Runnable {
+                private String threadName;
+            
+                public MyRunnable(String name) {
+                    this.threadName = name;
+                }
+            
+                @Override
+                public void run() {
+                    for (int i = 0; i < 5; i++) {
+                        System.out.println(threadName + " is running: iteration " + i);
+                        try {
+                            // Sleep for a short time to simulate work
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            System.out.println(threadName + " was interrupted.");
+                        }
+                    }
+                    System.out.println(threadName + " has finished executing.");
+                }
+            }
+            
+            public class MultiThreadingExample {
+                public static void main(String[] args) {
+                    // Create instances of MyRunnable
+                    Runnable runnable1 = new MyRunnable("Thread 1");
+                    Runnable runnable2 = new MyRunnable("Thread 2");
+                    Runnable runnable3 = new MyRunnable("Thread 3");
+            
+                    // Create threads
+                    Thread thread1 = new Thread(runnable1);
+                    Thread thread2 = new Thread(runnable2);
+                    Thread thread3 = new Thread(runnable3);
+            
+                    // Start the threads
+                    thread1.start();
+                    thread2.start();
+                    thread3.start();
+            
+                    // Wait for threads to finish
+                    try {
+                        thread1.join();
+                        thread2.join();
+                        thread3.join();
+                    } catch (InterruptedException e) {
+                        System.out.println("Main thread was interrupted.");
+                    }
+            
+                    System.out.println("All threads have finished executing.");
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                Thread 1 is running: iteration 0
+                Thread 2 is running: iteration 0
+                Thread 3 is running: iteration 0
+                Thread 1 is running: iteration 1
+                Thread 2 is running: iteration 1
+                Thread 3 is running: iteration 1
+                Thread 1 is running: iteration 2
+                Thread 2 is running: iteration 2
+                Thread 3 is running: iteration 2
+                Thread 1 is running: iteration 3
+                Thread 2 is running: iteration 3
+                Thread 3 is running: iteration 3
+                Thread 1 is running: iteration 4
+                Thread 2 is running: iteration 4
+                Thread 3 is running: iteration 4
+                Thread 1 has finished executing.
+                Thread 2 has finished executing.
+                Thread 3 has finished executing.
+                All threads have finished executing.
+                
+                            
+                            
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="m12"> 12) PROGRAM :- Create the program to create multiple threads, show an <br>
+             example of notify, notifyall, wait, resume, sleep methods. </h2>
+        <code> 
+   
+            class SharedResource {
+                private int count = 0;
+                private final int MAX_COUNT = 5;
+                private boolean isProducing = true;
+            
+                public synchronized void produce() throws InterruptedException {
+                    while (count == MAX_COUNT) {
+                        System.out.println("Producer waiting, count is at max: " + count);
+                        wait();  // Wait until the consumer consumes some items
+                    }
+                    count++;
+                    System.out.println("Produced: " + count);
+                    isProducing = true;
+                    notify(); // Notify the consumer
+                }
+            
+                public synchronized void consume() throws InterruptedException {
+                    while (count == 0) {
+                        System.out.println("Consumer waiting, count is zero: " + count);
+                        wait();  // Wait until the producer produces an item
+                    }
+                    System.out.println("Consumed: " + count);
+                    count--;
+                    isProducing = false;
+                    notify(); // Notify the producer
+                }
+            
+                public synchronized boolean isProducing() {
+                    return isProducing;
+                }
+            }
+            
+            class Producer extends Thread {
+                private final SharedResource resource;
+            
+                public Producer(SharedResource resource) {
+                    this.resource = resource;
+                }
+            
+                @Override
+                public void run() {
+                    try {
+                        for (int i = 0; i < 10; i++) {
+                            resource.produce();
+                            Thread.sleep(100);  // Sleep to simulate time taken to produce
+                        }
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }
+            
+            class Consumer extends Thread {
+                private final SharedResource resource;
+            
+                public Consumer(SharedResource resource) {
+                    this.resource = resource;
+                }
+            
+                @Override
+                public void run() {
+                    try {
+                        for (int i = 0; i < 10; i++) {
+                            resource.consume();
+                            Thread.sleep(150);  // Sleep to simulate time taken to consume
+                        }
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }
+            
+            public class ThreadExample {
+                public static void main(String[] args) {
+                    SharedResource resource = new SharedResource();
+                    Producer producer = new Producer(resource);
+                    Consumer consumer = new Consumer(resource);
+            
+                    producer.start();
+                    consumer.start();
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                Produced: 1
+                Consumed: 1
+                Produced: 2
+                Produced: 3
+                Consumed: 2
+                Produced: 4
+                Consumed: 3
+                Produced: 5
+                Producer waiting, count is at max: 5
+                Consumed: 4
+                Consumed: 5
+                Produced: 6
+                
+                            
+                            
+
+         </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="m13"> 13) PROGRAM :- Create the program to create multiple threads, show an <br>
+             example of join and yield method. </h2>
+        <code> 
+   
+            class MyThread extends Thread {
+                private String threadName;
+            
+                MyThread(String name) {
+                    threadName = name;
+                }
+            
+                public void run() {
+                    for (int i = 0; i < 5; i++) {
+                        System.out.println(threadName + " - Count: " + i);
+                        // Make the thread yield to allow other threads to execute
+                        Thread.yield();
+                    }
+                    System.out.println(threadName + " has finished execution.");
+                }
+            }
+            
+            public class ThreadExample {
+                public static void main(String[] args) {
+                    MyThread thread1 = new MyThread("Thread 1");
+                    MyThread thread2 = new MyThread("Thread 2");
+                    MyThread thread3 = new MyThread("Thread 3");
+            
+                    // Start the threads
+                    thread1.start();
+                    thread2.start();
+                    thread3.start();
+            
+                    try {
+                        // Wait for thread1 to finish before proceeding
+                        thread1.join();
+                        System.out.println("Thread 1 has completed. Now proceeding to main thread.");
+                    } catch (InterruptedException e) {
+                        System.out.println("Thread interrupted: " + e.getMessage());
+                    }
+            
+                    // This will run after thread1 has finished
+                    System.out.println("Main thread is running after Thread 1 completion.");
+                    
+                    try {
+                        // Optionally wait for the other threads to finish
+                        thread2.join();
+                        thread3.join();
+                    } catch (InterruptedException e) {
+                        System.out.println("Thread interrupted: " + e.getMessage());
+                    }
+            
+                    System.out.println("All threads have completed.");
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                Thread 1 - Count: 0
+                Thread 2 - Count: 0
+                Thread 3 - Count: 0
+                Thread 1 - Count: 1
+                Thread 2 - Count: 1
+                Thread 1 - Count: 2
+                Thread 3 - Count: 1
+                Thread 2 - Count: 2
+                Thread 1 - Count: 3
+                Thread 3 - Count: 2
+                Thread 2 - Count: 3
+                Thread 1 - Count: 4
+                Thread 3 - Count: 3
+                Thread 2 - Count: 4
+                Thread 1 has finished execution.
+                Thread 1 has completed. Now proceeding to main thread.
+                Thread 3 - Count: 4
+                Thread 2 has finished execution.
+                Thread 3 has finished execution.
+                All threads have completed.
+                
+                            
+                            
+
+         </pre>
+    </div>
+
+
+    <div id="applets">
+        
+        <h1 id="headingtag">Applets</h1>
+     </div>
+
+
+     <div class="questions">
+        <a href="#app1">Q) Create an applet showing the string "Hello World" which is embedded in the HTML page.</a> <br>
+        <a href="#app2">Q) Create an applet showing the string "Hello World" which is executed by an appletviewer.</a> <br>
+        <a href="#app3">Q) Create an applet in Java to draw a circle.</a> <br>
+        <a href="#app4">Q) Create an applet in Java to draw a polygon.</a> <br>
+        <a href="#app5">Q) Create an applet in Java to draw a rectangle</a> <br>
+        <a href="#app6">Q) Create an applet in Java to draw a square</a> <br>
+        <a href="#app7">Q) Create an applet in Java to draw a 4 concentric circles</a> <br>
+        <a href="#app8">Q) Create an applet in Java to draw a line</a> <br>
+        <a href="#app9">Q) Create an applet in Java to draw a oval</a> <br>
+        <a href="#app10">Q) Create an applet in Java to draw a arc</a> <br>
+        <a href="#app11">Q) Create an applet in Java to change the background color</a> <br>
+        <a href="#app12">Q) Create an applet in Java to draw rounded rectangle</a> <br>
+        <a href="#app14">Q) Create an applet to display a digital clock</a> <br>
+        <a href="#app15">Q) Java Program to Draw a Smiling Face using Graphics Class Methods</a> <br>
+
+        
+    </div>  
+
+    <div>
+        <pre class="program">
+        <h2 id="app1"> 1) PROGRAM :- Create an applet showing the string "Hello World" <br>
+             which is embedded in the HTML page. </h2>
+        <code> 
+   
+            import java.applet.Applet;
+            import java.awt.Graphics;
+            
+            public class HelloWorldApplet extends Applet {
+            
+                // Initialization of the applet
+                public void init() {
+                    setSize(300, 150);  // Set the applet window size
+                }
+            
+                // Drawing the string on the applet
+                public void paint(Graphics g) {
+                    g.drawString("Hello World", 100, 75); // Draw "Hello World" at specified coordinates
+                }
+            }
+
+
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+
+                Hello world
+
+         </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="app2"> 2) PROGRAM :- Create an applet showing the string "Hello World" <br>
+             which is executed by an appletviewer. </h2>
+        <code> 
+   
+            import java.applet.Applet;
+            import java.awt.Graphics;
+            
+            public class HelloWorldApplet extends Applet {
+            
+                // This method is used to draw graphics on the applet
+                public void paint(Graphics g) {
+                    // Draw the string "Hello World" at coordinates (50, 50)
+                    g.drawString("Hello World", 50, 50);
+                }
+            }
+
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                "Hello World"
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="app3"> 3) PROGRAM :- Create an applet in Java to draw a circle. </h2>
+        <code>             
+            import java.applet.Applet;
+            import java.awt.Graphics;
+            
+            public class CircleDrawingApplet extends Applet {
+            
+                // This method is called to initialize the applet
+                public void init() {
+                    setSize(400, 400); // Set the applet window size
+                }
+            
+                // This method is called to paint graphics on the applet
+                public void paint(Graphics g) {
+                    int x = 100;  // x-coordinate of the top-left corner of the circle
+                    int y = 100;  // y-coordinate of the top-left corner of the circle
+                    int diameter = 200;  // diameter of the circle
+            
+                    // Draw the circle
+                    g.drawOval(x, y, diameter, diameter);
+                }
+            }
+                        
+                   
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="app5"> 5) PROGRAM :- Create an applet in Java to draw a rectangle </h2>
+        <code> 
+   
+            import java.applet.Applet;
+            import java.awt.Graphics;
+            
+            public class RectangleDrawingApplet extends Applet {
+            
+                // This method initializes the applet
+                public void init() {
+                    // Setting the size of the applet window
+                    setSize(400, 400);
+                }
+            
+                // This method is used to draw graphics on the applet
+                public void paint(Graphics g) {
+                    // Draw a rectangle with top-left corner at (50, 50), width 200, and height 100
+                    g.drawRect(50, 50, 200, 100);
+                }
+            }
+            
+
+
+                        
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="app6"> 6) PROGRAM :- Create an applet in Java to draw a square </h2>
+        <code> 
+   
+            import java.applet.Applet;
+            import java.awt.Graphics;
+            
+            public class SquareDrawingApplet extends Applet {
+            
+                // This method is called to initialize the applet
+                public void init() {
+                    setSize(400, 400); // Set the size of the applet window
+                }
+            
+                // This method is used to draw graphics on the applet
+                public void paint(Graphics g) {
+                    int x = 100;  // X coordinate of the top-left corner
+                    int y = 100;  // Y coordinate of the top-left corner
+                    int sideLength = 200; // Side length of the square
+            
+                    // Draw a square
+                    g.drawRect(x, y, sideLength, sideLength);
+                }
+            }
+            
+                        
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                +--------------------------+
+                |                          |
+                |         +-------+        |
+                |         |       |        |
+                |         |       |        |
+                |         |       |        |
+                |         +-------+        |
+                |                          |
+                +--------------------------+
+                
+
+
+                            
+                            
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="app8"> 8) PROGRAM :- Create an applet in Java to draw a line </h2>
+        <code> 
+   
+            import java.applet.Applet;
+            import java.awt.Graphics;
+            
+            public class LineDrawingApplet extends Applet {
+            
+                // This method initializes the applet
+                public void init() {
+                    setSize(400, 400); // Set the size of the applet
+                }
+            
+                // The paint method draws graphics
+                public void paint(Graphics g) {
+                    int width = getWidth();
+                    int height = getHeight();
+                    
+                    // Draw a line from the top-left to the bottom-right corner
+                    g.drawLine(0, 0, width, height);
+                    
+                    // Draw a line from the top-right to the bottom-left corner
+                    g.drawLine(width, 0, 0, height);
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="app10"> 10) PROGRAM :- Create an applet in Java to draw a arc. </h2>
+        <code> 
+   
+            import java.applet.Applet;
+            import java.awt.Color;
+            import java.awt.Graphics;
+            
+            public class ArcDrawingApplet extends Applet {
+            
+                // Initialize the applet
+                public void init() {
+                    setSize(400, 400); // Set the size of the applet window
+                    setBackground(Color.WHITE); // Set the background color
+                }
+            
+                // Draw the arc
+                public void paint(Graphics g) {
+                    // Set the color for the arc
+                    g.setColor(Color.BLUE);
+                    
+                    // Draw an arc
+                    // drawArc(x, y, width, height, startAngle, arcAngle)
+                    // (x, y) is the top-left corner of the bounding rectangle
+                    // width and height determine the size of the arc
+                    // startAngle is the starting point of the arc in degrees
+                    // arcAngle is the angle covered by the arc in degrees
+                    g.drawArc(50, 50, 300, 300, 0, 180); // A half-circle arc
+            
+                    // Draw a string to label the arc
+                    g.setColor(Color.BLACK);
+                    g.drawString("Half Circle Arc", 150, 350);
+                }
+            }
+            
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="app11"> 11) PROGRAM :- Create an applet in Java to change the background color. </h2>
+        <code> 
+   
+            import java.applet.Applet;
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class ColorChangeApplet extends Applet implements ActionListener {
+                private Button changeColorButton;
+                private Color backgroundColor;
+            
+                // Initialize the applet
+                public void init() {
+                    backgroundColor = Color.WHITE; // Set initial background color
+                    changeColorButton = new Button("Change Background Color");
+                    changeColorButton.addActionListener(this); // Register event handler
+                    add(changeColorButton); // Add button to the applet
+                }
+            
+                // Handle button click events
+                public void actionPerformed(ActionEvent e) {
+                    // Change the background color randomly
+                    backgroundColor = new Color((int)(Math.random() * 0x1000000));
+                    repaint(); // Request to repaint the applet with the new color
+                }
+            
+                // Paint method to set the background color
+                public void paint(Graphics g) {
+                    setBackground(backgroundColor); // Set the background color
+                    g.drawString("Click the button to change the background color!", 20, 50);
+                }
+            }
+            
+            
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                ---------------------------------------
+                |                                     |
+                | Click the button to change the      |
+                | background color!                   |
+                |                                     |
+                ---------------------------------------
+                | [Change Background Color]           |
+                ---------------------------------------
+                             
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="app12"> 12) PROGRAM :- Create an applet in Java to draw rounded rectangle. </h2>
+        <code> 
+   
+            import java.applet.Applet;
+            import java.awt.Color;
+            import java.awt.Graphics;
+            
+            public class RoundedRectangleApplet extends Applet {
+            
+                // This method initializes the applet
+                public void init() {
+                    // You can set applet properties here
+                    setSize(400, 400); // Set the size of the applet
+                }
+            
+                // This method is used to draw graphics on the applet
+                public void paint(Graphics g) {
+                    // Set the color for the rectangle
+                    g.setColor(Color.BLUE);
+                    
+                    // Draw a rounded rectangle (x, y, width, height, arcWidth, arcHeight)
+                    g.drawRoundRect(50, 50, 300, 200, 30, 30);
+                    
+                    // Optionally, fill the rounded rectangle
+                    g.setColor(Color.CYAN);
+                    g.fillRoundRect(50, 50, 300, 200, 30, 30);
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                +----------------------------------------------------+
+                |                                                    |
+                |                                                    |
+                |               +--------------------+              |
+                |               |                    |              |
+                |               |                    |              |
+                |               |                    |              |
+                |               |                    |              |
+                |               +--------------------+              |
+                |                                                    |
+                |                                                    |
+                +----------------------------------------------------+
+                              
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="app14"> 14) PROGRAM :- Create an applet to display a digital clock. </h2>
+        <code> 
+   
+            import java.applet.Applet;
+            import java.awt.*;
+            import java.util.Calendar;
+            import java.util.Timer;
+            import java.util.TimerTask;
+            
+            public class DigitalClockApplet extends Applet {
+                private String timeString = "";
+            
+                public void init() {
+                    // Set the background color and font for the clock display
+                    setBackground(Color.BLACK);
+                    setForeground(Color.WHITE);
+                    setFont(new Font("Arial", Font.BOLD, 48));
+            
+                    // Create a timer to update the clock every second
+                    Timer timer = new Timer();
+                    timer.scheduleAtFixedRate(new TimerTask() {
+                        @Override
+                        public void run() {
+                            updateClock();
+                        }
+                    }, 0, 1000); // Update every second
+                }
+            
+                public void updateClock() {
+                    // Get the current time
+                    Calendar now = Calendar.getInstance();
+                    int hours = now.get(Calendar.HOUR_OF_DAY);
+                    int minutes = now.get(Calendar.MINUTE);
+                    int seconds = now.get(Calendar.SECOND);
+                    
+                    // Format the time string
+                    timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+                    
+                    // Repaint the applet to update the display
+                    repaint();
+                }
+            
+                public void paint(Graphics g) {
+                    // Draw the time string at the center of the applet
+                    g.drawString(timeString, 50, 100);
+                }
+            }
+            
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                00:00:00
+           
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="app15"> 15) PROGRAM :- Java Program to Draw a Smiling Face using Graphics Class Method</h2>
+        <code> 
+   
+            import javax.swing.*;
+            import java.awt.*;
+            
+            public class SmilingFace extends JPanel {
+            
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    
+                    // Draw face
+                    g.setColor(Color.YELLOW); // Set color for the face
+                    g.fillOval(50, 50, 200, 200); // Draw the face
+            
+                    // Draw eyes
+                    g.setColor(Color.BLACK); // Set color for the eyes
+                    g.fillOval(100, 100, 30, 30); // Left eye
+                    g.fillOval(170, 100, 30, 30); // Right eye
+            
+                    // Draw smile
+                    g.setColor(Color.BLACK); // Set color for the smile
+                    g.drawArc(100, 130, 100, 80, 0, -180); // Draw a smile
+            
+                    // Draw a nose
+                    int[] xPoints = {135, 150, 165};
+                    int[] yPoints = {130, 160, 130};
+                    g.fillPolygon(xPoints, yPoints, 3); // Draw the nose
+                }
+            
+                public static void main(String[] args) {
+                    JFrame frame = new JFrame("Smiling Face");
+                    SmilingFace smilingFace = new SmilingFace();
+                    frame.add(smilingFace);
+                    frame.setSize(300, 300); // Set the size of the window
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setVisible(true);
+                }
+            }
+            
+
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+
+
+
+    <div id="Graphical">
+        
+        <h1 id="headingtag">Graphical User Interface(AWT)</h1>
+     </div>
+
+
+     <div class="questions">
+        <a href="#awt1">Q) Create a simple AWT application that displays a button with FlowLayout manager.</a> <br>
+        <a href="#awt2">Q) Create a simple AWT application that displays a button with Custom Layout.</a> <br>
+        <a href="#awt3">Q) Create a simple AWT application that displays multiple buttons with BorderLayout manager (North, East, West, South, Center)..</a> <br>
+        <a href="#awt4">Q) Create a simple AWT application that displays a TextField with FlowLayout manager.</a> <br>
+        <a href="#awt5">Q) Create a simple AWT application that displays a TextField with Custom Layout.</a> <br>
+        <a href="#awt6">Q) Create a simple AWT application that displays a Checkbox with FlowLayout manager.</a> <br>
+        <a href="#awt7">Q) Create a simple AWT application that displays a Checkbox with Custom Layout.</a> <br>
+        <a href="#awt8">Q)  Create a simple AWT application that displays a Label with FlowLayout manager.</a> <br>
+        <a href="#awt9">Q) Create a simple AWT application that displays a Label with Custom Layout.</a> <br>
+        <a href="#awt10">Q) Create a simple AWT application that displays a Choice with FlowLayout manager.</a> <br>
+        <a href="#awt11">Q) Create a simple AWT application that displays a Choice with Custom Layout.</a> <br>
+        <a href="#awt12">Q) Create a simple AWT application that displays a CheckboxGroup with FlowLayout manager.</a> <br>
+        <a href="#awt13">Q) Create a simple AWT application that displays a CheckboxGroup with Custom Layout.</a> <br>
+        <a href="#awt14">Q) Create a simple AWT application that displays a List with FlowLayout manager.</a> <br>
+        <a href="#awt17">Q) reate a simple AWT application that displays a TextArea with Custom Layout.</a> <br>
+        <a href="#awt18">Q) Create a simple AWT application design a calculator that displays buttons, TextField with GridLayout manager.</a> <br>
+
+
+
+        
+    </div>  
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt1"> 1) PROGRAM :- Create a simple AWT application that displays a <br>
+             button with FlowLayout manager.</h2>
+        <code> 
+   
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class FlowLayoutExample extends Frame implements ActionListener {
+                private Button button;
+            
+                public FlowLayoutExample() {
+                    // Set the title of the window
+                    setTitle("FlowLayout Example");
+            
+                    // Set the layout manager to FlowLayout
+                    setLayout(new FlowLayout());
+            
+                    // Create a button and add it to the frame
+                    button = new Button("Click Me");
+                    add(button);
+            
+                    // Add action listener to the button
+                    button.addActionListener(this);
+            
+                    // Set the size of the frame
+                    setSize(300, 200);
+                    
+                    // Close the application when the window is closed
+                    addWindowListener(new WindowAdapter() {
+                        public void windowClosing(WindowEvent we) {
+                            System.exit(0);
+                        }
+                    });
+            
+                    // Make the frame visible
+                    setVisible(true);
+                }
+            
+                // Handle button click events
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // Display a message when the button is clicked
+                    System.out.println("Button Clicked!");
+                }
+            
+                public static void main(String[] args) {
+                    new FlowLayoutExample(); // Create an instance of the application
+                }
+            }
+            
+
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                Button Clicked!
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt2"> 2) PROGRAM :- Create a simple AWT application that displays a <br>
+            button with Custom Layout.</h2>
+        <code> 
+   
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class CustomLayoutAWT extends Frame {
+                
+                public CustomLayoutAWT() {
+                    // Set the title of the frame
+                    setTitle("Custom Layout AWT Example");
+                    
+                    // Set the layout manager
+                    setLayout(new BorderLayout());
+            
+                    // Create a button
+                    Button button = new Button("Click Me!");
+            
+                    // Add button to the center of the frame
+                    add(button, BorderLayout.CENTER);
+            
+                    // Create a panel for the top part with a label
+                    Panel topPanel = new Panel();
+                    topPanel.setLayout(new FlowLayout());
+                    Label label = new Label("Welcome to Custom Layout Example!");
+                    topPanel.add(label);
+                    
+                    // Add the top panel to the top of the frame
+                    add(topPanel, BorderLayout.NORTH);
+            
+                    // Create a panel for the bottom part
+                    Panel bottomPanel = new Panel();
+                    bottomPanel.setLayout(new FlowLayout());
+                    
+                    // Create another button for the bottom part
+                    Button exitButton = new Button("Exit");
+                    exitButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            System.exit(0); // Exit the application
+                        }
+                    });
+                    
+                    bottomPanel.add(exitButton);
+                    
+                    // Add the bottom panel to the bottom of the frame
+                    add(bottomPanel, BorderLayout.SOUTH);
+            
+                    // Set frame properties
+                    setSize(400, 200);
+                    setVisible(true);
+                    
+                    // Add a window listener to close the application
+                    addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent we) {
+                            System.exit(0);
+                        }
+                    });
+                }
+            
+                public static void main(String[] args) {
+                    new CustomLayoutAWT(); // Create the AWT application
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                +------------------------------------+
+                | Welcome to Custom Layout Example!  |
+                +------------------------------------+
+                |             Click Me!              |
+                +------------------------------------+
+                |               Exit                 |
+                +------------------------------------+
+                
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt4"> 4) PROGRAM :- Create a simple AWT application that displays a <br>
+            TextField with FlowLayout manager.</h2>
+        <code> 
+   
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class TextFieldExample extends Frame {
+                // Constructor to set up the GUI components
+                public TextFieldExample() {
+                    // Set the title of the frame
+                    setTitle("AWT TextField Example");
+                    
+                    // Set the layout manager to FlowLayout
+                    setLayout(new FlowLayout());
+                    
+                    // Create a TextField with a specified width
+                    TextField textField = new TextField(20); // 20 columns wide
+                    
+                    // Create a button to display the text entered
+                    Button button = new Button("Show Text");
+            
+                    // Add action listener to the button
+                    button.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            // Show the text entered in the TextField
+                            System.out.println("Entered Text: " + textField.getText());
+                        }
+                    });
+            
+                    // Add the TextField and button to the frame
+                    add(textField);
+                    add(button);
+            
+                    // Set the size of the frame
+                    setSize(300, 150);
+                    
+                    // Close the application when the window is closed
+                    addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent we) {
+                            System.exit(0);
+                        }
+                    });
+            
+                    // Set the frame to be visible
+                    setVisible(true);
+                }
+            
+                // Main method to run the application
+                public static void main(String[] args) {
+                    new TextFieldExample(); // Create an instance of the frame
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                +--------------------+
+                |                    |  <-- This is the TextField
+                +--------------------+
+                |       Show Text    |  <-- This is the Button
+                +--------------------+
+                
+                
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt6"> 6) PROGRAM :- Create a simple AWT application that displays a <br> 
+            Checkbox with FlowLayout manager.</h2>
+        <code> 
+   
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class CheckboxExample extends Frame implements ItemListener {
+                Checkbox checkbox1, checkbox2, checkbox3;
+            
+                public CheckboxExample() {
+                    // Create a new Frame
+                    Frame frame = new Frame("Checkbox Example");
+            
+                    // Set FlowLayout manager
+                    frame.setLayout(new FlowLayout());
+            
+                    // Create checkboxes
+                    checkbox1 = new Checkbox("Option 1");
+                    checkbox2 = new Checkbox("Option 2");
+                    checkbox3 = new Checkbox("Option 3");
+            
+                    // Add item listener to checkboxes
+                    checkbox1.addItemListener(this);
+                    checkbox2.addItemListener(this);
+                    checkbox3.addItemListener(this);
+            
+                    // Add checkboxes to the frame
+                    frame.add(checkbox1);
+                    frame.add(checkbox2);
+                    frame.add(checkbox3);
+            
+                    // Set frame properties
+                    frame.setSize(300, 150); // Set size of the frame
+                    frame.setVisible(true);   // Make frame visible
+            
+                    // Add window listener to close the application
+                    frame.addWindowListener(new WindowAdapter() {
+                        public void windowClosing(WindowEvent we) {
+                            System.exit(0);
+                        }
+                    });
+                }
+            
+                // Handle item events
+                public void itemStateChanged(ItemEvent ie) {
+                    System.out.println("Checkbox state changed: " + ie.getItem());
+                }
+            
+                public static void main(String[] args) {
+                    new CheckboxExample(); // Create an instance of the CheckboxExample
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                +------------------------+
+                |  [x] Option 1         |
+                |  [ ] Option 2         |
+                |  [ ] Option 3         |
+                +------------------------+
+
+                
+                Checkbox state changed: Option 1
+                Checkbox state changed: Option 2
+                Checkbox state changed: Option 3
+                
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt7"> 7) PROGRAM :- Create a simple AWT application that displays a <br>
+            Checkbox with Custom Layout.</h2>
+        <code> 
+   
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class CheckboxExample extends Frame {
+                Checkbox checkbox1, checkbox2, checkbox3;
+            
+                public CheckboxExample() {
+                    // Set the title of the frame
+                    setTitle("Checkbox Example");
+                    
+                    // Set the layout to FlowLayout
+                    setLayout(new FlowLayout());
+            
+                    // Create checkboxes
+                    checkbox1 = new Checkbox("Option 1");
+                    checkbox2 = new Checkbox("Option 2");
+                    checkbox3 = new Checkbox("Option 3");
+            
+                    // Add checkboxes to the frame
+                    add(checkbox1);
+                    add(checkbox2);
+                    add(checkbox3);
+            
+                    // Add a window listener to close the application
+                    addWindowListener(new WindowAdapter() {
+                        public void windowClosing(WindowEvent we) {
+                            System.exit(0);
+                        }
+                    });
+            
+                    // Set the size of the frame
+                    setSize(300, 150);
+                    // Set the frame visibility
+                    setVisible(true);
+                }
+            
+                public static void main(String[] args) {
+                    new CheckboxExample(); // Create an instance of the CheckboxExample
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                --------------------------------
+                |     Checkbox Example         |
+                |------------------------------|
+                | [ ] Option 1                 |
+                | [ ] Option 2                 |
+                | [ ] Option 3                 |
+                |------------------------------|
+                --------------------------------
+                
+                
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt8"> 8) PROGRAM :- Create a simple AWT application that displays a <br>
+              Label with FlowLayout manager.</h2>
+        <code> 
+   
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class FlowLayoutExample extends Frame {
+            
+                public FlowLayoutExample() {
+                    // Set the title of the frame
+                    setTitle("FlowLayout Example");
+            
+                    // Set the layout manager to FlowLayout
+                    setLayout(new FlowLayout());
+            
+                    // Create a label
+                    Label label = new Label("Hello, this is a label in FlowLayout!");
+                    
+                    // Add the label to the frame
+                    add(label);
+            
+                    // Set the size of the frame
+                    setSize(400, 200);
+                    
+                    // Add a window listener to handle close action
+                    addWindowListener(new WindowAdapter() {
+                        public void windowClosing(WindowEvent we) {
+                            System.exit(0); // Exit the application when the window is closed
+                        }
+                    });
+                    
+                    // Make the frame visible
+                    setVisible(true);
+                }
+            
+                public static void main(String[] args) {
+                    // Create an instance of the FlowLayoutExample
+                    new FlowLayoutExample();
+                }
+            }
+            
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                +-----------------------------------+
+                | Hello, this is a label in         |
+                | FlowLayout!                       |
+                +-----------------------------------+
+                
+                
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt10"> 10) PROGRAM :- Create a simple AWT application that displays <br>
+            a Choice with FlowLayout manager.</h2>
+        <code> 
+   
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class ChoiceExample extends Frame implements ItemListener {
+                Choice choice; // Choice component
+                Label label;   // Label to display the selected item
+            
+                public ChoiceExample() {
+                    // Set up the Frame
+                    setTitle("Choice Example");
+                    setSize(300, 200);
+                    setLayout(new FlowLayout()); // Set the layout manager to FlowLayout
+            
+                    // Create a Choice component
+                    choice = new Choice();
+                    choice.add("Option 1");
+                    choice.add("Option 2");
+                    choice.add("Option 3");
+                    choice.add("Option 4");
+            
+                    // Add ItemListener to the Choice component
+                    choice.addItemListener(this);
+            
+                    // Create a Label to display selected option
+                    label = new Label("Selected: None");
+            
+                    // Add components to the Frame
+                    add(choice);
+                    add(label);
+            
+                    // Set the Frame to be visible
+                    setVisible(true);
+            
+                    // Add a WindowListener to handle closing the window
+                    addWindowListener(new WindowAdapter() {
+                        public void windowClosing(WindowEvent we) {
+                            dispose(); // Close the application
+                        }
+                    });
+                }
+            
+                // Implement the itemStateChanged method from ItemListener
+                public void itemStateChanged(ItemEvent ie) {
+                    // Get the selected item from the Choice component
+                    String selectedItem = choice.getSelectedItem();
+                    // Update the label with the selected option
+                    label.setText("Selected: " + selectedItem);
+                }
+            
+                public static void main(String[] args) {
+                    new ChoiceExample(); // Create an instance of the ChoiceExample class
+                }
+            }
+             
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                +---------------------------------------+
+                |      [ Option 1 ▼ ]                  |
+                |  Selected: None                       |
+                +---------------------------------------+
+                 
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt12"> 12) PROGRAM :- Create a simple AWT application that displays a <br>
+            CheckboxGroup with FlowLayout manager</h2>
+        <code> 
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class CheckboxGroupExample extends Frame implements ItemListener {
+                CheckboxGroup checkboxGroup;
+                Checkbox checkbox1, checkbox2, checkbox3;
+            
+                public CheckboxGroupExample() {
+                    // Create a CheckboxGroup
+                    checkboxGroup = new CheckboxGroup();
+            
+                    // Create checkboxes and associate them with the CheckboxGroup
+                    checkbox1 = new Checkbox("Option 1", checkboxGroup, false);
+                    checkbox2 = new Checkbox("Option 2", checkboxGroup, false);
+                    checkbox3 = new Checkbox("Option 3", checkboxGroup, false);
+            
+                    // Set the layout manager
+                    setLayout(new FlowLayout());
+            
+                    // Add checkboxes to the frame
+                    add(checkbox1);
+                    add(checkbox2);
+                    add(checkbox3);
+            
+                    // Add item listeners to the checkboxes
+                    checkbox1.addItemListener(this);
+                    checkbox2.addItemListener(this);
+                    checkbox3.addItemListener(this);
+            
+                    // Set frame properties
+                    setTitle("Checkbox Group Example");
+                    setSize(300, 150);
+                    setVisible(true);
+            
+                    // Add window listener to handle close operation
+                    addWindowListener(new WindowAdapter() {
+                        public void windowClosing(WindowEvent we) {
+                            System.exit(0);
+                        }
+                    });
+                }
+            
+                // Handle item events
+                public void itemStateChanged(ItemEvent ie) {
+                    Checkbox checkbox = (Checkbox) ie.getItemSelectable();
+                    System.out.println("Selected: " + checkbox.getLabel());
+                }
+            
+                public static void main(String[] args) {
+                    new CheckboxGroupExample(); // Create instance of the application
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                ------------------------------------------------
+                |                                              |
+                |   [ ] Option 1                                |
+                |   [ ] Option 2                                |
+                |   [ ] Option 3                                |
+                |                                              |
+                ------------------------------------------------
+                Selected: Option 1
+                
+                 
+
+         </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt14"> 14) PROGRAM :- Create a simple AWT application that displays a <br>
+             List with FlowLayout manager.</h2>
+        <code> 
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class ListExample extends Frame {
+                // Constructor to set up the GUI components
+                public ListExample() {
+                    // Create a frame
+                    setTitle("AWT List Example");
+                    setSize(300, 200);
+                    setLayout(new FlowLayout());
+            
+                    // Create a list with some items
+                    List list = new List();
+                    list.add("Item 1");
+                    list.add("Item 2");
+                    list.add("Item 3");
+                    list.add("Item 4");
+                    list.add("Item 5");
+            
+                    // Add the list to the frame
+                    add(list);
+            
+                    // Create a button to show selected item
+                    Button button = new Button("Show Selected Item");
+                    add(button);
+            
+                    // Action listener for the button
+                    button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            // Get the selected item from the list
+                            String selectedItem = list.getSelectedItem();
+                            if (selectedItem != null) {
+                                // Show a dialog with the selected item
+                                Dialog dialog = new Dialog(ListExample.this, "Selected Item", true);
+                                dialog.setLayout(new FlowLayout());
+                                dialog.add(new Label("You selected: " + selectedItem));
+                                Button okButton = new Button("OK");
+                                dialog.add(okButton);
+                                dialog.setSize(200, 100);
+                                dialog.setVisible(true);
+                                
+                                // Close dialog when OK is pressed
+                                okButton.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent ae) {
+                                        dialog.dispose();
+                                    }
+                                });
+                            }
+                        }
+                    });
+            
+                    // Set the frame's close operation
+                    addWindowListener(new WindowAdapter() {
+                        public void windowClosing(WindowEvent we) {
+                            System.exit(0);
+                        }
+                    });
+            
+                    // Make the frame visible
+                    setVisible(true);
+                }
+            
+                public static void main(String[] args) {
+                    new ListExample(); // Create an instance of the ListExample class
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="awt17"> 17) PROGRAM :- Create a simple AWT application that displays a  <br>
+            TextArea with Custom Layout.</h2>
+        <code> 
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class CustomTextAreaLayout extends Frame {
+            
+                public CustomTextAreaLayout() {
+                    // Create a TextArea
+                    TextArea textArea = new TextArea("Enter your text here...", 10, 30);
+                    
+                    // Set custom properties for the TextArea
+                    textArea.setBackground(Color.LIGHT_GRAY);
+                    textArea.setForeground(Color.BLACK);
+                    textArea.setFont(new Font("Arial", Font.PLAIN, 14));
+            
+                    // Set the layout manager for the Frame
+                    setLayout(new BorderLayout());
+            
+                    // Add the TextArea to the center of the Frame
+                    add(textArea, BorderLayout.CENTER);
+            
+                    // Set Frame properties
+                    setTitle("Custom TextArea Layout");
+                    setSize(400, 300);
+                    setVisible(true);
+                    
+                    // Add window listener for closing the window
+                    addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent we) {
+                            dispose();
+                        }
+                    });
+                }
+            
+                public static void main(String[] args) {
+                    new CustomTextAreaLayout(); // Create the application window
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                +----------------------------------+
+                |                                  |
+                | Enter your text here...          |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                +----------------------------------+
+                
+
+         </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="awt18"> 18) PROGRAM :- Create a simple AWT application design a calculator that <br>
+             displays buttons, TextField with GridLayout manager.</h2>
+        <code> 
+            import java.awt.*;
+            import java.awt.event.*;
+            
+            public class Calculator extends Frame implements ActionListener {
+                private TextField textField;
+                private String operator;
+                private double firstNumber;
+            
+                public Calculator() {
+                    // Set up the frame
+                    setTitle("Simple Calculator");
+                    setSize(400, 400);
+                    setLayout(new GridLayout(4, 4));
+            
+                    // Create the text field
+                    textField = new TextField();
+                    textField.setEditable(false);
+                    add(textField);
+            
+                    // Create buttons
+                    String[] buttonLabels = {
+                        "7", "8", "9", "/",
+                        "4", "5", "6", "*",
+                        "1", "2", "3", "-",
+                        "0", "C", "=", "+"
+                    };
+            
+                    for (String label : buttonLabels) {
+                        Button button = new Button(label);
+                        button.addActionListener(this);
+                        add(button);
+                    }
+            
+                    // Close the frame on exit
+                    addWindowListener(new WindowAdapter() {
+                        public void windowClosing(WindowEvent we) {
+                            System.exit(0);
+                        }
+                    });
+            
+                    // Make the frame visible
+                    setVisible(true);
+                }
+            
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String command = e.getActionCommand();
+            
+                    // Handle button clicks
+                    if (command.charAt(0) >= '0' && command.charAt(0) <= '9') {
+                        // If a number is clicked, append it to the text field
+                        textField.setText(textField.getText() + command);
+                    } else if (command.equals("C")) {
+                        // Clear the text field
+                        textField.setText("");
+                    } else if (command.equals("=")) {
+                        // Calculate and display the result
+                        double secondNumber = Double.parseDouble(textField.getText());
+                        double result = performOperation(firstNumber, secondNumber, operator);
+                        textField.setText(String.valueOf(result));
+                    } else {
+                        // Store the first number and operator
+                        firstNumber = Double.parseDouble(textField.getText());
+                        operator = command;
+                        textField.setText("");
+                    }
+                }
+            
+                private double performOperation(double first, double second, String operator) {
+                    switch (operator) {
+                        case "+":
+                            return first + second;
+                        case "-":
+                            return first - second;
+                        case "*":
+                            return first * second;
+                        case "/":
+                            return first / second;
+                        default:
+                            return 0;
+                    }
+                }
+            
+                public static void main(String[] args) {
+                    new Calculator();
+                }
+            }
+            
+
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                                
+                +-----------------------------------+
+                |                                   |
+                |                                   |
+                |             [Display]            |
+                |                                   |
+                |-----------------------------------|
+                | 7 | 8 | 9 | /                     |
+                |-----------------------------------|
+                | 4 | 5 | 6 | *                     |
+                |-----------------------------------|
+                | 1 | 2 | 3 | -                     |
+                |-----------------------------------|
+                | 0 | C | = | +                     |
+                +-----------------------------------+
+                
+
+
+         </pre>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
