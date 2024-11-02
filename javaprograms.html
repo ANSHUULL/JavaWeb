@@ -70,6 +70,8 @@
         <a href="#applets">Applets</a>
         <a href="#Graphical">Graphical User Interface(AWT)</a>
         <a href="#interfaces">Interfaces</a>
+        <a href="#strings">Strings</a>
+        <a href="#oops">Object Oriented Programming</a>
     </div>
 
     <div id="Arrays">
@@ -8932,6 +8934,968 @@
 
          </pre>
     </div>
+
+
+
+
+
+    <div id="strings">
+
+        <h1 id="headingtag">Strings</h1>
+    </div>
+
+    <div class="questions">
+        <a href="#st1">Q) Program to Check if a String contains only digits?</a> <br>
+        <a href="#st2">Q) Program to perform Deep Copy for String?</a> <br>
+        <a href="#st3">Q)  Program to prove String is immutable programmatically?</a> <br>
+        <a href="#st4">Q) Program to remove all occurrences of a given character from input String?</a> <br>
+        <a href="#st5">Q) Program to append the string using StringBuffer class</a> <br>
+        <a href="#st11">Q) Program to Convert Enum to String</a> <br>
+        <a href="#st12">Q) Program to Convert String to String Array</a> <br>
+        <a href="#st13">Q) Program to count number of words in a String?</a> <br>
+        <a href="#st14">Q) Program to count the total number of characters in a string</a> <br>
+        <a href="#st15">Q) Program to count the total number of punctuation characters exists in a String</a> <br>
+        <a href="#st31">Q) Program to Get a Character From the Given String</a> <br>
+        <a href="#st32">Q) Program to Insert a string into another string</a> <br>
+        <a href="#st33">Q) Program to Iterate Over Characters in String</a> <br>
+        <a href="#st34">Q) Program to Print a New Line in String</a> <br>
+        <a href="#st35">Q) Program to Print even length words</a> <br>
+        <a href="#st46">Q) Reverse String Word by Word</a> <br>
+        <a href="#st47">Q) Write a program to check if two Strings are created with same characters?</a> <br>
+        <a href="#st48">Q) Write a program to find out first non repeated character from input String?</a> <br>
+        <a href="#st49">Q) Create an object StringBuffer class to reverse the string.</a> <br>
+        <a href="#st50">Q) Create an object StringBuffer class to show functionality of insert, append, delete and replace functions.</a> <br>
+
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="st1"> 1) PROGRAM :- Program to Check if a String contains only digits? </h2>
+        <code> 
+
+            public class DigitCheck {
+                public static boolean isNumeric(String str) {
+                    return str != null && str.matches("\\d+");
+                }
+            
+                public static void main(String[] args) {
+                    String testString1 = "123456";
+                    String testString2 = "1234a6";
+            
+                    System.out.println("Is \"" + testString1 + "\" numeric? " + isNumeric(testString1));
+                    System.out.println("Is \"" + testString2 + "\" numeric? " + isNumeric(testString2));
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Is "123456" numeric? true
+                Is "1234a6" numeric? false
+                    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st2"> 2) PROGRAM :- Program to perform Deep Copy for String? </h2>
+        <code> 
+
+            public class DeepCopyString {
+                public static void main(String[] args) {
+                    String originalString = "Hello, World!";
+                    
+                    // Performing a deep copy
+                    String copiedString = new String(originalString);
+                    
+                    // Modifying original string
+                    originalString = originalString.concat(" Modified");
+                    
+                    // Printing both strings to see if they are different
+                    System.out.println("Original String: " + originalString);
+                    System.out.println("Copied String: " + copiedString);
+            
+                    // Verifying if they are different objects
+                    System.out.println("Are they the same object? " + (originalString == copiedString));
+                }
+            }
+               
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Original String: Hello, World! Modified
+                Copied String: Hello, World!
+                Are they the same object? false
+                      
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st3"> 3) PROGRAM :-  Program to prove String is immutable programmatically? </h2>
+        <code> 
+
+            public class StringImmutability {
+                public static void main(String[] args) {
+                    // Create a string
+                    String originalString = "Hello, World!";
+                    
+                    // Attempt to modify the string
+                    String modifiedString = originalString.concat(" Modified");
+                    
+                    // Print both strings to see if the original has changed
+                    System.out.println("Original String: " + originalString);
+                    System.out.println("Modified String: " + modifiedString);
+                    
+                    // Verify if they are the same object
+                    System.out.println("Are they the same object? " + (originalString == modifiedString));
+                }
+            }
+               
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Original String: Hello, World!
+                Modified String: Hello, World! Modified
+                Are they the same object? false
+                
+                      
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st4"> 4) PROGRAM :- Program to remove all occurrences of a given <br>
+            character from input String? </h2>
+        <code> 
+
+            public class RemoveCharacter {
+                public static String removeChar(String str, char ch) {
+                    return str.replace(Character.toString(ch), "");
+                }
+            
+                public static void main(String[] args) {
+                    String inputString = "Hello, World!";
+                    char charToRemove = 'o';
+                    
+                    String resultString = removeChar(inputString, charToRemove);
+                    
+                    System.out.println("Original String: " + inputString);
+                    System.out.println("Character to Remove: " + charToRemove);
+                    System.out.println("String after Removal: " + resultString);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Original String: Hello, World!
+                Character to Remove: o
+                String after Removal: Hell, Wrld!
+                
+            </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="st5"> 5) PROGRAM :- Program to append the string using StringBuffer class </h2>
+        <code> 
+
+            public class AppendStringBuffer {
+                public static void main(String[] args) {
+                    // Initialize StringBuffer with an initial string
+                    StringBuffer sb = new StringBuffer("Hello");
+                    
+                    // Append another string to it
+                    sb.append(", World!");
+                    
+                    // Print the result
+                    System.out.println("After Append: " + sb.toString());
+                }
+            }
+               
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                After Append: Hello, World!
+
+                
+            </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="st11"> 11) PROGRAM :- Program to Convert Enum to String </h2>
+        <code> 
+
+            enum Vehicle {
+                CAR,
+                TRUCK,
+                MOTORCYCLE,
+                BICYCLE
+            }
+            
+            public class EnumToString {
+                public static void main(String[] args) {
+                    // Convert enum to String using name() method
+                    Vehicle myVehicle = Vehicle.CAR;
+                    String vehicleString = myVehicle.name();
+            
+                    // Direct conversion to String (using toString())
+                    String vehicleStringDirect = myVehicle.toString();
+            
+                    // Print the results
+                    System.out.println("Enum to String using name(): " + vehicleString);
+                    System.out.println("Enum to String using toString(): " + vehicleStringDirect);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Enum to String using name(): CAR
+                Enum to String using toString(): CAR
+                      
+    
+            </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="st12"> 12) PROGRAM :- Program to Convert String to String Array </h2>
+        <code> 
+
+            public class StringToArray {
+                public static void main(String[] args) {
+                    // Sample string to be converted
+                    String inputString = "Java,Python,C++,JavaScript";
+                    
+                    // Split the string into an array using comma as the delimiter
+                    String[] stringArray = inputString.split(",");
+            
+                    // Print the resulting string array
+                    System.out.println("String Array:");
+                    for (String str : stringArray) {
+                        System.out.println(str);
+                    }
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                String Array:
+                Java
+                Python
+                C++
+                JavaScript
+                
+                    
+    
+            </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="st13"> 13) PROGRAM :- Program to count number of words in a String? </h2>
+        <code> 
+
+            public class WordCount {
+                public static void main(String[] args) {
+                    // Sample input string
+                    String inputString = "Hello, how are you doing today?";
+                    
+                    // Split the string into words using whitespace as the delimiter
+                    String[] words = inputString.trim().split("\\s+");
+                    
+                    // Count the number of words
+                    int wordCount = words.length;
+            
+                    // Print the result
+                    System.out.println("Number of words: " + wordCount);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Number of words: 7
+
+                    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st14"> 14) PROGRAM :- Program to count the total number of characters in a string </h2>
+        <code> 
+
+            public class CharacterCount {
+                public static void main(String[] args) {
+                    // Sample input string
+                    String inputString = "Hello, World! 123";
+                    
+                    // Count the total number of characters
+                    int characterCount = inputString.length();
+            
+                    // Print the result
+                    System.out.println("Total number of characters: " + characterCount);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Total number of characters: 17
+
+            </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="st15"> 15) PROGRAM :- Program to count the total number of <br>
+             punctuation characters exists in a String </h2>
+        <code> 
+
+            public class PunctuationCount {
+                public static void main(String[] args) {
+                    // Sample input string
+                    String inputString = "Hello, World! How's it going? Are you ready to code?";
+            
+                    // Initialize a counter for punctuation characters
+                    int punctuationCount = 0;
+            
+                    // Loop through each character in the string
+                    for (char ch : inputString.toCharArray()) {
+                        // Check if the character is a punctuation character
+                        if (Character.toString(ch).matches("\\p{Punct}")) {
+                            punctuationCount++;
+                        }
+                    }
+            
+                    // Print the result
+                    System.out.println("Total number of punctuation characters: " + punctuationCount);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Total number of punctuation characters: 6
+
+
+            </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="st31"> 31) PROGRAM :- Program to Get a Character From the Given String </h2>
+        <code> 
+
+            public class GetCharacter {
+                public static void main(String[] args) {
+                    // Sample input string
+                    String inputString = "Hello, World!";
+                    
+                    // Specify the index of the character to retrieve
+                    int index = 7; // Let's get the character at index 7
+                    
+                    // Check if the index is valid
+                    if (index >= 0 && index < inputString.length()) {
+                        // Get the character at the specified index
+                        char character = inputString.charAt(index);
+                        
+                        // Print the result
+                        System.out.println("Character at index " + index + ": " + character);
+                    } else {
+                        System.out.println("Index out of bounds. Please provide a valid index.");
+                    }
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Character at index 7: W
+
+                    
+    
+            </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="st32"> 32) PROGRAM :- Program to Insert a string into another string </h2>
+        <code> 
+
+            public class InsertString {
+                public static void main(String[] args) {
+                    // Original string
+                    String originalString = "Hello, !";
+                    
+                    // String to insert
+                    String stringToInsert = "World";
+                    
+                    // Specify the index at which to insert
+                    int insertIndex = 7; // Inserting at index 7
+                    
+                    // Use StringBuilder for mutable string operations
+                    StringBuilder stringBuilder = new StringBuilder(originalString);
+                    
+                    // Insert the string at the specified index
+                    stringBuilder.insert(insertIndex, stringToInsert);
+                    
+                    // Convert StringBuilder back to String
+                    String resultString = stringBuilder.toString();
+                    
+                    // Print the result
+                    System.out.println("Original String: " + originalString);
+                    System.out.println("String to Insert: " + stringToInsert);
+                    System.out.println("Resulting String: " + resultString);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Original String: Hello, !
+                String to Insert: World
+                Resulting String: Hello, World!
+                   
+    
+            </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="st33"> 33) PROGRAM :- Program to Iterate Over Characters in String </h2>
+        <code> 
+
+            public class IterateCharacters {
+                public static void main(String[] args) {
+                    // Sample input string
+                    String inputString = "Hello, World!";
+                    
+                    // Using a for loop to iterate over characters
+                    System.out.println("Iterating using for loop:");
+                    for (int i = 0; i < inputString.length(); i++) {
+                        char character = inputString.charAt(i);
+                        System.out.println("Character at index " + i + ": " + character);
+                    }
+            
+                    // Using a for-each loop with toCharArray()
+                    System.out.println("\nIterating using for-each loop:");
+                    for (char character : inputString.toCharArray()) {
+                        System.out.println("Character: " + character);
+                    }
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Iterating using for loop:
+                Character at index 0: H
+                Character at index 1: e
+                Character at index 2: l
+                Character at index 3: l
+                Character at index 4: o
+                Character at index 5: ,
+                Character at index 6:  
+                Character at index 7: W
+                Character at index 8: o
+                Character at index 9: r
+                Character at index 10: l
+                Character at index 11: d
+                Character at index 12: !
+                
+                Iterating using for-each loop:
+                Character: H
+                Character: e
+                Character: l
+                Character: l
+                Character: o
+                Character: ,
+                Character:  
+                Character: W
+                Character: o
+                Character: r
+                Character: l
+                Character: d
+                Character: !
+                
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st34"> 34) PROGRAM :- Program to Print a New Line in String </h2>
+        <code> 
+
+            public class NewLineInString {
+                public static void main(String[] args) {
+                    // Define a string with a new line
+                    String inputString = "Hello, World!\nWelcome to Java programming.\nEnjoy coding!";
+                    
+                    // Print the string
+                    System.out.println(inputString);
+                }
+            }
+              
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Hello, World!
+                Welcome to Java programming.
+                Enjoy coding!
+                
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st35"> 35) PROGRAM :- Program to Print even length words </h2>
+        <code> 
+
+            public class EvenLengthWords {
+                public static void main(String[] args) {
+                    // Sample input string
+                    String inputString = "Hello everyone, welcome to the Java programming world!";
+                    
+                    // Split the string into words using whitespace as the delimiter
+                    String[] words = inputString.split("\\s+");
+                    
+                    // Print words with even lengths
+                    System.out.println("Words with even length:");
+                    for (String word : words) {
+                        if (word.length() % 2 == 0) {
+                            System.out.println(word);
+                        }
+                    }
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Words with even length:
+                Hello
+                to
+                the
+                Java
+                programming
+                
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st46"> 46) PROGRAM :- Reverse String Word by Word </h2>
+        <code> 
+
+            public class ReverseStringWordByWord {
+                public static void main(String[] args) {
+                    // Sample input string
+                    String inputString = "Hello World from Java";
+                    
+                    // Split the string into words using whitespace as the delimiter
+                    String[] words = inputString.split(" ");
+                    
+                    // Initialize a StringBuilder to store the reversed words
+                    StringBuilder reversedString = new StringBuilder();
+                    
+                    // Loop through the words array in reverse order
+                    for (int i = words.length - 1; i >= 0; i--) {
+                        reversedString.append(words[i]);
+                        // Append a space after each word except the last one
+                        if (i != 0) {
+                            reversedString.append(" ");
+                        }
+                    }
+                    
+                    // Print the result
+                    System.out.println("Original String: " + inputString);
+                    System.out.println("Reversed String Word by Word: " + <br>
+                    reversedString.toString());
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Original String: Hello World from Java
+                Reversed String Word by Word: Java from World Hello
+                
+                
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st47"> 47) PROGRAM :- Write a program to check if two Strings are <br>
+             created with same characters? </h2>
+        <code> 
+
+            import java.util.Arrays;
+
+            public class SameCharacters {
+                public static void main(String[] args) {
+                    // Sample input strings
+                    String str1 = "listen";
+                    String str2 = "silent";
+            
+                    // Check if both strings have the same characters
+                    boolean areSameCharacters = haveSameCharacters(str1, str2);
+            
+                    // Print the result
+                    if (areSameCharacters) {
+                        System.out.println("The strings \"" + str1 + "\" and \"" + <br>
+                         str2 + "\" have the same characters.");
+                    } else {
+                        System.out.println("The strings \"" + str1 + "\" and \"" + <br>
+                         str2 + "\" do not have the same characters.");
+                    }
+                }
+            
+                public static boolean haveSameCharacters(String str1, String str2) {
+                    // If lengths are not equal, they cannot have the same characters
+                    if (str1.length() != str2.length()) {
+                        return false;
+                    }
+            
+                    // Convert strings to character arrays
+                    char[] charArray1 = str1.toCharArray();
+                    char[] charArray2 = str2.toCharArray();
+            
+                    // Sort the character arrays
+                    Arrays.sort(charArray1);
+                    Arrays.sort(charArray2);
+            
+                    // Compare sorted arrays
+                    return Arrays.equals(charArray1, charArray2);
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                The strings "listen" and "silent" have the same characters.
+
+                
+                
+    
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st48"> 48) PROGRAM :- Write a program to find out first non <br>
+            repeated character from input String? </h2>
+        <code> 
+
+            import java.util.HashMap;
+
+            public class FirstNonRepeatedCharacter {
+                public static void main(String[] args) {
+                    // Sample input string
+                    String inputString = "swiss";
+                    
+                    // Find and print the first non-repeated character
+                    char result = findFirstNonRepeatedCharacter(inputString);
+                    if (result != '\0') {
+                        System.out.println("The first non-repeated character is: " + result);
+                    } else {
+                        System.out.println("There are no non-repeated characters.");
+                    }
+                }
+            
+                public static char findFirstNonRepeatedCharacter(String str) {
+                    // Create a HashMap to store character counts
+                    HashMap<Character, Integer> charCountMap = new HashMap<>();
+            
+                    // Count occurrences of each character
+                    for (char ch : str.toCharArray()) {
+                        charCountMap.put(ch, charCountMap.getOrDefault(ch, 0) + 1);
+                    }
+            
+                    // Find the first non-repeated character
+                    for (char ch : str.toCharArray()) {
+                        if (charCountMap.get(ch) == 1) {
+                            return ch; // Return the first non-repeated character
+                        }
+                    }
+            
+                    // If no non-repeated character is found, return null character
+                    return '\0';
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                The first non-repeated character is: w
+
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st49"> 49) PROGRAM :- Create an object StringBuffer class to reverse the string. </h2>
+        <code> 
+
+            public class ReverseStringUsingStringBuffer {
+                public static void main(String[] args) {
+                    // Sample input string
+                    String inputString = "Hello, World!";
+                    
+                    // Create a StringBuffer object with the input string
+                    StringBuffer stringBuffer = new StringBuffer(inputString);
+                    
+                    // Reverse the string using StringBuffer's reverse method
+                    stringBuffer.reverse();
+                    
+                    // Print the reversed string
+                    System.out.println("Original String: " + inputString);
+                    System.out.println("Reversed String: " + stringBuffer.toString());
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Original String: Hello, World!
+                Reversed String: !dlroW ,olleH
+                
+
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="st50"> 50) PROGRAM :- Create an object StringBuffer class to show<br>
+            functionality of insert, append, delete and replace functions. </h2>
+        <code> 
+
+            public class StringBufferExample {
+                public static void main(String[] args) {
+                    // Create a StringBuffer object with an initial string
+                    StringBuffer stringBuffer = new StringBuffer("Hello");
+            
+                    // Append a string
+                    stringBuffer.append(", World!");
+                    System.out.println("After append: " + stringBuffer.toString());
+            
+                    // Insert a string at a specified index
+                    stringBuffer.insert(5, " Beautiful");
+                    System.out.println("After insert: " + stringBuffer.toString());
+            
+                    // Replace a substring with another string
+                    stringBuffer.replace(5, 16, " Amazing");
+                    System.out.println("After replace: " + stringBuffer.toString());
+            
+                    // Delete a substring
+                    stringBuffer.delete(5, 13);
+                    System.out.println("After delete: " + stringBuffer.toString());
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                After append: Hello, World!
+                After insert: Hello Beautiful, World!
+                After replace: Hello Amazing World!
+                After delete: Hello World!
+                
+
+            </pre>
+    </div>
+
+
+
+
+
+
 
 
 
