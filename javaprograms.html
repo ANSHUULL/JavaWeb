@@ -72,6 +72,8 @@
         <a href="#interfaces">Interfaces</a>
         <a href="#strings">Strings</a>
         <a href="#oops">Object Oriented Programming</a>
+        <a href="#Inheritance">Inheritance</a>
+
     </div>
 
     <div id="Arrays">
@@ -8313,7 +8315,7 @@
     </div>
 
 
-    
+
     <div>
         <pre class="program">
                 <h2>Output:- </h2>
@@ -8947,7 +8949,7 @@
     <div class="questions">
         <a href="#st1">Q) Program to Check if a String contains only digits?</a> <br>
         <a href="#st2">Q) Program to perform Deep Copy for String?</a> <br>
-        <a href="#st3">Q)  Program to prove String is immutable programmatically?</a> <br>
+        <a href="#st3">Q) Program to prove String is immutable programmatically?</a> <br>
         <a href="#st4">Q) Program to remove all occurrences of a given character from input String?</a> <br>
         <a href="#st5">Q) Program to append the string using StringBuffer class</a> <br>
         <a href="#st11">Q) Program to Convert Enum to String</a> <br>
@@ -8964,7 +8966,8 @@
         <a href="#st47">Q) Write a program to check if two Strings are created with same characters?</a> <br>
         <a href="#st48">Q) Write a program to find out first non repeated character from input String?</a> <br>
         <a href="#st49">Q) Create an object StringBuffer class to reverse the string.</a> <br>
-        <a href="#st50">Q) Create an object StringBuffer class to show functionality of insert, append, delete and replace functions.</a> <br>
+        <a href="#st50">Q) Create an object StringBuffer class to show functionality of insert, append, delete and
+            replace functions.</a> <br>
 
     </div>
 
@@ -9890,6 +9893,1908 @@
 
             </pre>
     </div>
+
+
+
+
+    <div id="oops">
+
+        <h1 id="headingtag">Object Oriented Programming</h1>
+    </div>
+
+    <div class="questions">
+        <a href="#oop1">Q) Write a Java program to create a class called "Person" with a name and age attribute. Create
+            two instances of the "Person" class, set their attributes using the constructor, and print their name and
+            age.</a> <br>
+        <a href="#oop2">Q) Write a Java program to create a class called "Dog" with a name and breed attribute. Create
+            two instances of the "Dog" class, set their attributes using the constructor and modify the attributes using
+            the setter methods and print the updated values.</a> <br>
+        <a href="#oop3">Q) Write a Java program to create a class called "Rectangle" with width and height attributes.
+            Calculate the area and perimeter of the rectangle.</a> <br>
+        <a href="#oop4">Q) Write a Java program to create a class called "Circle" with a radius attribute. You can
+            access and modify this attribute. Calculate the area and circumference of the circle.</a> <br>
+        <a href="#oop5">Q) Write a Java program to create a class called "Book" with attributes for title, author, and
+            ISBN, and methods to add and remove books from a collection.</a> <br>
+        <a href="#oop6">Q) Write a Java program to create a class called Rectangle with private instance variables
+            length and width. Provide public getter and setter methods to access and modify these variables.</a> <br>
+        <a href="#oop7">Q) Write a Java program to create a class called Employee with private instance variables
+            employee_id, employee_name, and employee_salary. Provide public getter and setter methods to access and
+            modify the id and name variables, but provide a getter method for the salary variable that returns a
+            formatted string.</a> <br>
+        <a href="#oop8">Q) Write a Java program to create a class called Circle with a private instance variable radius.
+            Provide public getter and setter methods to access and modify the radius variable. However, provide two
+            methods called calculateArea() and calculatePerimeter() that return the calculated area and perimeter based
+            on the current radius value.</a> <br>
+        <a href="#oop9">Q) Write a Java program to create a class called Car with private instance variables
+            company_name, model_name, year, and mileage. Provide public getter and setter methods to access and modify
+            the company_name, model_name, and year variables. However, only provide a getter method for the mileage
+            variable.
+
+            Tutorial</a> <br>
+        <a href="#oop10">Q) Write a Java program to create a class called Student with private instance variables
+            student_id, student_name, and grades. Provide public getter and setter methods to access and modify the
+            student_id and student_name variables. However, provide a method called addGrade() that allows adding a
+            grade to the grades variable while performing additional validation.</a> <br>
+
+
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="oop1"> 1) PROGRAM :- Write a Java program to create a class called <br>
+            "Person" with a name and age attribute. Create two instances of <br>
+             the "Person" class, set their attributes using the <br>
+              constructor, and print their name and age. </h2>
+        <code> 
+
+            public class Person {
+                private String name;
+                private int age;
+            
+                // Constructor to initialize name and age
+                public Person(String name, int age) {
+                    this.name = name;
+                    this.age = age;
+                }
+            
+                // Method to display the person's details
+                public void display() {
+                    System.out.println("Name: " + name + ", Age: " + age);
+                }
+            
+                public static void main(String[] args) {
+                    // Creating two instances of the Person class
+                    Person person1 = new Person("Alice", 25);
+                    Person person2 = new Person("Bob", 30);
+            
+                    // Displaying the details of each person
+                    person1.display();
+                    person2.display();
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Name: Alice, Age: 25
+                Name: Bob, Age: 30
+                      
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="oop2"> 2) PROGRAM :- Write a Java program to create a class called <br>
+             "Dog" with a name and breed attribute. Create two instances of <br>
+              the "Dog" class, set their attributes using the <br>
+              constructor and modify the attributes using the <br>
+               setter methods and print the updated values. </h2>
+        <code> 
+
+            public class Dog {
+                private String name;
+                private String breed;
+            
+                // Constructor to initialize name and breed
+                public Dog(String name, String breed) {
+                    this.name = name;
+                    this.breed = breed;
+                }
+            
+                // Getter for name
+                public String getName() {
+                    return name;
+                }
+            
+                // Setter for name
+                public void setName(String name) {
+                    this.name = name;
+                }
+            
+                // Getter for breed
+                public String getBreed() {
+                    return breed;
+                }
+            
+                // Setter for breed
+                public void setBreed(String breed) {
+                    this.breed = breed;
+                }
+            
+                // Method to display the dog's details
+                public void display() {
+                    System.out.println("Name: " + name + ", Breed: " + breed);
+                }
+            
+                public static void main(String[] args) {
+                    // Creating two instances of the Dog class
+                    Dog dog1 = new Dog("Buddy", "Golden Retriever");
+                    Dog dog2 = new Dog("Max", "Beagle");
+            
+                    // Displaying the initial details of each dog
+                    System.out.println("Initial details:");
+                    dog1.display();
+                    dog2.display();
+            
+                    // Modifying the attributes using setter methods
+                    dog1.setName("Charlie");
+                    dog1.setBreed("Labrador");
+                    
+                    dog2.setName("Rocky");
+                    dog2.setBreed("German Shepherd");
+            
+                    // Displaying the updated details of each dog
+                    System.out.println("\nUpdated details:");
+                    dog1.display();
+                    dog2.display();
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                Initial details:
+                Name: Buddy, Breed: Golden Retriever
+                Name: Max, Breed: Beagle
+                
+                Updated details:
+                Name: Charlie, Breed: Labrador
+                Name: Rocky, Breed: German Shepherd
+                
+    
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="oop3"> 3) PROGRAM :- Write a Java program to create a class called "Rectangle" <br>
+            with width and height attributes. Calculate the area and perimeter <br> 
+            of the rectangle. </h2>
+        <code> 
+
+            public class Rectangle {
+                private double width;
+                private double height;
+            
+                // Constructor to initialize width and height
+                public Rectangle(double width, double height) {
+                    this.width = width;
+                    this.height = height;
+                }
+            
+                // Method to calculate the area of the rectangle
+                public double calculateArea() {
+                    return width * height;
+                }
+            
+                // Method to calculate the perimeter of the rectangle
+                public double calculatePerimeter() {
+                    return 2 * (width + height);
+                }
+            
+                public static void main(String[] args) {
+                    // Creating an instance of the Rectangle class
+                    Rectangle rectangle = new Rectangle(5.0, 3.0);
+            
+                    // Calculating and displaying the area and perimeter
+                    System.out.println("Width: " + rectangle.width + ", Height: " + rectangle.height);
+                    System.out.println("Area: " + rectangle.calculateArea());
+                    System.out.println("Perimeter: " + rectangle.calculatePerimeter());
+                }
+            }
+            
+
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Width: 5.0, Height: 3.0
+                Area: 15.0
+                Perimeter: 16.0
+                
+                
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="oop4"> 4) PROGRAM :- Write a Java program to create a class called "Circle" <br>
+            with a radius attribute. You can access and modify this attribute. <br>
+             Calculate the area and circumference of the circle.</h2>
+        <code> 
+
+            public class Circle {
+                private double radius;
+            
+                // Constructor to initialize radius
+                public Circle(double radius) {
+                    this.radius = radius;
+                }
+            
+                // Getter for radius
+                public double getRadius() {
+                    return radius;
+                }
+            
+                // Setter for radius
+                public void setRadius(double radius) {
+                    this.radius = radius;
+                }
+            
+                // Method to calculate the area of the circle
+                public double calculateArea() {
+                    return Math.PI * radius * radius;
+                }
+            
+                // Method to calculate the circumference of the circle
+                public double calculateCircumference() {
+                    return 2 * Math.PI * radius;
+                }
+            
+                public static void main(String[] args) {
+                    // Creating an instance of the Circle class
+                    Circle circle = new Circle(5.0);
+            
+                    // Displaying the initial radius, area, and circumference
+                    System.out.println("Initial radius: " + circle.getRadius());
+                    System.out.println("Area: " + circle.calculateArea());
+                    System.out.println("Circumference: " + circle.calculateCircumference());
+            
+                    // Modifying the radius
+                    circle.setRadius(7.0);
+            
+                    // Displaying the updated radius, area, and circumference
+                    System.out.println("\nUpdated radius: " + circle.getRadius());
+                    System.out.println("Area: " + circle.calculateArea());
+                    System.out.println("Circumference: " + circle.calculateCircumference());
+                }
+            }
+            
+
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Initial radius: 5.0
+                Area: 78.53981633974483
+                Circumference: 31.41592653589793
+                
+                Updated radius: 7.0
+                Area: 153.93804002589985
+                Circumference: 43.982297150257104
+                
+
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="oop5"> 5) PROGRAM :- Write a Java program to create a class called <br>
+            "Book" with attributes for title, author, and ISBN, and methods to <br>
+            add and remove books from a collection.</h2>
+        <code> 
+
+            import java.util.ArrayList;
+
+            public class Book {
+                private String title;
+                private String author;
+                private String isbn;
+            
+                // Constructor to initialize title, author, and ISBN
+                public Book(String title, String author, String isbn) {
+                    this.title = title;
+                    this.author = author;
+                    this.isbn = isbn;
+                }
+            
+                // Getter for title
+                public String getTitle() {
+                    return title;
+                }
+            
+                // Getter for author
+                public String getAuthor() {
+                    return author;
+                }
+            
+                // Getter for ISBN
+                public String getIsbn() {
+                    return isbn;
+                }
+            
+                // Method to display book details
+                public void display() {
+                    System.out.println("Title: " + title + ", Author: " + author + ", ISBN: " + isbn);
+                }
+            
+                public static void main(String[] args) {
+                    // Collection to store books
+                    ArrayList<Book> bookCollection = new ArrayList<>();
+            
+                    // Adding books to the collection
+                    addBook(bookCollection, new Book("1984", "George Orwell", "1234567890"));
+                    addBook(bookCollection, new Book("To Kill a Mockingbird", "Harper Lee", "2345678901"));
+                    addBook(bookCollection, new Book("The Great Gatsby", "F. Scott Fitzgerald", "3456789012"));
+            
+                    // Displaying all books
+                    System.out.println("Books in collection:");
+                    displayBooks(bookCollection);
+            
+                    // Removing a book by ISBN
+                    removeBookByIsbn(bookCollection, "2345678901");
+            
+                    // Displaying books after removal
+                    System.out.println("\nBooks in collection after removal:");
+                    displayBooks(bookCollection);
+                }
+            
+                // Method to add a book to the collection
+                public static void addBook(ArrayList<Book> collection, Book book) {
+                    collection.add(book);
+                    System.out.println("Added book: " + book.getTitle());
+                }
+            
+                // Method to remove a book from the collection by ISBN
+                public static void removeBookByIsbn(ArrayList<Book> collection, String isbn) {
+                    boolean removed = false;
+                    for (Book book : collection) {
+                        if (book.getIsbn().equals(isbn)) {
+                            collection.remove(book);
+                            System.out.println("Removed book: " + book.getTitle());
+                            removed = true;
+                            break;
+                        }
+                    }
+                    if (!removed) {
+                        System.out.println("Book with ISBN " + isbn + " not found.");
+                    }
+                }
+            
+                // Method to display all books in the collection
+                public static void displayBooks(ArrayList<Book> collection) {
+                    for (Book book : collection) {
+                        book.display();
+                    }
+                }
+            }
+            
+
+
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Added book: 1984
+                Added book: To Kill a Mockingbird
+                Added book: The Great Gatsby
+                
+                Books in collection:
+                Title: 1984, Author: George Orwell, ISBN: 1234567890
+                Title: To Kill a Mockingbird, Author: Harper Lee, ISBN: 2345678901
+                Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 3456789012
+                
+                Removed book: To Kill a Mockingbird
+                
+                Books in collection after removal:
+                Title: 1984, Author: George Orwell, ISBN: 1234567890
+                Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 3456789012
+                
+
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="oop6"> 6) PROGRAM :- Write a Java program to create a class called <br>
+             Rectangle with private instance variables length and width. <br>
+             Provide public getter and setter methods to access and <br>
+             modify these variables. </h2>
+        <code> 
+
+            public class Rectangle {
+                // Private instance variables
+                private double length;
+                private double width;
+            
+                // Constructor
+                public Rectangle(double length, double width) {
+                    this.length = length;
+                    this.width = width;
+                }
+            
+                // Getter method for length
+                public double getLength() {
+                    return length;
+                }
+            
+                // Setter method for length
+                public void setLength(double length) {
+                    if (length > 0) {
+                        this.length = length;
+                    } else {
+                        System.out.println("Length must be positive.");
+                    }
+                }
+            
+                // Getter method for width
+                public double getWidth() {
+                    return width;
+                }
+            
+                // Setter method for width
+                public void setWidth(double width) {
+                    if (width > 0) {
+                        this.width = width;
+                    } else {
+                        System.out.println("Width must be positive.");
+                    }
+                }
+            
+                // Method to calculate area
+                public double calculateArea() {
+                    return length * width;
+                }
+            
+                // Method to calculate perimeter
+                public double calculatePerimeter() {
+                    return 2 * (length + width);
+                }
+            
+                // Main method to test the Rectangle class
+                public static void main(String[] args) {
+                    // Create a Rectangle object
+                    Rectangle rectangle = new Rectangle(5.0, 3.0);
+                    
+                    // Display initial length, width, area, and perimeter
+                    System.out.println("Initial Length: " + rectangle.getLength());
+                    System.out.println("Initial Width: " + rectangle.getWidth());
+                    System.out.println("Initial Area: " + rectangle.calculateArea());
+                    System.out.println("Initial Perimeter: " + rectangle.calculatePerimeter());
+            
+                    // Modify the length and width using setter methods
+                    rectangle.setLength(10.0);
+                    rectangle.setWidth(4.0);
+            
+                    // Display updated length, width, area, and perimeter
+                    System.out.println("Updated Length: " + rectangle.getLength());
+                    System.out.println("Updated Width: " + rectangle.getWidth());
+                    System.out.println("Updated Area: " + rectangle.calculateArea());
+                    System.out.println("Updated Perimeter: " + rectangle.calculatePerimeter());
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Initial Length: 5.0
+                Initial Width: 3.0
+                Initial Area: 15.0
+                Initial Perimeter: 16.0
+                Updated Length: 10.0
+                Updated Width: 4.0
+                Updated Area: 40.0
+                Updated Perimeter: 28.0
+                
+    
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="oop7"> 7) PROGRAM :- Write a Java program to create a class called <br>
+             Employee with private instance variables employee_id, <br>
+             employee_name, and employee_salary. Provide public <br>
+             getter and setter methods to access and modify the <br>
+              id and name variables, but provide a getter method <br>
+              for the salary variable that returns a formatted string. </h2>
+        <code> 
+
+            import java.text.DecimalFormat;
+
+            public class Employee {
+                // Private instance variables
+                private int employee_id;
+                private String employee_name;
+                private double employee_salary;
+            
+                // Constructor
+                public Employee(int id, String name, double salary) {
+                    this.employee_id = id;
+                    this.employee_name = name;
+                    this.employee_salary = salary;
+                }
+            
+                // Getter method for employee_id
+                public int getEmployeeId() {
+                    return employee_id;
+                }
+            
+                // Setter method for employee_id
+                public void setEmployeeId(int id) {
+                    this.employee_id = id;
+                }
+            
+                // Getter method for employee_name
+                public String getEmployeeName() {
+                    return employee_name;
+                }
+            
+                // Setter method for employee_name
+                public void setEmployeeName(String name) {
+                    this.employee_name = name;
+                }
+            
+                // Getter method for employee_salary (returns formatted string)
+                public String getEmployeeSalary() {
+                    DecimalFormat df = new DecimalFormat("#,##0.00");
+                    return "$" + df.format(employee_salary);
+                }
+            
+                // Main method to test the Employee class
+                public static void main(String[] args) {
+                    // Create an Employee object
+                    Employee employee = new Employee(101, "John Doe", 75000.50);
+                    
+                    // Display initial employee details
+                    System.out.println("Employee ID: " + employee.getEmployeeId());
+                    System.out.println("Employee Name: " + employee.getEmployeeName());
+                    System.out.println("Employee Salary: " + employee.getEmployeeSalary());
+            
+                    // Modify employee details using setter methods
+                    employee.setEmployeeId(102);
+                    employee.setEmployeeName("Jane Smith");
+            
+                    // Display updated employee details
+                    System.out.println("\nUpdated Employee ID: " + employee.getEmployeeId());
+                    System.out.println("Updated Employee Name: " + employee.getEmployeeName());
+                    System.out.println("Updated Employee Salary: " + employee.getEmployeeSalary());
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Employee ID: 101
+                Employee Name: John Doe
+                Employee Salary: $75,000.50
+                
+                Updated Employee ID: 102
+                Updated Employee Name: Jane Smith
+                Updated Employee Salary: $75,000.50
+                
+    
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="oop8"> 8) PROGRAM :- Write a Java program to create a class called <br>
+             Circle with a private instance variable radius. Provide public <br>
+              getter  and setter methods to access and modify the radius <br>
+              variable. However, provide two methods called calculateArea() <br>
+              and calculatePerimeter() that return the calculated area and <br>
+              perimeter based on the current radius value. </h2>
+        <code> 
+
+            public class Circle {
+                // Private instance variable
+                private double radius;
+            
+                // Constructor
+                public Circle(double radius) {
+                    this.radius = radius;
+                }
+            
+                // Getter method for radius
+                public double getRadius() {
+                    return radius;
+                }
+            
+                // Setter method for radius
+                public void setRadius(double radius) {
+                    if (radius > 0) {
+                        this.radius = radius;
+                    } else {
+                        System.out.println("Radius must be positive.");
+                    }
+                }
+            
+                // Method to calculate area
+                public double calculateArea() {
+                    return Math.PI * radius * radius;
+                }
+            
+                // Method to calculate perimeter (circumference)
+                public double calculatePerimeter() {
+                    return 2 * Math.PI * radius;
+                }
+            
+                // Main method to test the Circle class
+                public static void main(String[] args) {
+                    // Create a Circle object
+                    Circle circle = new Circle(5.0);
+                    
+                    // Display initial radius, area, and perimeter
+                    System.out.println("Initial Radius: " + circle.getRadius());
+                    System.out.println("Initial Area: " + circle.calculateArea());
+                    System.out.println("Initial Perimeter: " + circle.calculatePerimeter());
+            
+                    // Modify the radius using setter method
+                    circle.setRadius(10.0);
+            
+                    // Display updated radius, area, and perimeter
+                    System.out.println("\nUpdated Radius: " + circle.getRadius());
+                    System.out.println("Updated Area: " + circle.calculateArea());
+                    System.out.println("Updated Perimeter: " + circle.calculatePerimeter());
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Initial Radius: 5.0
+                Initial Area: 78.53981633974483
+                Initial Perimeter: 31.41592653589793
+                
+                Updated Radius: 10.0
+                Updated Area: 314.1592653589793
+                Updated Perimeter: 62.83185307179586
+                
+                
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="oop9"> 9) PROGRAM :- Write a Java program to create a class called <Br>
+             Car with private instance variables company_name, model_name, year, <br>
+             and mileage. Provide public getter and setter methods to access and <br>
+              modify the company_name, model_name, and year variables. However, <br>
+               only provide a getter method for the mileage variable. </h2>
+        <code> 
+
+            public class Car {
+                // Private instance variables
+                private String company_name;
+                private String model_name;
+                private int year;
+                private double mileage;
+            
+                // Constructor
+                public Car(String company_name, String model_name, int year, double mileage) {
+                    this.company_name = company_name;
+                    this.model_name = model_name;
+                    this.year = year;
+                    this.mileage = mileage;
+                }
+            
+                // Getter method for company_name
+                public String getCompanyName() {
+                    return company_name;
+                }
+            
+                // Setter method for company_name
+                public void setCompanyName(String company_name) {
+                    this.company_name = company_name;
+                }
+            
+                // Getter method for model_name
+                public String getModelName() {
+                    return model_name;
+                }
+            
+                // Setter method for model_name
+                public void setModelName(String model_name) {
+                    this.model_name = model_name;
+                }
+            
+                // Getter method for year
+                public int getYear() {
+                    return year;
+                }
+            
+                // Setter method for year
+                public void setYear(int year) {
+                    if (year > 1885) { // Cars were invented after 1885
+                        this.year = year;
+                    } else {
+                        System.out.println("Year must be greater than 1885.");
+                    }
+                }
+            
+                // Getter method for mileage (no setter provided)
+                public double getMileage() {
+                    return mileage;
+                }
+            
+                // Main method to test the Car class
+                public static void main(String[] args) {
+                    // Create a Car object
+                    Car car = new Car("Toyota", "Camry", 2020, 25000.75);
+                    
+                    // Display initial car details
+                    System.out.println("Company Name: " + car.getCompanyName());
+                    System.out.println("Model Name: " + car.getModelName());
+                    System.out.println("Year: " + car.getYear());
+                    System.out.println("Mileage: " + car.getMileage());
+            
+                    // Modify car details using setter methods
+                    car.setCompanyName("Honda");
+                    car.setModelName("Accord");
+                    car.setYear(2021);
+            
+                    // Display updated car details
+                    System.out.println("\nUpdated Company Name: " + car.getCompanyName());
+                    System.out.println("Updated Model Name: " + car.getModelName());
+                    System.out.println("Updated Year: " + car.getYear());
+                    System.out.println("Mileage (unchanged): " + car.getMileage());
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Company Name: Toyota
+                Model Name: Camry
+                Year: 2020
+                Mileage: 25000.75
+                
+                Updated Company Name: Honda
+                Updated Model Name: Accord
+                Updated Year: 2021
+                Mileage (unchanged): 25000.75
+                
+                
+                
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="oop10"> 10) PROGRAM :- Write a Java program to create a class called <br>
+             Student with private instance variables student_id, student_name,<br>
+              and grades. Provide public getter and setter methods to access <br>
+              and modify the student_id and student_name variables. However, <br>
+               provide a method called addGrade() that allows adding a grade <br>
+               to the grades variable while performing additional validation. </h2>
+        <code> 
+
+            import java.util.ArrayList;
+            import java.util.List;
+            
+            public class Student {
+                // Private instance variables
+                private int student_id;
+                private String student_name;
+                private List<Double> grades;
+            
+                // Constructor
+                public Student(int student_id, String student_name) {
+                    this.student_id = student_id;
+                    this.student_name = student_name;
+                    this.grades = new ArrayList<>();
+                }
+            
+                // Getter method for student_id
+                public int getStudentId() {
+                    return student_id;
+                }
+            
+                // Setter method for student_id
+                public void setStudentId(int student_id) {
+                    this.student_id = student_id;
+                }
+            
+                // Getter method for student_name
+                public String getStudentName() {
+                    return student_name;
+                }
+            
+                // Setter method for student_name
+                public void setStudentName(String student_name) {
+                    this.student_name = student_name;
+                }
+            
+                // Method to add a grade with validation
+                public void addGrade(double grade) {
+                    if (grade >= 0 && grade <= 100) {
+                        grades.add(grade);
+                        System.out.println("Grade " + grade + " added successfully.");
+                    } else {
+                        System.out.println("Invalid grade. Please enter a grade between 0 and 100.");
+                    }
+                }
+            
+                // Method to get all grades
+                public List<Double> getGrades() {
+                    return grades;
+                }
+            
+                // Main method to test the Student class
+                public static void main(String[] args) {
+                    // Create a Student object
+                    Student student = new Student(1, "Alice Johnson");
+            
+                    // Display initial student details
+                    System.out.println("Student ID: " + student.getStudentId());
+                    System.out.println("Student Name: " + student.getStudentName());
+            
+                    // Add grades to the student
+                    student.addGrade(95.5); // Valid grade
+                    student.addGrade(88.0); // Valid grade
+                    student.addGrade(105.0); // Invalid grade
+                    student.addGrade(-3.0); // Invalid grade
+            
+                    // Display all grades
+                    System.out.println("\nGrades: " + student.getGrades());
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+   
+                Student ID: 1
+                Student Name: Alice Johnson
+                Grade 95.5 added successfully.
+                Grade 88.0 added successfully.
+                Invalid grade. Please enter a grade between 0 and 100.
+                Invalid grade. Please enter a grade between 0 and 100.
+                
+                Grades: [95.5, 88.0]
+                
+                
+                
+                
+    
+            </pre>
+    </div>
+
+
+
+    <div id="Inheritance">
+
+        <h1 id="headingtag">Inheritance</h1>
+    </div>
+
+    <div class="questions">
+        <a href="#in1">Q) Write a Java program to create a class called Animal with a method called makeSound(). Create
+            a subclass called Cat that overrides the makeSound() method to bark.</a> <br>
+        <a href="#in2">Q) Write a Java program to create a class called Vehicle with a method called drive(). Create a
+            subclass called Car that overrides the drive() method to print "Repairing a car".</a> <br>
+        <a href="#in3">Q) Write a Java program to create a class called Shape with a method called getArea(). Create a
+            subclass called Rectangle that overrides the getArea() method to calculate the area of a rectangle.</a> <br>
+        <a href="#in4">Q) Write a Java program to create a class called Employee with methods called work() and
+            getSalary(). Create a subclass called HRManager that overrides the work() method and adds a new method
+            called addEmployee().</a> <br>
+        <a href="#in5">Q) Write a Java program to create a class known as "BankAccount" with methods called deposit()
+            and withdraw(). Create a subclass called SavingsAccount that overrides the withdraw() method to prevent
+            withdrawals if the account balance falls below one hundred.</a> <br>
+        <a href="#in6">Q) Write a Java program to create an abstract class Person with abstract methods eat() and
+            exercise(). Create subclasses Athlete and LazyPerson that extend the Person class and implement the
+            respective methods to describe how each person eats and exercises.</a> <br>
+        <a href="#in7">Q) Write a Java program to create an abstract class Instrument with abstract methods play() and
+            tune(). Create subclasses for Glockenspiel and Violin that extend the Instrument class and implement the
+            respective methods to play and tune each instrument.</a> <br>
+        <a href="#in8">Q) Write a Java program to create an abstract class Shape2D with abstract methods draw() and
+            resize(). Create subclasses Rectangle and Circle that extend the Shape2D class and implement the respective
+            methods to draw and resize each shape.</a> <br>
+        <a href="#in9">Q) Write a Java program to create an abstract class Bird with abstract methods fly() and
+            makeSound(). Create subclasses Eagle and Hawk that extend the Bird class and implement the respective
+            methods to describe how each bird flies and makes a sound.</a> <br>
+        <a href="#in10">Q) Write a Java program to create an abstract class GeometricShape with abstract methods area()
+            and perimeter(). Create subclasses Triangle and Square that extend the GeometricShape class and implement
+            the respective methods to calculate the area and perimeter of each shape </a> <br>
+
+
+
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="in1"> 1) PROGRAM :- Write a Java program to create a class called <br>
+             Animal with a method called makeSound(). Create a subclass called <br>
+             Cat that overrides the makeSound() method to bark:- </h2>
+        <code> 
+
+            // Superclass
+            class Animal {
+                // Method to be overridden
+                public void makeSound() {
+                    System.out.println("The animal makes a sound.");
+                }
+            }
+            
+            // Subclass
+            class Cat extends Animal {
+                // Override makeSound method
+                @Override
+                public void makeSound() {
+                    System.out.println("Meow");
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create an Animal object
+                    Animal myAnimal = new Animal();
+                    myAnimal.makeSound(); // Output from Animal class
+            
+                    // Create a Cat object
+                    Cat myCat = new Cat();
+                    myCat.makeSound(); // Output from Cat class (overridden method)
+                }
+            }
+            
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                The animal makes a sound.
+                Meow
+                  
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="in2"> 2) PROGRAM :- Write a Java program to create a class called <br>
+            Vehicle with a method called drive(). Create a subclass called Car <br>
+             that overrides the drive() method to print "Repairing a car":- </h2>
+        <code>
+
+            // Superclass
+            class Vehicle {
+                // Method to be overridden
+                public void drive() {
+                    System.out.println("The vehicle is being driven.");
+                }
+            }
+            
+            // Subclass
+            class Car extends Vehicle {
+                // Override drive method
+                @Override
+                public void drive() {
+                    System.out.println("Repairing a car");
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create a Vehicle object
+                    Vehicle myVehicle = new Vehicle();
+                    myVehicle.drive(); // Output from Vehicle class
+            
+                    // Create a Car object
+                    Car myCar = new Car();
+                    myCar.drive(); // Output from Car class (overridden method)
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                The vehicle is being driven.
+                Repairing a car
+                
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="in3"> 3) PROGRAM :- Write a Java program to create a class called <br>
+            Shape with a method called getArea(). Create a subclass called <br>
+            Rectangle that overrides the getArea() method to calculate the <br>
+            area of a rectangle:- </h2>
+        <code>
+
+            // Superclass
+            class Shape {
+                // Method to be overridden
+                public double getArea() {
+                    System.out.println("Calculating area for a generic shape.");
+                    return 0;
+                }
+            }
+            
+            // Subclass
+            class Rectangle extends Shape {
+                // Private instance variables for length and width
+                private double length;
+                private double width;
+            
+                // Constructor
+                public Rectangle(double length, double width) {
+                    this.length = length;
+                    this.width = width;
+                }
+            
+                // Override getArea method to calculate area of a rectangle
+                @Override
+                public double getArea() {
+                    return length * width;
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create a Shape object
+                    Shape genericShape = new Shape();
+                    System.out.println("Area of generic shape: " + genericShape.getArea());
+            
+                    // Create a Rectangle object with length 5 and width 3
+                    Rectangle rectangle = new Rectangle(5, 3);
+                    System.out.println("Area of rectangle: " + rectangle.getArea());
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Calculating area for a generic shape.
+                Area of generic shape: 0.0
+                Area of rectangle: 15.0
+                
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="in4"> 4) PROGRAM :- Write a Java program to create a class called <br>
+            Employee with methods called work() and getSalary(). Create a <br>
+            subclass called HRManager that overrides the work() method and <br>
+                adds a new method called addEmployee():- </h2>
+        <code>
+
+            // Superclass
+            class Employee {
+                // Method to simulate work
+                public void work() {
+                    System.out.println("Employee is working.");
+                }
+            
+                // Method to get salary
+                public double getSalary() {
+                    return 50000; // Base salary for a generic employee
+                }
+            }
+            
+            // Subclass
+            class HRManager extends Employee {
+                // Override work method
+                @Override
+                public void work() {
+                    System.out.println("HR Manager is managing employee relations and recruitment.");
+                }
+            
+                // New method to add an employee
+                public void addEmployee(String employeeName) {
+                    System.out.println("Adding new employee: " + employeeName);
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create an Employee object
+                    Employee genericEmployee = new Employee();
+                    genericEmployee.work(); // Output from Employee class
+                    System.out.println("Generic Employee Salary: $" + genericEmployee.getSalary());
+            
+                    // Create an HRManager object
+                    HRManager hrManager = new HRManager();
+                    hrManager.work(); // Output from HRManager class (overridden method)
+                    hrManager.addEmployee("Alice Johnson"); // Adding an employee
+                    System.out.println("HR Manager Salary: $" + hrManager.getSalary());
+                }
+            }
+            
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Employee is working.
+                Generic Employee Salary: $50000.0
+                HR Manager is managing employee relations and recruitment.
+                Adding new employee: Alice Johnson
+                HR Manager Salary: $50000.0
+                
+    
+    
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="in5"> 5) PROGRAM :- Write a Java program to create a class known <br>
+             as "BankAccount" with methods called deposit() and withdraw(). <br>
+             Create a subclass called SavingsAccount that overrides the <br>
+             withdraw() method to prevent withdrawals if the account <br>
+              balance falls below one hundred:- </h2>
+        <code>
+
+            // Superclass
+            class BankAccount {
+                // Private instance variable for balance
+                protected double balance;
+            
+                // Constructor
+                public BankAccount(double initialBalance) {
+                    balance = initialBalance;
+                }
+            
+                // Method to deposit money
+                public void deposit(double amount) {
+                    if (amount > 0) {
+                        balance += amount;
+                        System.out.println("Deposited: $" + amount);
+                    } else {
+                        System.out.println("Invalid deposit amount.");
+                    }
+                    System.out.println("Current balance: $" + balance);
+                }
+            
+                // Method to withdraw money
+                public void withdraw(double amount) {
+                    if (amount > 0 && amount <= balance) {
+                        balance -= amount;
+                        System.out.println("Withdrew: $" + amount);
+                    } else {
+                        System.out.println("Invalid or insufficient funds for withdrawal.");
+                    }
+                    System.out.println("Current balance: $" + balance);
+                }
+            
+                // Method to get the balance
+                public double getBalance() {
+                    return balance;
+                }
+            }
+            
+            // Subclass
+            class SavingsAccount extends BankAccount {
+                // Minimum balance required for a withdrawal
+                private static final double MIN_BALANCE = 100.0;
+            
+                // Constructor
+                public SavingsAccount(double initialBalance) {
+                    super(initialBalance);
+                }
+            
+                // Override withdraw method
+                @Override
+                public void withdraw(double amount) {
+                    if (balance - amount >= MIN_BALANCE) {
+                        super.withdraw(amount);
+                    } else {
+                        System.out.println("Withdrawal denied. Balance cannot fall below $" + MIN_BALANCE);
+                    }
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create a BankAccount object
+                    BankAccount basicAccount = new BankAccount(500);
+                    System.out.println("Bank Account Balance: $" + basicAccount.getBalance());
+                    basicAccount.deposit(150);
+                    basicAccount.withdraw(100);
+                    
+                    System.out.println("\n--- Savings Account ---");
+                    
+                    // Create a SavingsAccount object
+                    SavingsAccount savingsAccount = new SavingsAccount(500);
+                    System.out.println("Savings Account Balance: $" + savingsAccount.getBalance());
+                    
+                    savingsAccount.deposit(200);
+                    savingsAccount.withdraw(550); // Attempt to withdraw to fall below minimum balance
+                    savingsAccount.withdraw(400); // Valid withdrawal
+                }
+            }
+            
+
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Bank Account Balance: $500.0
+                Deposited: $150.0
+                Current balance: $650.0
+                Withdrew: $100.0
+                Current balance: $550.0
+                
+                --- Savings Account ---
+                Savings Account Balance: $500.0
+                Deposited: $200.0
+                Current balance: $700.0
+                Withdrawal denied. Balance cannot fall below $100.0
+                Withdrew: $400.0
+                Current balance: $300.0
+                
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="in6"> 6) PROGRAM :-  Write a Java program to create an <br>
+            abstract class Person with abstract methods eat() and <br>
+             exercise(). Create subclasses Athlete and LazyPerson <br>
+              that extend the Person class and implement the <br>
+               respective methods to describe how each person  <br>
+               eats and exercises:- </h2>
+        <code>
+
+            // Abstract class
+            abstract class Person {
+                // Abstract methods
+                public abstract void eat();
+                public abstract void exercise();
+            }
+            
+            // Subclass representing an Athlete
+            class Athlete extends Person {
+                // Implementation of eat method for Athlete
+                @Override
+                public void eat() {
+                    System.out.println("Athlete eats a balanced diet rich in <br>
+                     proteins and carbohydrates.");
+                }
+            
+                // Implementation of exercise method for Athlete
+                @Override
+                public void exercise() {
+                    System.out.println("Athlete trains rigorously, focusing on <br>
+                    strength and endurance.");
+                }
+            }
+            
+            // Subclass representing a LazyPerson
+            class LazyPerson extends Person {
+                // Implementation of eat method for LazyPerson
+                @Override
+                public void eat() {
+                    System.out.println("Lazy person prefers fast food and snacks <br>
+                     while lounging.");
+                }
+            
+                // Implementation of exercise method for LazyPerson
+                @Override
+                public void exercise() {
+                    System.out.println("Lazy person rarely exercises and prefers to <br>
+                     relax on the couch.");
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create an Athlete object
+                    Person athlete = new Athlete();
+                    System.out.println("Athlete:");
+                    athlete.eat();
+                    athlete.exercise();
+            
+                    System.out.println();
+            
+                    // Create a LazyPerson object
+                    Person lazyPerson = new LazyPerson();
+                    System.out.println("Lazy Person:");
+                    lazyPerson.eat();
+                    lazyPerson.exercise();
+                }
+            }
+                  
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Athlete:
+                Athlete eats a balanced diet rich in proteins and carbohydrates.
+                Athlete trains rigorously, focusing on strength and endurance.
+                
+                Lazy Person:
+                Lazy person prefers fast food and snacks while lounging.
+                Lazy person rarely exercises and prefers to relax on the couch.
+                
+                
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="in7"> 7) PROGRAM :-  Write a Java program to create an <br>
+            abstract class Instrument with abstract methods play() <br> 
+            and tune(). Create subclasses   for Glockenspiel and <br>
+             Violin that extend the Instrument class and <br>
+              implement the respective methods to play and <br>
+              tune each instrument:- </h2>
+        <code>
+
+            // Abstract class
+            abstract class Instrument {
+                // Abstract methods
+                public abstract void play();
+                public abstract void tune();
+            }
+            
+            // Subclass for Glockenspiel
+            class Glockenspiel extends Instrument {
+                // Implementation of play method for Glockenspiel
+                @Override
+                public void play() {
+                    System.out.println("Glockenspiel plays a cheerful melody.");
+                }
+            
+                // Implementation of tune method for Glockenspiel
+                @Override
+                public void tune() {
+                    System.out.println("Glockenspiel is tuned using a tuning fork to <br>
+                     ensure each note resonates perfectly.");
+                }
+            }
+            
+            // Subclass for Violin
+            class Violin extends Instrument {
+                // Implementation of play method for Violin
+                @Override
+                public void play() {
+                    System.out.println("Violin plays a beautiful and expressive piece.");
+                }
+            
+                // Implementation of tune method for Violin
+                @Override
+                public void tune() {
+                    System.out.println("Violin is tuned by adjusting the pegs and fine <br>
+                     tuners to get the right pitch.");
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create a Glockenspiel object
+                    Instrument glockenspiel = new Glockenspiel();
+                    System.out.println("Glockenspiel:");
+                    glockenspiel.tune();
+                    glockenspiel.play();
+            
+                    System.out.println();
+            
+                    // Create a Violin object
+                    Instrument violin = new Violin();
+                    System.out.println("Violin:");
+                    violin.tune();
+                    violin.play();
+                }
+            }
+            
+
+                  
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Glockenspiel:
+                Glockenspiel is tuned using a tuning fork to ensure each note  <br>
+                resonates perfectly.
+                Glockenspiel plays a cheerful melody.
+                
+                Violin:
+                Violin is tuned by adjusting the pegs and fine tuners to get the <br>
+                 right pitch.
+                Violin plays a beautiful and expressive piece.
+                
+                
+                
+    
+    
+            </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="in8"> 8) PROGRAM :-  Write a Java program to create an <br>
+            abstract class Shape2D with abstract methods draw() and <br> 
+            resize(). Create subclasses  Rectangle and Circle that <br>
+            extend the Shape2D class and implement the respective <br>
+            methods to draw and resize each shape.:- </h2>
+        <code>
+
+            // Abstract class
+            abstract class Shape2D {
+                // Abstract methods
+                public abstract void draw();
+                public abstract void resize(double factor);
+            }
+            
+            // Subclass for Rectangle
+            class Rectangle extends Shape2D {
+                private double width;
+                private double height;
+            
+                // Constructor
+                public Rectangle(double width, double height) {
+                    this.width = width;
+                    this.height = height;
+                }
+            
+                // Implementation of draw method for Rectangle
+                @Override
+                public void draw() {
+                    System.out.println("Drawing a rectangle with width " + width + " <br>
+                     and height " + height + ".");
+                }
+            
+                // Implementation of resize method for Rectangle
+                @Override
+                public void resize(double factor) {
+                    width *= factor;
+                    height *= factor;
+                    System.out.println("Resized rectangle to width " + width + " and <br>
+                    height " + height + ".");
+                }
+            }
+            
+            // Subclass for Circle
+            class Circle extends Shape2D {
+                private double radius;
+            
+                // Constructor
+                public Circle(double radius) {
+                    this.radius = radius;
+                }
+            
+                // Implementation of draw method for Circle
+                @Override
+                public void draw() {
+                    System.out.println("Drawing a circle with radius " + <br>
+                    radius + ".");
+                }
+            
+                // Implementation of resize method for Circle
+                @Override
+                public void resize(double factor) {
+                    radius *= factor;
+                    System.out.println("Resized circle to radius " + <br>
+                     radius + ".");
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create a Rectangle object
+                    Shape2D rectangle = new Rectangle(4, 5);
+                    rectangle.draw(); // Draw rectangle
+                    rectangle.resize(1.5); // Resize rectangle
+            
+                    System.out.println();
+            
+                    // Create a Circle object
+                    Shape2D circle = new Circle(3);
+                    circle.draw(); // Draw circle
+                    circle.resize(2); // Resize circle
+                }
+            }
+            
+
+                  
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Drawing a rectangle with width 4.0 and height 5.0.
+                Resized rectangle to width 6.0 and height 7.5.
+                
+                Drawing a circle with radius 3.0.
+                Resized circle to radius 6.0.
+                
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="in9"> 9) PROGRAM :- Write a Java program to create <br>
+            an abstract class Bird with abstract methods fly() and <br>
+            makeSound(). Create subclasses Eagle and Hawk that <br>
+            extend the Bird class and implement the respective <br>
+            methods to describe how each bird flies and makes a sound.:- </h2>
+        <code>
+
+            // Abstract class
+            abstract class Bird {
+                // Abstract methods
+                public abstract void fly();
+                public abstract void makeSound();
+            }
+            
+            // Subclass for Eagle
+            class Eagle extends Bird {
+                // Implementation of fly method for Eagle
+                @Override
+                public void fly() {
+                    System.out.println("Eagle soars high in the sky with powerful wings.");
+                }
+            
+                // Implementation of makeSound method for Eagle
+                @Override
+                public void makeSound() {
+                    System.out.println("Eagle screeches loudly.");
+                }
+            }
+            
+            // Subclass for Hawk
+            class Hawk extends Bird {
+                // Implementation of fly method for Hawk
+                @Override
+                public void fly() {
+                    System.out.println("Hawk glides smoothly while searching for prey.");
+                }
+            
+                // Implementation of makeSound method for Hawk
+                @Override
+                public void makeSound() {
+                    System.out.println("Hawk calls with a sharp 'kree' sound.");
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create an Eagle object
+                    Bird eagle = new Eagle();
+                    System.out.println("Eagle:");
+                    eagle.fly();
+                    eagle.makeSound();
+            
+                    System.out.println();
+            
+                    // Create a Hawk object
+                    Bird hawk = new Hawk();
+                    System.out.println("Hawk:");
+                    hawk.fly();
+                    hawk.makeSound();
+                }
+            }
+            
+
+                  
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Eagle:
+                Eagle soars high in the sky with powerful wings.
+                Eagle screeches loudly.
+                
+                Hawk:
+                Hawk glides smoothly while searching for prey.
+                Hawk calls with a sharp 'kree' sound.
+                
+    
+    
+            </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="in10"> 10) PROGRAM :- Write a Java program to create an <br>
+             abstract class GeometricShape with abstract methods area() <br>
+             and perimeter(). Create subclasses Triangle and Square <br>
+             that extend the GeometricShape class and implement the <br>
+              respective methods to calculate the area and perimeter <br>
+              of each shape:- </h2>
+        <code>
+
+            // Abstract class
+            abstract class GeometricShape {
+                // Abstract methods
+                public abstract double area();
+                public abstract double perimeter();
+            }
+            
+            // Subclass for Triangle
+            class Triangle extends GeometricShape {
+                private double base;
+                private double height;
+                private double sideA;
+                private double sideB;
+                private double sideC;
+            
+                // Constructor
+                public Triangle(double base, double height, double sideA, double sideB, double sideC) {
+                    this.base = base;
+                    this.height = height;
+                    this.sideA = sideA;
+                    this.sideB = sideB;
+                    this.sideC = sideC;
+                }
+            
+                // Implementation of area method for Triangle
+                @Override
+                public double area() {
+                    return (base * height) / 2;
+                }
+            
+                // Implementation of perimeter method for Triangle
+                @Override
+                public double perimeter() {
+                    return sideA + sideB + sideC;
+                }
+            }
+            
+            // Subclass for Square
+            class Square extends GeometricShape {
+                private double side;
+            
+                // Constructor
+                public Square(double side) {
+                    this.side = side;
+                }
+            
+                // Implementation of area method for Square
+                @Override
+                public double area() {
+                    return side * side;
+                }
+            
+                // Implementation of perimeter method for Square
+                @Override
+                public double perimeter() {
+                    return 4 * side;
+                }
+            }
+            
+            // Main class to test the functionality
+            public class Main {
+                public static void main(String[] args) {
+                    // Create a Triangle object
+                    GeometricShape triangle = new Triangle(5, 4, 5, 5, 6);
+                    System.out.println("Triangle:");
+                    System.out.println("Area: " + triangle.area());
+                    System.out.println("Perimeter: " + triangle.perimeter());
+            
+                    System.out.println();
+            
+                    // Create a Square object
+                    GeometricShape square = new Square(4);
+                    System.out.println("Square:");
+                    System.out.println("Area: " + square.area());
+                    System.out.println("Perimeter: " + square.perimeter());
+                }
+            }
+            
+
+                  
+      </code>
+      
+      </pre>
+
+    </div>
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                
+                Triangle:
+                Area: 10.0
+                Perimeter: 16.0
+                
+                Square:
+                Area: 16.0
+                Perimeter: 16.0
+                
+            </pre>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
