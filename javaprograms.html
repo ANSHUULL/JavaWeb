@@ -2832,8 +2832,26 @@
         <a href="#b9">Q) Write a Java program to display the system time</a> <br>
         <a href="#b10">Q) Write a Java program to print the odd numbers from 1 to 20 </a> <br>
         <a href="#b11">Q) Write a Java program to compare two numbers</a> <br>
-        <a href="#b12">Q) Write a Java program to count the letters, spaces, <br>
-            numbers and other characters of an input string</a> <br>
+        <a href="#b27">Q) Java program to find area of circle</a> <br>
+        <a href="#b28">Q) Java Program to find area of rectangle</a> <br>
+        <a href="#b29">Q) Java Program to find area of triangle</a> <br>
+        <a href="#b30">Q)  Java Program to find area of equilateral triangle</a> <br>
+        <a href="#b31">Q) Java Program to find area of rhombus</a> <br>
+        <a href="#b32">Q) Java Program to find area of parallelogram</a> <br>
+        <a href="#b33">Q) Java Program to find area of Prism</a> <br>
+        <a href="#b34">Q) Java Program to find volume of sphere</a> <br>
+        <a href="#b35">Q) Java Program to find volume of cylinder</a> <br>
+        <a href="#b55">Q) Write a Java Program to accept number of week's day (1-7) and print name of the day</a> <br>
+        <a href="#b56">Q) Write a Java program that takes a year from user and print whether that year is a leap year or not</a> <br>
+        <a href="#b57">Q) Write a Java program to input 5 numbers from keyboard and find their sum and average</a> <br>
+        <a href="#b58">Q) Write a program in Java to display the first 5 natural numbers</a> <br>
+        <a href="#b59">Q) Write a java program to check vowel or consonant</a> <br>
+        <a href="#b60">Q) Write a Java program to display the cube of the number upto given an integer</a> <br>
+        <a href="#b61">Q) Write a Java program to display the n terms of odd natural number and their sum</a> <br>
+        <a href="#b62">Q) Write a Java program to display the multiplication table of a given integer</a> <br>
+        <a href="#b63">Q) Write a Java program that reads an integer and check whether it is negative, zero, or positive</a> <br>
+        <a href="#b64">Q) Write a Java program that reads an positive integer and count the number of digits</a> <br>
+        <a href="#b65">Q) Write a Java program that accepts three numbers and check All numbers are equal or not</a> <br>
     </div>
 
     <div>
@@ -3304,6 +3322,1154 @@
                
         </pre>
     </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b27"> 27) PROGRAM :- Java program to find area of circle:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class CircleArea {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the radius
+                    System.out.print("Enter the radius of the circle: ");
+                    double radius = scanner.nextDouble();
+            
+                    // Calculate the area of the circle
+                    double area = Math.PI * radius * radius;
+            
+                    // Display the result
+                    System.out.println("The area of the circle with radius " + radius + " is: " + area);
+                    
+                    scanner.close();
+                }
+            }
+             
+      
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the radius of the circle: 5
+                The area of the circle with radius 5.0 is: 78.53981633974483
+                                
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b28"> 28) PROGRAM :- Java Program to find area of rectangle:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class RectangleArea {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the length and width
+                    System.out.print("Enter the length of the rectangle: ");
+                    double length = scanner.nextDouble();
+            
+                    System.out.print("Enter the width of the rectangle: ");
+                    double width = scanner.nextDouble();
+            
+                    // Calculate the area of the rectangle
+                    double area = length * width;
+            
+                    // Display the result
+                    System.out.println("The area of the rectangle with length " <br>
+                     + length + " and width " + width + " is: " + area);
+                    
+                    scanner.close();
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the length of the rectangle: 5
+                Enter the width of the rectangle: 3
+                The area of the rectangle with length 5.0 and width 3.0 is: 15.0
+                
+                                
+               
+        </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="b29"> 29) PROGRAM :- Java Program to find area of triangle:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class TriangleArea {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the base and height
+                    System.out.print("Enter the base of the triangle: ");
+                    double base = scanner.nextDouble();
+            
+                    System.out.print("Enter the height of the triangle: ");
+                    double height = scanner.nextDouble();
+            
+                    // Calculate the area of the triangle
+                    double area = 0.5 * base * height;
+            
+                    // Display the result
+                    System.out.println("The area of the triangle with base " + <br>
+                     base + " and height " + height + " is: " + area);
+                    
+                    scanner.close();
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the base of the triangle: 4
+                Enter the height of the triangle: 3
+                The area of the triangle with base 4.0 and height 3.0 is: 6.0
+                
+                
+                                
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b30"> 30) PROGRAM :- Java Program to find area of equilateral triangle:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class EquilateralTriangleArea {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the side length
+                    System.out.print("Enter the side length of the equilateral triangle: ");
+                    double side = scanner.nextDouble();
+            
+                    // Calculate the area of the equilateral triangle
+                    double area = (Math.sqrt(3) / 4) * side * side;
+            
+                    // Display the result
+                    System.out.println("The area of the equilateral triangle with side <br>
+                     length " + side + " is: " + area);
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the side length of the equilateral triangle: 5
+                The area of the equilateral triangle with side length 5.0 is: <br>
+                 10.825317547305486
+                
+                
+                
+                                
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b31"> 31) PROGRAM :- Java Program to find area of rhombus:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class RhombusArea {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the lengths of the diagonals
+                    System.out.print("Enter the length of the first diagonal (d1): ");
+                    double diagonal1 = scanner.nextDouble();
+            
+                    System.out.print("Enter the length of the second diagonal (d2): ");
+                    double diagonal2 = scanner.nextDouble();
+            
+                    // Calculate the area of the rhombus
+                    double area = (diagonal1 * diagonal2) / 2;
+            
+                    // Display the result
+                    System.out.println("The area of the rhombus with diagonals " + diagonal1 <br>
+                     + " and " + diagonal2 + " is: " + area);
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the length of the first diagonal (d1): 8
+                Enter the length of the second diagonal (d2): 6
+                The area of the rhombus with diagonals 8.0 and 6.0 is: 24.0
+                                       
+               
+        </pre>
+    </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b32"> 32) PROGRAM :- Java Program to find area of parallelogram:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class ParallelogramArea {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the base and height
+                    System.out.print("Enter the base of the parallelogram: ");
+                    double base = scanner.nextDouble();
+            
+                    System.out.print("Enter the height of the parallelogram: ");
+                    double height = scanner.nextDouble();
+            
+                    // Calculate the area of the parallelogram
+                    double area = base * height;
+            
+                    // Display the result
+                    System.out.println("The area of the parallelogram with base " <br>
+                    + base + " and height " + height + " is: " + area);
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the base of the parallelogram: 10
+                Enter the height of the parallelogram: 5
+                The area of the parallelogram with base 10.0 and height 5.0 is: 50.0
+                
+                                       
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b33"> 33) PROGRAM :- Java Program to find area of Prism:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class PrismArea {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the length, width, and height
+                    System.out.print("Enter the length of the prism: ");
+                    double length = scanner.nextDouble();
+            
+                    System.out.print("Enter the width of the prism: ");
+                    double width = scanner.nextDouble();
+            
+                    System.out.print("Enter the height of the prism: ");
+                    double height = scanner.nextDouble();
+            
+                    // Calculate the surface area of the rectangular prism
+                    double surfaceArea = 2 * (length * width + width * height + height * length);
+            
+                    // Display the result
+                    System.out.println("The surface area of the prism with length " + <br>
+                    length + ", width " + width + ", and height " + height + " is: " + surfaceArea);
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the base of the parallelogram: 10
+                Enter the height of the parallelogram: 5
+                The area of the parallelogram with base 10.0 and height 5.0 is: 50.0
+                
+                                       
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b34"> 34) PROGRAM :- Java Program to find volume of sphere:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class SphereVolume {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the radius
+                    System.out.print("Enter the radius of the sphere: ");
+                    double radius = scanner.nextDouble();
+            
+                    // Calculate the volume of the sphere
+                    double volume = (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
+            
+                    // Display the result
+                    System.out.println("The volume of the sphere with radius " <br>
+                    + radius + " is: " + volume);
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the radius of the sphere: 3
+                The volume of the sphere with radius 3.0 is: 113.09733552923254
+                                
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b35"> 35) PROGRAM :- Java Program to find volume of cylinder:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class CylinderVolume {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the radius and height
+                    System.out.print("Enter the radius of the cylinder: ");
+                    double radius = scanner.nextDouble();
+            
+                    System.out.print("Enter the height of the cylinder: ");
+                    double height = scanner.nextDouble();
+            
+                    // Calculate the volume of the cylinder
+                    double volume = Math.PI * Math.pow(radius, 2) * height;
+            
+                    // Display the result
+                    System.out.println("The volume of the cylinder with radius " <br>
+                     + radius + " and height " + height + " is: " + volume);
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the radius of the cylinder: 3
+                Enter the height of the cylinder: 5
+                The volume of the cylinder with radius 3.0 and <br>
+                 height 5.0 is: 141.3716694115407
+                
+                                
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b36"> 36) PROGRAM :- Java Program to find volume of cuboid:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class CuboidVolume {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the length, width, and height
+                    System.out.print("Enter the length of the cuboid: ");
+                    double length = scanner.nextDouble();
+            
+                    System.out.print("Enter the width of the cuboid: ");
+                    double width = scanner.nextDouble();
+            
+                    System.out.print("Enter the height of the cuboid: ");
+                    double height = scanner.nextDouble();
+            
+                    // Calculate the volume of the cuboid
+                    double volume = length * width * height;
+            
+                    // Display the result
+                    System.out.println("The volume of the cuboid with length " + <br>
+                     length + ", width " + width + ", and height " + height + " is: " + volume);
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the length of the cuboid: 4
+                Enter the width of the cuboid: 3
+                Enter the height of the cuboid: 5
+                The volume of the cuboid with length 4.0, width 3.0, and height 5.0 is: 60.0
+                
+                                           
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b55"> 55) PROGRAM :- Write a Java Program to accept number of week's <br>
+            day (1-7) and print name of the day:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class WeekdayName {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter a number between 1 and 7
+                    System.out.print("Enter a number (1-7) to get the day of the week: ");
+                    int dayNumber = scanner.nextInt();
+            
+                    // Use a switch statement to print the name of the day
+                    String dayName;
+                    switch (dayNumber) {
+                        case 1:
+                            dayName = "Sunday";
+                            break;
+                        case 2:
+                            dayName = "Monday";
+                            break;
+                        case 3:
+                            dayName = "Tuesday";
+                            break;
+                        case 4:
+                            dayName = "Wednesday";
+                            break;
+                        case 5:
+                            dayName = "Thursday";
+                            break;
+                        case 6:
+                            dayName = "Friday";
+                            break;
+                        case 7:
+                            dayName = "Saturday";
+                            break;
+                        default:
+                            dayName = "Invalid input! Please enter a number between 1 and 7.";
+                            break;
+                    }
+            
+                    // Display the name of the day
+                    System.out.println("The day corresponding to number " + dayNumber + " is: <br>
+                     " + dayName);
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter a number (1-7) to get the day of the week: 3
+                The day corresponding to number 3 is: Tuesday
+                
+                                           
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b56"> 56) PROGRAM :- Write a Java program that takes a year from user <br>
+            and print whether that year is a leap year or not:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class LeapYearChecker {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter a year
+                    System.out.print("Enter a year: ");
+                    int year = scanner.nextInt();
+            
+                    // Check if the year is a leap year
+                    boolean isLeapYear = (year % 4 == 0 && year % 100 != 0) <br>
+                    || (year % 400 == 0);
+            
+                    // Display the result
+                    if (isLeapYear) {
+                        System.out.println(year + " is a leap year.");
+                    } else {
+                        System.out.println(year + " is not a leap year.");
+                    }
+                    
+                    scanner.close();
+                }
+            }
+            
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter a year: 2024
+                2024 is a leap year.
+
+                Enter a year: 2023
+                2023 is not a leap year.
+                                
+                
+                                           
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b57"> 57) PROGRAM :-  Write a Java program to input 5 numbers from <br>
+             keyboard and find their sum and average:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class SumAndAverage {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Initialize variables to store sum and user input
+                    double sum = 0;
+                    double average;
+            
+                    // Prompt the user to enter 5 numbers
+                    System.out.println("Enter 5 numbers:");
+            
+                    // Loop to input 5 numbers and add them to the sum
+                    for (int i = 1; i <= 5; i++) {
+                        System.out.print("Enter number " + i + ": ");
+                        double number = scanner.nextDouble();
+                        sum += number;
+                    }
+            
+                    // Calculate the average
+                    average = sum / 5;
+            
+                    // Display the results
+                    System.out.println("The sum of the numbers is: " + sum);
+                    System.out.println("The average of the numbers is: " + average);
+            
+                    scanner.close();
+                }
+            }
+            
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter 5 numbers:
+                Enter number 1: 5
+                Enter number 2: 10
+                Enter number 3: 15
+                Enter number 4: 20
+                Enter number 5: 25
+                The sum of the numbers is: 75.0
+                The average of the numbers is: 15.0
+                                      
+               
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b58"> 58) PROGRAM :-  Write a program in Java to display the first 5 <br>
+            natural numbers:- </h2>
+        <code> 
+            
+            public class FirstFiveNaturalNumbers {
+                public static void main(String[] args) {
+                    // Display the first 5 natural numbers
+                    System.out.println("The first 5 natural numbers are:");
+                    for (int i = 1; i <= 5; i++) {
+                        System.out.println(i);
+                    }
+                }
+            }
+            
+            
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                The first 5 natural numbers are:
+                1
+                2
+                3
+                4
+                5
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b59"> 59) PROGRAM :-  Write a java program to check vowel or consonant:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class VowelOrConsonant {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter a character
+                    System.out.print("Enter a character: ");
+                    char ch = scanner.next().toLowerCase().charAt(0);
+            
+                    // Check if the character is a vowel or consonant
+                    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                        System.out.println(ch + " is a vowel.");
+                    } else if ((ch >= 'a' && ch <= 'z')) {
+                        System.out.println(ch + " is a consonant.");
+                    } else {
+                        System.out.println("Invalid input! Please enter a <br>
+                        valid alphabet.");
+                    }
+            
+                    scanner.close();
+                }
+            }
+            
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter a character: E
+                e is a vowel.
+           
+                Enter a character: B
+                b is a consonant.
+
+                Enter a character: 1
+                Invalid input! Please enter a valid alphabet.
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b60"> 60) PROGRAM :-   Write a Java program to display the cube of <br>
+             the number upto given an integer:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class CubeOfNumbers {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter a number
+                    System.out.print("Enter an integer: ");
+                    int n = scanner.nextInt();
+            
+                    // Display the cube of numbers from 1 to n
+                    System.out.println("Cube of numbers from 1 to " + n + " are:");
+                    for (int i = 1; i <= n; i++) {
+                        int cube = i * i * i;
+                        System.out.println("Cube of " + i + " is: " + cube);
+                    }
+            
+                    scanner.close();
+                }
+            }
+            
+            
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter an integer: 5
+                Cube of numbers from 1 to 5 are:
+                Cube of 1 is: 1
+                Cube of 2 is: 8
+                Cube of 3 is: 27
+                Cube of 4 is: 64
+                Cube of 5 is: 125
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b61"> 61) PROGRAM :- Write a Java program to display the n terms <br>
+             of odd natural number and their sum:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class OddNaturalNumbers {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter the number of terms
+                    System.out.print("Enter the number of terms: ");
+                    int n = scanner.nextInt();
+            
+                    // Initialize sum of odd numbers
+                    int sum = 0;
+                    System.out.println("The first " + n + " odd natural numbers are:");
+            
+                    // Loop to display the first n odd natural numbers
+                    for (int i = 1; i <= n; i++) {
+                        int oddNumber = 2 * i - 1;  // Formula to get the nth odd number
+                        System.out.println(oddNumber);
+                        sum += oddNumber;  // Add the odd number to the sum
+                    }
+            
+                    // Display the sum
+                    System.out.println("The sum of the first " + n + " odd natural <br>
+                    numbers is: " + sum);
+            
+                    scanner.close();
+                }
+            }
+              
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the number of terms: 5
+                The first 5 odd natural numbers are:
+                1
+                3
+                5
+                7
+                9
+                The sum of the first 5 odd natural numbers is: 25
+                
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b62"> 62) PROGRAM :- Write a Java program to display the multiplication <br>
+             table of a given integer:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class MultiplicationTable {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter an integer
+                    System.out.print("Enter an integer to display its multiplication <br>
+                    table: ");
+                    int number = scanner.nextInt();
+            
+                    // Display the multiplication table for the entered number
+                    System.out.println("Multiplication table of " + number + " is:");
+            
+                    // Loop to display the multiplication table from 1 to 10
+                    for (int i = 1; i <= 10; i++) {
+                        System.out.println(number + " x " + i + " = " + (number * i));
+                    }
+            
+                    scanner.close();
+                }
+            }
+            
+              
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter an integer to display its multiplication table: 5
+                Multiplication table of 5 is:
+                5 x 1 = 5
+                5 x 2 = 10
+                5 x 3 = 15
+                5 x 4 = 20
+                5 x 5 = 25
+                5 x 6 = 30
+                5 x 7 = 35
+                5 x 8 = 40
+                5 x 9 = 45
+                5 x 10 = 50
+                
+                
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b63"> 63) PROGRAM :- Write a Java program that reads an integer and <br>
+            check whether it is negative, zero, or positive:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class CheckNumber {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter an integer
+                    System.out.print("Enter an integer: ");
+                    int number = scanner.nextInt();
+            
+                    // Check whether the number is negative, zero, or positive
+                    if (number > 0) {
+                        System.out.println(number + " is positive.");
+                    } else if (number < 0) {
+                        System.out.println(number + " is negative.");
+                    } else {
+                        System.out.println("The number is zero.");
+                    }
+            
+                    scanner.close();
+                }
+            }
+            
+              
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter an integer: 5
+                5 is positive.
+             
+                Enter an integer: -3
+                -3 is negative.
+              
+                Enter an integer: 0
+                The number is zero.
+                
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b64"> 64) PROGRAM :- Write a Java program that reads an positive <br>
+             integer and count the number of digits:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class CountDigits {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter a positive integer
+                    System.out.print("Enter a positive integer: ");
+                    int number = scanner.nextInt();
+            
+                    // Check if the entered number is positive
+                    if (number <= 0) {
+                        System.out.println("Please enter a positive integer.");
+                    } else {
+                        // Count the number of digits in the number
+                        int count = 0;
+                        while (number != 0) {
+                            number /= 10;  // Remove the last digit
+                            count++;  // Increase the digit count
+                        }
+            
+                        // Display the number of digits
+                        System.out.println("The number has " + count + " <br>
+                         digits.");
+                    }
+            
+                    scanner.close();
+                }
+            }
+            
+              
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter a positive integer: 12345
+                The number has 5 digits.
+                
+                
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b65"> 65) PROGRAM :- Write a Java program that accepts three numbers and <br>
+            check All numbers are equal or not:- </h2>
+        <code> 
+            
+            import java.util.Scanner;
+
+            public class CheckEquality {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+            
+                    // Prompt the user to enter three numbers
+                    System.out.print("Enter the first number: ");
+                    int num1 = scanner.nextInt();
+            
+                    System.out.print("Enter the second number: ");
+                    int num2 = scanner.nextInt();
+            
+                    System.out.print("Enter the third number: ");
+                    int num3 = scanner.nextInt();
+            
+                    // Check if all the numbers are equal
+                    if (num1 == num2 && num2 == num3) {
+                        System.out.println("All numbers are equal.");
+                    } else {
+                        System.out.println("All numbers are not equal.");
+                    }
+            
+                    scanner.close();
+                }
+            }
+            
+              
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Enter the first number: 5
+                Enter the second number: 5
+                Enter the third number: 5
+                All numbers are equal.
+
+
+                Enter the first number: 2
+                Enter the second number: 3
+                Enter the third number: 2
+                All numbers are not equal.
+        </pre>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
