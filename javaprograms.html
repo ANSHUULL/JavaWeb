@@ -2852,6 +2852,17 @@
         <a href="#b63">Q) Write a Java program that reads an integer and check whether it is negative, zero, or positive</a> <br>
         <a href="#b64">Q) Write a Java program that reads an positive integer and count the number of digits</a> <br>
         <a href="#b65">Q) Write a Java program that accepts three numbers and check All numbers are equal or not</a> <br>
+        <a href="#b90">Q)  Write a Java program to find the duplicate values of an array of integer values</a> <br>
+        <a href="#b91">Q) Write a Java program to convert an array to ArrayList</a> <br>
+        <a href="#b92">Q)  Write a Java program to add two matrices of the same size</a> <br>
+        <a href="#b93">Q)  Write a Java program to find second largest number from the array</a> <br>
+        <a href="#b94">Q)  Write a Java program to find second lowest number from the array</a> <br>
+        <a href="#b95">Q) Write a Java program to find the number of even and odd integers in a given array of integers</a> <br>
+        <a href="#b96">Q)  Write a Java program to get the difference between the largest and smallest values in an array of integers</a> <br>
+        <a href="#b97">Q)  Write a Java program to segregate all 0s on left side and all 1s on right side of a given array of 0s and 1s</a> <br>
+        <a href="#b98">Q) Write a Java program to cyclically rotate a given array clockwise by one</a> <br>
+        <a href="#b99">Q)  java program to print all unique element in an array</a> <br>
+        <a href="#b100">Q)Write a Java Program to Sort the Array in an Ascending Order</a> <br>
     </div>
 
     <div>
@@ -4460,6 +4471,582 @@
                 All numbers are not equal.
         </pre>
     </div>
+
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b90"> 90) PROGRAM :-  Write a Java program to find the duplicate <br>
+             values of an array of integer values:- </h2>
+        <code> 
+            
+            import java.util.HashSet;
+
+            public class FindDuplicates {
+                public static void main(String[] args) {
+                    int[] numbers = {1, 2, 3, 4, 5, 3, 6, 7, 8, 9, 5, 10};
+                    findDuplicates(numbers);
+                }
+            
+                public static void findDuplicates(int[] array) {
+                    HashSet<Integer> set = new HashSet<>();
+                    boolean hasDuplicates = false;
+            
+                    System.out.println("Duplicate values in the array:");
+            
+                    for (int number : array) {
+                        // If the number is already in the set, it's a duplicate
+                        if (!set.add(number)) {
+                            System.out.println(number);
+                            hasDuplicates = true;
+                        }
+                    }
+            
+                    if (!hasDuplicates) {
+                        System.out.println("No duplicates found.");
+                    }
+                }
+            }
+            
+              
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                Duplicate values in the array:
+                3
+                5
+                
+        </pre>
+    </div>
+
+
+    
+    <div>
+        <pre class="program">
+        <h2 id="b91"> 91) PROGRAM :- Write a Java program to convert an array to ArrayList:- </h2>
+        <code> 
+            
+            import java.util.ArrayList;
+            import java.util.Arrays;
+            
+            public class ArrayToArrayList {
+                public static void main(String[] args) {
+                    // Initial array
+                    Integer[] array = {1, 2, 3, 4, 5};
+                    
+                    // Converting array to ArrayList
+                    ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(array));
+                    
+                    // Display the ArrayList
+                    System.out.println("ArrayList: " + arrayList);
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                ArrayList: [1, 2, 3, 4, 5]
+
+        </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="b92"> 92) PROGRAM :- Write a Java program to add two matrices of the same size:- </h2>
+        <code> 
+            
+            public class MatrixAddition {
+                public static void main(String[] args) {
+                    // Define two 2D arrays (matrices)
+                    int[][] matrix1 = {
+                        {1, 2, 3},
+                        {4, 5, 6},
+                        {7, 8, 9}
+                    };
+            
+                    int[][] matrix2 = {
+                        {9, 8, 7},
+                        {6, 5, 4},
+                        {3, 2, 1}
+                    };
+            
+                    // Initialize a matrix to store the sum
+                    int[][] sumMatrix = new int[3][3];
+            
+                    // Add corresponding elements of both matrices
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            sumMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+                        }
+                    }
+            
+                    // Display the result
+                    System.out.println("Resultant Matrix after addition:");
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            System.out.print(sumMatrix[i][j] + " ");
+                        }
+                        System.out.println();
+                    }
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                matrix1 = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} }
+                matrix2 = { {9, 8, 7}, {6, 5, 4}, {3, 2, 1} }
+                The output will be:
+                
+
+                Resultant Matrix after addition:
+                10 10 10 
+                10 10 10 
+                10 10 10 
+                
+                
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b93"> 93) PROGRAM :- Write a Java program to find second <br>
+            largest number from the array:- </h2>
+        <code> 
+            
+            public class SecondLargest {
+                public static void main(String[] args) {
+                    int[] numbers = {10, 20, 5, 15, 25, 30};
+            
+                    int firstLargest = Integer.MIN_VALUE;
+                    int secondLargest = Integer.MIN_VALUE;
+            
+                    for (int number : numbers) {
+                        if (number > firstLargest) {
+                            secondLargest = firstLargest;
+                            firstLargest = number;
+                        } else if (number > secondLargest && number != firstLargest) {
+                            secondLargest = number;
+                        }
+                    }
+            
+                    if (secondLargest == Integer.MIN_VALUE) {
+                        System.out.println("No second largest number found.");
+                    } else {
+                        System.out.println("The second largest number is: " + <br>
+                         secondLargest);
+                    }
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                input array {10, 20, 5, 15, 25, 30}, the output will be:
+                
+                The second largest number is: 25
+      
+
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b94"> 94) PROGRAM :- Write a Java program to find second lowest <br>
+             number from the array:- </h2>
+        <code> 
+            
+            public class SecondSmallest {
+                public static void main(String[] args) {
+                    int[] numbers = {10, 20, 5, 15, 25, 30};
+            
+                    if (numbers.length < 2) {
+                        System.out.println("Array must contain at least two elements.");
+                        return;
+                    }
+            
+                    int firstSmallest = Integer.MAX_VALUE;
+                    int secondSmallest = Integer.MAX_VALUE;
+            
+                    for (int number : numbers) {
+                        if (number < firstSmallest) {
+                            secondSmallest = firstSmallest;
+                            firstSmallest = number;
+                        } else if (number < secondSmallest && number != firstSmallest) {
+                            secondSmallest = number;
+                        }
+                    }
+            
+                    if (secondSmallest == Integer.MAX_VALUE) {
+                        System.out.println("No second smallest number found.");
+                    } else {
+                        System.out.println("The second smallest number is: " + <br>
+                        secondSmallest);
+                    }
+                }
+            }
+             
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                input array {10, 20, 5, 15, 25, 30}, the output will be:
+
+                The second smallest number is: 10
+      
+
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b95"> 95) PROGRAM :- Write a Java program to find the number of even <br>
+            and odd integers in a given array of integers:- </h2>
+        <code> 
+            
+            public class EvenOddCount {
+                public static void main(String[] args) {
+                    int[] numbers = {10, 21, 4, 15, 32, 7, 9};
+            
+                    int evenCount = 0;
+                    int oddCount = 0;
+            
+                    for (int number : numbers) {
+                        if (number % 2 == 0) {
+                            evenCount++;
+                        } else {
+                            oddCount++;
+                        }
+                    }
+            
+                    System.out.println("Number of even integers: " + evenCount);
+                    System.out.println("Number of odd integers: " + oddCount);
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                input array {10, 21, 4, 15, 32, 7, 9}, the output will be:
+
+                Number of even integers: 3
+                Number of odd integers: 4
+                
+            
+        </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="b96"> 96) PROGRAM :- Write a Java program to get the difference between <br>
+             the largest and smallest values in an array of integers:- </h2>
+        <code> 
+            
+            public class DifferenceBetweenLargestAndSmallest {
+                public static void main(String[] args) {
+                    int[] numbers = {10, 21, 4, 15, 32, 7, 9};
+            
+                    int max = Integer.MIN_VALUE;
+                    int min = Integer.MAX_VALUE;
+            
+                    for (int number : numbers) {
+                        if (number > max) {
+                            max = number;
+                        }
+                        if (number < min) {
+                            min = number;
+                        }
+                    }
+            
+                    int difference = max - min;
+                    System.out.println("Largest value: " + max);
+                    System.out.println("Smallest value: " + min);
+                    System.out.println("Difference between largest and smallest values: <br>
+                    " + difference);
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                input array {10, 21, 4, 15, 32, 7, 9}, the output will be:
+
+                Largest value: 32
+                Smallest value: 4
+                Difference between largest and smallest values: 28
+                
+            
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b97"> 97) PROGRAM :- Write a Java program to segregate all 0s on left side <br>
+             and all 1s on right side of a given array of 0s and 1s:- </h2>
+        <code> 
+            
+            public class SegregateZerosAndOnes {
+                public static void main(String[] args) {
+                    int[] arr = {0, 1, 1, 0, 1, 0, 0, 1, 1, 0};
+            
+                    int left = 0;
+                    int right = arr.length - 1;
+            
+                    while (left < right) {
+                        // Move 'left' forward if it's already 0
+                        while (arr[left] == 0 && left < right) {
+                            left++;
+                        }
+                        // Move 'right' backward if it's already 1
+                        while (arr[right] == 1 && left < right) {
+                            right--;
+                        }
+                        // Swap arr[left] and arr[right] if left is at 1 and right is at 0
+                        if (left < right) {
+                            arr[left] = 0;
+                            arr[right] = 1;
+                            left++;
+                            right--;
+                        }
+                    }
+            
+                    // Display the result
+                    System.out.print("Array after segregation: ");
+                    for (int num : arr) {
+                        System.out.print(num + " ");
+                    }
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                input array {0, 1, 1, 0, 1, 0, 0, 1, 1, 0}, the output will be:
+
+                Array after segregation: 0 0 0 0 0 1 1 1 1 1 
+                
+            
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b98"> 98) PROGRAM :- Write a Java program to cyclically rotate a <br>
+            given array clockwise by one:- </h2>
+        <code> 
+            
+            public class CyclicRotate {
+                public static void main(String[] args) {
+                    int[] arr = {1, 2, 3, 4, 5};
+            
+                    System.out.print("Original array: ");
+                    for (int num : arr) {
+                        System.out.print(num + " ");
+                    }
+                    
+                    // Perform the rotation
+                    int last = arr[arr.length - 1];
+                    for (int i = arr.length - 1; i > 0; i--) {
+                        arr[i] = arr[i - 1];
+                    }
+                    arr[0] = last;
+            
+                    System.out.print("\nArray after cyclic rotation: ");
+                    for (int num : arr) {
+                        System.out.print(num + " ");
+                    }
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                input array {1, 2, 3, 4, 5}, the output will be:
+
+                Original array: 1 2 3 4 5 
+                Array after cyclic rotation: 5 1 2 3 4 
+                
+            
+        </pre>
+    </div>
+
+    <div>
+        <pre class="program">
+        <h2 id="b99"> 99) PROGRAM :- java program to print all unique element in an array:- </h2>
+        <code> 
+            
+            import java.util.HashMap;
+
+            public class UniqueElements {
+                public static void main(String[] args) {
+                    int[] arr = {1, 2, 2, 3, 4, 4, 5, 6, 6};
+            
+                    // HashMap to store the frequency of each element
+                    HashMap<Integer, Integer> frequencyMap = new HashMap<>();
+            
+                    // Count the occurrences of each element
+                    for (int num : arr) {
+                        frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+                    }
+            
+                    // Print elements with frequency 1 (unique elements)
+                    System.out.print("Unique elements in the array: ");
+                    for (int num : frequencyMap.keySet()) {
+                        if (frequencyMap.get(num) == 1) {
+                            System.out.print(num + " ");
+                        }
+                    }
+                }
+            }
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                input array {1, 2, 2, 3, 4, 4, 5, 6, 6}, the output will be:
+
+                Unique elements in the array: 1 3 5
+                
+            
+        </pre>
+    </div>
+
+
+    <div>
+        <pre class="program">
+        <h2 id="b100"> 100) PROGRAM :-  Write a Java Program to Sort the Array in <br>
+            an Ascending Order:- </h2>
+        <code> 
+            
+            import java.util.Arrays;
+
+            public class SortArrayAscending {
+                public static void main(String[] args) {
+                    int[] arr = {12, 4, 7, 9, 2, 10, 15};
+            
+                    // Sorting the array in ascending order using Arrays.sort()
+                    Arrays.sort(arr);
+            
+                    // Display the sorted array
+                    System.out.print("Array after sorting in ascending order: ");
+                    for (int num : arr) {
+                        System.out.print(num + " ");
+                    }
+                }
+            }
+            
+            
+      </code>
+      
+      </pre>
+
+    </div>
+
+
+    <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+
+                input array {12, 4, 7, 9, 2, 10, 15}, the output will be:
+
+                Array after sorting in ascending order: 2 4 7 9 10 12 15 
+            
+        </pre>
+    </div>
+
+
+
+
+
 
 
 
